@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>alldjango.com</title>
+
+    <link rel="stylesheet" href="{% static 'css/marx.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vs.css' %}">
+
+    <style>
+        a>code,
+        p>code {
+            background-color: var(--grey);
+            padding: 5px;
+        }
+
+        a>code {
+            color: var(--link-color);
+        }
+
+        code {
+            white-space: pre;
+        }
+    </style>
+</head>
+
+<body class="{{ slug }}">
+    <nav>
+        <ul>
+            <li>
+                <a href="/" class="brand">alldjango</a>
+            </li>
+            <li class="active">
+                <a href="/tips">Tips</a>
+            </li>
+            <li>
+                <a href="/articles">Articles</a>
+            </li>
+            <li>
+                <a href="/stickers">Stickers</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <article>
+            {% block content %}{{ content }}{% endblock content %}
+        </article>
+
+        <footer>
+            <p>Made with <a href="https://coltrane.readthedocs.io">Coltrane</a></p>
+            <p>&copy; Adam Hill</p>
+        </footer>
+    </main>
+</body>
+
+</html>
