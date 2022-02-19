@@ -3,12 +3,12 @@ template: base.html
 title: Tips
 ---
 
-# All Tips
+# Tips
 
-{% current_directory_slugs as current_directory_slugs %}
+{% directory_contents as directory_contents %}
 
-{% for slug in current_directory_slugs %}
+{% for content in directory_contents %}
 
-- [{{ slug.title }}]({{ slug.slug }})
+- [{{ content.title }}]({{ content.slug }})
 
 {% endfor %}

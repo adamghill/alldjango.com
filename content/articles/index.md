@@ -3,13 +3,13 @@ template: base.html
 title: Articles
 ---
 
-# All Articles
+# Articles
 
-{% current_directory_slugs as current_directory_slugs %}
+{% directory_contents as directory_contents %}
 
-{% for slug in current_directory_slugs %}
+{% for content in directory_contents %}
 
-- [{{ slug.title }}]({{ slug.slug }})
+- [{{ content.title }}]({{ content.slug }})
 
 {% endfor %}
 
