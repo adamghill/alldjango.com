@@ -16,9 +16,19 @@ Deliver business value quickly without sacrificing your sanity. Follow tried and
 - PostgreSQL, Redis, and RQ can handle any type of data
 - Most functionality is best in Python, with small bits of JavaScript only when needed
 
-## {{ data.index.directory|title }}
+## Articles
 
-{% directory_contents data.index.directory as directory_contents %}
+{% directory_contents "articles" as directory_contents %}
+
+{% for content in directory_contents %}
+
+- [{{ content.title }}]({{ content.slug }})
+
+{% endfor %}
+
+## Tips
+
+{% directory_contents "tips" as directory_contents %}
 
 {% for content in directory_contents %}
 

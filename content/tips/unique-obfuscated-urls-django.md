@@ -3,8 +3,6 @@ template: base.html
 title: Unique, but obfuscated URLs in Django
 ---
 
-# Unique, but obfuscated URLs in Django
-
 When building a website, sometimes you want a URL for a specific piece of data, but there isn't a clear field that should be [`slugified`]({% url 'content' 'tips/url-slugs' %}). This usually happens when the name or title of the data might get updated in the future which would change the URL slug. But, "[cool URLs never change](https://www.w3.org/Provider/Style/URI)"!
 
 Let's pretend that you are building an e-commerce system. You want to have a detail page for each product. However, just using a slug based on the product name would mean the URL might change if the product's name ever got updated.
@@ -104,9 +102,9 @@ class Product(models.Model):
     identifier = RandomCharField(length=8, editable=False, unique=True)
 ```
 
-## My Suggestion
+## What I do
 
-Hopefully that gave you some ideas of how to approach creating detail pages for the future. Pesonally, I tend to:
+Hopefully that gave you some ideas of how to approach creating detail pages for the future. Personally, I tend to:
 
 - use the default `id` in the model of `BigAutoField`
 - add a `slug` field if it would be useful for SEO purposes

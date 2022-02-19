@@ -27,6 +27,21 @@
             white-space: pre;
         }
     </style>
+
+    {% if debug %}
+    <!-- Panelbear -->
+    <script async src="https://cdn.panelbear.com/analytics.js?site=DN1Hqxd6yiW"></script>
+    <script>
+        window.panelbear = window.panelbear || function () {
+            (window.panelbear.q = window.panelbear.q || []).push(arguments);
+        };
+        panelbear('config', {
+            site: 'DN1Hqxd6yiW'
+        });
+    </script>
+
+    <script defer data-domain="alldjango.com" src="https://plausible.io/js/plausible.js"></script>
+    {% endif %}
 </head>
 
 <body class="{{ slug }}">
@@ -49,7 +64,14 @@
 
     <main>
         <article>
-            {% block content %}{{ content }}{% endblock content %}
+            {% block content %}
+
+            {% if title %}
+            <h1 id="{{ title|slugify }}">{{ title }}</h1>
+            {% endif %}
+
+            {{ content }}
+            {% endblock content %}
         </article>
 
         <footer>
