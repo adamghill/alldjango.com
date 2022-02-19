@@ -6,17 +6,17 @@ template: base.html
 
 ## No fluff help for perfectionists with deadlines
 
-Deliver business value quickly without sacrificing your sanity. Follow tried and true tips for success and not just the latest hyped tech fad.
+Deliver business value quickly without sacrificing your sanity.
 
-## How?
+### Optimize for developer speed and maintainability
 
-- Optimize for developer speed and maintainability
-- Python and Django is fast enough
-- A monolith is better than a tangled web of microservices
-- PostgreSQL, Redis, and RQ can handle any type of data
-- Most functionality is best in Python, with small bits of JavaScript only when needed
+- Skip the tangled web of microservices and be content with a monolith
+- Handle data with PostgreSQL and Redis
+- Offload slow processing to [`RQ`](https://github.com/rq/django-rq) or [`django-db-queue`](https://github.com/dabapps/django-db-queue)
+- Use the least amount of JavaScript possible, but still provide a great UX
+- Stick to [boring technologies](http://boringtechnology.club/) and skip the fads
 
-## Articles
+### Articles
 
 {% directory_contents "articles" as directory_contents %}
 
@@ -26,7 +26,7 @@ Deliver business value quickly without sacrificing your sanity. Follow tried and
 
 {% endfor %}
 
-## Tips
+### Tips
 
 {% directory_contents "tips" as directory_contents %}
 
