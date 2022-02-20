@@ -17,7 +17,7 @@ template: base.html
 
 <br />
 
-### Articles
+### [Articles](/articles)
 
 {% directory_contents "articles" as articles %}
 
@@ -27,7 +27,7 @@ template: base.html
 {% endif %}
 {% endfor %}
 
-### Tips
+### [Tips](/tips)
 
 {% directory_contents "tips" as tips %}
 
@@ -54,3 +54,7 @@ template: base.html
 - [django-fbv](https://django-fbv.readthedocs.io/): Utilities to make Django function-based views cleaner, more efficient, and better tasting
 - [unsuckjs.com](https://unsuckjs.com/): Progressively enhance HTML with lightweight JavaScript libraries
 - [minestrone](https://minestrone.readthedocs.io/): An opinionated Python library that lets you search, modify, and parse messy HTML with ease 🥫
+
+## `alldjango` inspiration
+
+`alldjango` is extremely indebted to the ethos (and design!) of [boringrails.com](https://boringrails.com) by [Matt Swanson](https://twitter.com/_swanson). Check it out if you love 💎 more than 🐍.

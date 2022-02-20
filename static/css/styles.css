@@ -69,3 +69,20 @@ h2 {
 h3 {
     margin-top: 30px;
 }
+code {
+    background-color: var(--grey);
+    white-space: pre;
+    padding: 5px;
+}
+a > code {
+    color: var(--link-color);
+}
+h1 code {
+    font-size: var(--font-size-h2);
+}
+h2 code {
+    font-size: var(--font-size-h3);
+}
+h3 code {
+    font-size: var(--font-size-h4);
+}
