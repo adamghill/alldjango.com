@@ -55,6 +55,6 @@ template: base.html
 - [unsuckjs.com](https://unsuckjs.com/): Progressively enhance HTML with lightweight JavaScript libraries
 - [minestrone](https://minestrone.readthedocs.io/): An opinionated Python library that lets you search, modify, and parse messy HTML with ease 🥫
 
-## `alldjango` inspiration
+### `alldjango` inspiration
 
-`alldjango` is extremely indebted to the ethos (and design!) of [boringrails.com](https://boringrails.com) by [Matt Swanson](https://twitter.com/_swanson). Check it out if you love 💎 more than 🐍.
+This project is extremely indebted to the ethos (and design!) of [boringrails.com](https://boringrails.com) by [Matt Swanson](https://twitter.com/_swanson). Check it out if you love 💎 more than 🐍.

@@ -211,4 +211,4 @@ If you really can't figure out a way to get the Django ORM to generate performan
 
 ## Putting on the ritz
 
-The Django documentation is generally really helpful and will give you more in-depth details about each technique above. If you know of any other approaches to squeezing the most performance out of Django, I would love to hear about them on [@adamghill](https://twitter.com/adamghill).
+The Django documentation is generally really helpful and will give you more in-depth details about each technique above. If you know of any other approaches to squeezing the most performance out of Django, I would love to hear about them at [twitter.com/adamghill](https://twitter.com/adamghill).
