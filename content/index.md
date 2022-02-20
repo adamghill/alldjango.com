@@ -6,14 +6,18 @@ template: base.html
 
 ## No fluff help for perfectionists with deadlines
 
-Deliver business value quickly without sacrificing your sanity by sticking to [boring technologies](http://boringtechnology.club/) and skipping the fads.
+> Deliver business value quickly without sacrificing your sanity by sticking to [boring technologies](http://boringtechnology.club/) and skipping the fads.
 
-### Optimize for developer speed and maintainability
+<br />
+
+### ⚡ Optimize for developer speed and maintainability
 
 - Skip the tangled web of microservices and stick to a monolith
 - Handle data with PostgreSQL and cache with Redis
 - Offload slow processing to [`RQ`](https://github.com/rq/django-rq) or [`django-db-queue`](https://github.com/dabapps/django-db-queue)
 - Use Django templates and the least amount of JavaScript possible, but still provide a great UX
+
+<br />
 
 ### Articles
 
@@ -30,6 +34,8 @@ Deliver business value quickly without sacrificing your sanity by sticking to [b
 {% for tip in tips %}
 ✨ [{{ tip.title }}]({{ tip.slug }})<br/>
 {% endfor %}
+
+<br />
 
 # Hi, I'm Adam 👋
 
