@@ -41,6 +41,8 @@
     </script>
 
     <script defer data-domain="alldjango.com" src="https://plausible.io/js/plausible.js"></script>
+
+    <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
     {% endif %}
 </head>
 
@@ -63,7 +65,12 @@
     </nav>
 
     <main>
+
         <article>
+            <div data-ea-publisher="django-unicorncom" data-ea-type="image" data-ea-style="stickybox" id="alldjango"
+                style="float: right;">
+            </div>
+
             {% block content %}
 
             {% if title %}
