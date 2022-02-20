@@ -102,7 +102,7 @@ class Product(models.Model):
     identifier = RandomCharField(length=8, editable=False, unique=True)
 ```
 
-## What I do
+## What I do 🌟
 
 Hopefully that gave you some ideas of how to approach creating detail pages for the future. Personally, I tend to:
 
