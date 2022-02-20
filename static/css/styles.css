@@ -22,10 +22,10 @@ nav li {
 }
 nav li a {
     text-decoration: none;
-    color: rgba(0,0,0,0.8) !important;
+    color: #fff !important;
 }
 nav li.active a {
-    color: rgba(0,0,0,0.8) !important;
+    color: #fff !important;
 }
 nav li a:hover {
     text-decoration: none;
@@ -53,4 +53,10 @@ body {
 h1 {
     font-weight: 700;
     color: #F0544F;
+}
+blockquote {
+    border-left: 4px solid #20AA76;
+    margin: 16px;
+    padding-left: 10px;
+    font-style: normal;
 }
