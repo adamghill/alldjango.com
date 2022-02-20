@@ -2,8 +2,6 @@
 template: base.html
 ---
 
-# alldjango
-
 ## No fluff help for perfectionists with deadlines
 
 > Deliver business value quickly without sacrificing your sanity by sticking to [boring technologies](http://boringtechnology.club/) and skipping the fads.
@@ -12,10 +10,10 @@ template: base.html
 
 ### ⚡ Optimize for developer speed and maintainability
 
-- Skip the tangled web of microservices and stick to a monolith
+- Skip the tangled web of microservices and use a Django monolith
 - Handle data with PostgreSQL and cache with Redis
 - Offload slow processing to [`RQ`](https://github.com/rq/django-rq) or [`django-db-queue`](https://github.com/dabapps/django-db-queue)
-- Use Django templates and the least amount of JavaScript possible, but still provide a great UX
+- Use Django templates and the least amount of JavaScript possible while still providing a great user experience
 
 <br />
 
