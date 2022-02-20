@@ -22,7 +22,9 @@ template: base.html
 {% directory_contents "articles" as articles %}
 
 {% for article in articles %}
+{% if not article.draft %}
 ✨ [{{ article.title }}]({{ article.slug }})<br/>
+{% endif %}
 {% endfor %}
 
 ### Tips
@@ -30,7 +32,9 @@ template: base.html
 {% directory_contents "tips" as tips %}
 
 {% for tip in tips %}
+{% if not tip.draft %}
 ✨ [{{ tip.title }}]({{ tip.slug }})<br/>
+{% endif %}
 {% endfor %}
 
 <br />
