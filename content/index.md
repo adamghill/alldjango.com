@@ -20,9 +20,7 @@ Deliver business value quickly without sacrificing your sanity by sticking to [b
 {% directory_contents "articles" as articles %}
 
 {% for article in articles %}
-
-- [{{ article.title }}]({{ article.slug }})
-
+✨ [{{ article.title }}]({{ article.slug }})<br/>
 {% endfor %}
 
 ### Tips
@@ -30,9 +28,7 @@ Deliver business value quickly without sacrificing your sanity by sticking to [b
 {% directory_contents "tips" as tips %}
 
 {% for tip in tips %}
-
-- [{{ tip.title }}]({{ tip.slug }})
-
+✨ [{{ tip.title }}]({{ tip.slug }})<br/>
 {% endfor %}
 
 # Hi, I'm Adam 👋
@@ -44,9 +40,9 @@ Deliver business value quickly without sacrificing your sanity by sticking to [b
 ## Side projects I've built
 
 - [devmarks.io](https://devmarks.io/): Bookmarking for Developers
-- [Unicorn](https://www.django-unicorn.com): A full-stack component library for Django
-- [coltrane](https://coltrane.readthedocs.io/): A simple content site framework that harnesses the power of Django without the hassle
+- [Unicorn](https://www.django-unicorn.com): A full-stack component library for Django 🦄
+- [coltrane](https://coltrane.readthedocs.io/): A simple content site framework that harnesses the power of Django without the hassle 🎵
 - [python-utils.com](https://www.python-utils.com/): The online playground for Python utilities
 - [django-fbv](https://django-fbv.readthedocs.io/): Utilities to make Django function-based views cleaner, more efficient, and better tasting
 - [unsuckjs.com](https://unsuckjs.com/): Progressively enhance HTML with lightweight JavaScript libraries
-- [minestrone](https://minestrone.readthedocs.io/): An opinionated Python library that lets you search, modify, and parse messy HTML with ease
+- [minestrone](https://minestrone.readthedocs.io/): An opinionated Python library that lets you search, modify, and parse messy HTML with ease 🥫

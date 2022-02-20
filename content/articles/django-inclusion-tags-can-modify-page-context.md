@@ -1,6 +1,6 @@
 ---
 template: base.html
-title: Django inclusion tags can modify page context
+title: Django inclusion tags can modify page context 🤯
 date: 2020-03-26 21:24:16 -0500
 categories: django python
 ---

@@ -1,6 +1,6 @@
 ---
 template: base.html
-title: Optimize the Django ORM
+title: Optimize the Django ORM 🚀
 date: 2018-12-01 22:33:16 -0400
 categories: django python
 ---

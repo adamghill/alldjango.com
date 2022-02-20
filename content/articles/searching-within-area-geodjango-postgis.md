@@ -1,6 +1,6 @@
 ---
 template: base.html
-title: Searching within an area with GeoDjango and PostGIS
+title: Searching within an area with GeoDjango and PostGIS 🌎
 date: 2016-06-14 22:33:16 -0400
 categories: django python geodjango postgresql postgis
 ---

@@ -3,12 +3,8 @@ template: base.html
 title: Tips
 ---
 
-{% directory_contents as directory_contents %}
+{% directory_contents as tips %}
 
-{% for content in directory_contents %}
-{% if not content.draft %}
-
-- [{{ content.title }}]({{ content.slug }})
-
-{% endif %}
+{% for tip in tips %}
+✨ [{{ tip.title }}]({{ tip.slug }})<br />
 {% endfor %}

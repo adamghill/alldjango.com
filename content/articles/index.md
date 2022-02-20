@@ -3,10 +3,8 @@ template: base.html
 title: Articles
 ---
 
-{% directory_contents as directory_contents %}
+{% directory_contents as articles %}
 
-{% for content in directory_contents %}
-
-- [{{ content.title }}]({{ content.slug }})
-
+{% for article in articles %}
+✨ [{{ article.title }}]({{ article.slug }})<br />
 {% endfor %}
