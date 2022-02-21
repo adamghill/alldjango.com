@@ -147,7 +147,7 @@ Using `filter` translates to a `WHERE` clause in SQL, and searching for an integ
 
 However, this note in the Django documentation is telling:
 
-> They provide an optimization for when you have analyzed your queries closely and understand _exactly_ what information you need and have measured that the difference
+> They provide an optimization for when you have analyzed your queries closely and understand _exactly_ what information you need and have measured that the difference between returning the fields you need and the full set of fields for the model will be significant.
 
 ## Annotate and carry on
 
