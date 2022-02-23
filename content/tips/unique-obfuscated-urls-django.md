@@ -1,6 +1,7 @@
 ---
 template: base.html
 title: Unique, but obfuscated URLs in Django
+description: How to create unique, but obfuscated URLs in Django.
 ---
 
 When building a website, sometimes you want a URL for a specific piece of data, but there isn't a clear field that should be [`slugified`]({% url 'content' 'tips/url-slugs' %}). This usually happens when the name or title of the data might get updated in the future which would change the URL `slug`. But, "[cool URLs never change](https://www.w3.org/Provider/Style/URI)"!

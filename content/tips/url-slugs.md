@@ -1,6 +1,7 @@
 ---
 template: base.html
 title: Prettier URLs with automatic slug generation 🐌
+description: How to create cleaner URLs with slugs in Django.
 ---
 
 When building a website, sometimes you want a URL for a specific piece of data, but the URL should be nicer than `/products/123`. A `slug` can be used for a prettier URL like `/products/really-cool-headphones` and, bonus points!, it's better for SEO as well.

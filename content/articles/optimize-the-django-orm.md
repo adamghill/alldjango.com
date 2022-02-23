@@ -3,6 +3,7 @@ template: base.html
 title: Optimize the Django ORM 🚀
 date: 2018-12-01 22:33:16 -0400
 categories: django python
+description: How to optimize Django ORM queries to improve site performance.
 ---
 
 Recently, I have been optimizing some functions that were slower than expected. As with most MVPs, the initial iteration was to get _something_ working and out there. Looking at [Scout APM](https://scoutapp.com/) revealed that some of the database queries were slow, including several `n+1` queries. The `n+1` queries happened because I was looping over a set of models, and either updated or selected the same thing for each model. My goal was to reduce any duplicate queries, and squeeze out as much performance as I could by refactoring the naive, straight-forward operations into more performant equivalents.

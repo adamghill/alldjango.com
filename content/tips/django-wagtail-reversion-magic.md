@@ -3,6 +3,7 @@ template: base.html
 title: Django Reversion + Wagtail = magic 🧙
 date: 2019-09-18 21:24:16 -0500
 categories: django python wagtail
+description: How to use Django Reversion and Wagtail together to audit changes.
 ---
 
 Track versions of Wagtail _snippets_ for an automatic audit trail to find the bad guys.
