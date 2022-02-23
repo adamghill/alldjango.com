@@ -71,7 +71,6 @@ h3 {
 code {
     background-color: var(--grey);
     white-space: pre;
-    padding: 5px;
 }
 a > code {
     color: var(--link-color);

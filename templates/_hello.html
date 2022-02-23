@@ -1,0 +1,53 @@
+<br />
+
+<h1>Hi, I'm Adam 👋</h1>
+
+<blockquote>
+    I've been a backend programmer for ~20 years in a variety of different languages before I discovered Python
+    10 years ago and never looked back. I've built many production-scale Django websites over the years, so hopefully
+    you can learn from my mistakes!
+</blockquote>
+
+<blockquote>
+    Feel free to reach out to <a href="https://twitter.com/adamghill">me on Twitter</a> with questions, comments, or
+    bitter invectives.
+</blockquote>
+
+{% if request.path == "/" %}
+<h2>Some of my side projects</h2>
+
+<ul>
+    <li>
+        <a href="https://devmarks.io/">devmarks.io</a>: Bookmarking for Developers
+    </li>
+    <li>
+        <a href="https://www.django-unicorn.com">Unicorn</a>: A full-stack component library for Django 🦄
+    </li>
+    <li>
+        <a href="https://coltrane.readthedocs.io/">Coltrane</a>: A simple content site framework that harnesses the
+        power of Django without the hassle 🎵
+    </li>
+    <li>
+        <a href="https://www.python-utils.com/">python-utils.com</a>: The online playground for Python utilities
+    </li>
+    <li>
+        <a href="https://django-fbv.readthedocs.io/">django-fbv</a>: Utilities to make Django function-based views
+        cleaner, more efficient, and better tasting
+    </li>
+    <li>
+        <a href="https://unsuckjs.com/">unsuck.js</a>: Progressively enhance HTML with lightweight JavaScript libraries
+    </li>
+    <li>
+        <a href="https://minestrone.readthedocs.io/">minestrone</a>: An opinionated Python library that lets you search,
+        modify, and parse messy HTML with ease 🥫
+    </li>
+</ul>
+
+<h3><code>alldjango</code> inspiration</h3>
+
+<p>
+    <code>alldjango</code> is extremely indebted to the ethos (and design!) of
+    <a href="https://boringrails.com">boringrails.com</a> by <a href="https://twitter.com/_swanson">Matt
+        Swanson</a>. Check it out if you are more into 💎 than 🐍.
+</p>
+{% endif %}

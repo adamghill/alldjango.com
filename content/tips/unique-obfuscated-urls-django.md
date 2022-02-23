@@ -3,9 +3,9 @@ template: base.html
 title: Unique, but obfuscated URLs in Django
 ---
 
-When building a website, sometimes you want a URL for a specific piece of data, but there isn't a clear field that should be [`slugified`]({% url 'content' 'tips/url-slugs' %}). This usually happens when the name or title of the data might get updated in the future which would change the URL slug. But, "[cool URLs never change](https://www.w3.org/Provider/Style/URI)"!
+When building a website, sometimes you want a URL for a specific piece of data, but there isn't a clear field that should be [`slugified`]({% url 'content' 'tips/url-slugs' %}). This usually happens when the name or title of the data might get updated in the future which would change the URL `slug`. But, "[cool URLs never change](https://www.w3.org/Provider/Style/URI)"!
 
-Let's pretend that you are building an e-commerce system. You want to have a detail page for each product. However, just using a slug based on the product name would mean the URL might change if the product's name ever got updated.
+Let's pretend that you are building an e-commerce system. You want to have a detail page for each product. However, just using a `slug` based on the product name would mean the URL might change if the product's name ever got updated.
 
 ```python
 from django.db import models
@@ -19,7 +19,7 @@ The easiest approach in this situation would be to use the database's auto-gener
 
 **WARNING**
 
-However, using the an integer in the URL exposes private information about your data that you probably want to keep private. It also allows malicious users to easily increment the id to find all the products in your system.
+However, using an integer in the URL exposes private information about your data that you probably want to keep private. It also allows malicious users to easily increment the id to find all the products in your system.
 
 ```
 Alice sees that a product is located at /products/123.
@@ -45,9 +45,9 @@ class Product(models.Model):
     identifier = models.UUIDField(default=uuid.uuid4, editable=False)
 ```
 
-Using a `UUID` as the primary key is supported by Django, but I tend to use a separate field in addition to the implicit `id` that Django will use by default. Why? Honestly, it is mostly out of force of habit (and the, maybe?, irrational fear that a `UUID` will be slower than using an integer in `PostgreSQL` -- more details in [this StackOverflow question](https://stackoverflow.com/questions/34230208/uuid-primary-key-in-postgres-what-insert-performance-impact)). But, you can see an example of using `UUID` as the primary key in the [Django docs](https://docs.djangoproject.com/en/4.0/ref/models/fields/#uuidfield) if you want to try it out.
+Using a `UUID` as the primary key is supported by Django, but I tend to use a separate field in addition to the implicit `id` that Django will use by default. Why? Honestly, it is mostly out of force of habit (and the, maybe?, irrational fear that a `UUID` will be slower than using an integer in `PostgreSQL` -- more details in [this StackOverflow question](https://stackoverflow.com/questions/34230208/uuid-primary-key-in-postgres-what-insert-performance-impact)). But, you can see an example of using `UUID` as the primary key in the [Django docs](https://docs.djangoproject.com/en/stable/ref/models/fields/#uuidfield) if you want to try it out.
 
-Whether it's the actual primary key or not, the `urlconf` can then look up an object by using the built-in `uuid` [path converter](https://docs.djangoproject.com/en/4.0/topics/http/urls/#path-converters).
+Whether it's the actual primary key or not, the `urlconf` can then look up an object by using the built-in `uuid` [path converter](https://docs.djangoproject.com/en/stable/topics/http/urls/#path-converters).
 
 The first part, `uuid`, is the `path converter`. The second part is the argument passed into the view arguments.
 
