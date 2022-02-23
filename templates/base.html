@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
 
-<head>
+<head itemscope itemtype="http://schema.org/Article">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +11,21 @@
     <link rel="stylesheet" href="{% static 'css/marx.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/vs.css' %}">
+
+    <meta property="og:url" content="https://devmarks.io{{ request.path }}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="adamghill" />
+
+    {% if title %}
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta property="og:title" content="{{ title }}">
+    {% endif %}
+    {% if description %}
+    <meta name="twitter:description" content="{{ description }}" />
+    <meta property="og:description" content="{{ description }}">
+    {% endif %}
+
 
     {% if not debug %}
     <!-- Panelbear -->
