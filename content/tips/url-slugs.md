@@ -2,6 +2,8 @@
 template: base.html
 title: Prettier URLs with automatic slug generation 🐌
 description: How to create cleaner URLs with slugs in Django.
+header_img: img/slug-header.jpg
+icon_img: img/slug-icon.jpg
 ---
 
 When building a website, sometimes you want a URL for a specific piece of data, but the URL should be nicer than `/products/123`. A `slug` can be used for a prettier URL like `/products/really-cool-headphones` and, bonus points!, it's better for SEO as well.
@@ -82,5 +84,5 @@ Personally, this approach seems like overkill and not worth the hassle.
 
 Both of the additional libraries are great. Personally, I tend to:
 
-- use `AutoSlugField` from `django-extensions` if I have already included it in the project and the slugs I need to create are straight-forward
-- only include `django-autoslug` if I need the additional functionality it provides
+- use `AutoSlugField` from [`django-extensions`](https://django-extensions.readthedocs.io/) if I have already included it in the project and the slugs I need to create are straight-forward
+- only include [`django-autoslug`](https://django-autoslug.readthedocs.io/) if I need the additional functionality it provides

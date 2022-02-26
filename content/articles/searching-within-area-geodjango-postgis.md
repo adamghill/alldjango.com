@@ -4,6 +4,8 @@ title: Searching within an area with GeoDjango and PostGIS 🌎
 date: 2016-06-14 22:33:16 -0400
 categories: django python geodjango postgresql postgis
 description: How to search within a certain area with Postgres and Django.
+header_img: img/map-header.jpg
+icon_img: img/map-icon.jpg
 ---
 
 One feature of [InHerSight.com](https://www.inhersight.com) that has been proved to be extremely useful is the ability to use location as a filter when [exploring potential companies](https://www.inhersight.com/discover). Luckily, we are using [Django](https://www.djangoproject.com/) and [PostgreSQL](https://www.postgresql.org) which has robust support for geographic querying using [GeoDjango](https://docs.djangoproject.com/en/1.9/ref/contrib/gis/) and [PostGIS](http://postgis.net/). I also utilize the awesome [django-cities](https://github.com/coderholic/django-cities) package for an astounding amount of data related to places.

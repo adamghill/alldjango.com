@@ -1,0 +1,22 @@
+{% for content in contents %}
+
+{% if not content.draft %}
+
+<div style="padding-bottom: 2px;">
+    <a href="{{ content.slug }}">
+        {% if content.icon_img %}
+        <img src="{% static content.icon_img %}"
+            style="float: left; width: 60px; border-radius: 50%; margin-right: 20px;" />
+        {% endif %}
+        <h4>{{ content.title }}</h4>
+    </a>
+    {% if content.description %}
+    <p>
+        {{ content.description }}
+    </p>
+    {% endif %}
+</div>
+
+{% endif %}
+
+{% endfor %}

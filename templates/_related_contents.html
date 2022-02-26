@@ -1,0 +1,13 @@
+{% directory_contents request|parent exclude=request.path as contents %}
+
+{% if contents %}
+<h1>Related Content</h1>
+
+<div style="">
+    {% for content in contents %}
+    {% if not content.draft %}
+    ✨ <a href="/{{ content.slug }}">{{ content.title }}</a><br />
+    {% endif %}
+    {% endfor %}
+</div>
+{% endif %}

@@ -30,7 +30,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "coltrane-web"
-version = "0.15.1"
+version = "0.16.1"
 description = "A simple content site framework that harnesses the power of Django without the hassle."
 category = "main"
 optional = false
@@ -111,7 +111,7 @@ Django = ">=2.2"
 
 [[package]]
 name = "django-fastdev"
-version = "1.3.0"
+version = "1.4.1"
 description = "Django-fastdev is an app that makes it faster and more fun to develop Django apps"
 category = "main"
 optional = false
@@ -317,8 +317,8 @@ colorama = [
     {file = "colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"},
 ]
 coltrane-web = [
-    {file = "coltrane-web-0.15.1.tar.gz", hash = "sha256:b322803f613d9365f927bb50d275683ca677b30093397f5c715d344f4d2c026c"},
-    {file = "coltrane_web-0.15.1-py3-none-any.whl", hash = "sha256:88ea18ebfa4cba9f2ae2f92c9c9fbdabc0fdb6f59109ae895098bb6a8757a10c"},
+    {file = "coltrane-web-0.16.1.tar.gz", hash = "sha256:aa3c8d5213f729d49fcf45499afa760fb05147a4233e170ee9946e9a7c3e50b6"},
+    {file = "coltrane_web-0.16.1-py3-none-any.whl", hash = "sha256:a477e9dc107453e67202df616f1f6e38f0b8194520a8b7d14c3777ae2495c8c4"},
 ]
 commonmark = [
     {file = "commonmark-0.9.1-py2.py3-none-any.whl", hash = "sha256:da2f38c92590f83de410ba1a3cbceafbc74fee9def35f9251ba9a971d6d66fd9"},
@@ -337,7 +337,7 @@ django-browser-reload = [
     {file = "django_browser_reload-1.3.0-py3-none-any.whl", hash = "sha256:790e4d9c0a9738437d41ac812741c3f52cc8cd65edad426cabb2f85bde6b94cc"},
 ]
 django-fastdev = [
-    {file = "django-fastdev-1.3.0.tar.gz", hash = "sha256:465a35dd6a1609580d4875ffedf52beab49d2c0a9ba5ed91fa17be6c6032b983"},
+    {file = "django-fastdev-1.4.1.tar.gz", hash = "sha256:f938cf9412642908023f23d7111440f7a8887bf838a10fb55db79bc1bed80d76"},
 ]
 halo = [
     {file = "halo-0.0.31-py2-none-any.whl", hash = "sha256:5350488fb7d2aa7c31a1344120cee67a872901ce8858f60da7946cef96c208ab"},

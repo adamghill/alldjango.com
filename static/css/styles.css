@@ -37,9 +37,10 @@ nav li a:hover {
 }
 footer {
     margin-bottom: 0;
+    border-top: 0 !important;
 }
 article {
-    padding-bottom: 6rem;
+    padding-bottom: 1rem;
     padding-top: 1rem;
     padding-left: 3rem;
     padding-right: 3rem;
