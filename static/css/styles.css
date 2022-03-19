@@ -85,9 +85,24 @@ h2 code {
 h3 code {
     font-size: var(--font-size-h4);
 }
+
 #articlesarticles a {
     color: black;
 }
 #tipstips a {
     color: black;
+}
+
+.anchor-heading .anchor-link {
+    display: inline-block;
+    padding-left: 1rem;
+    text-decoration: none;
+    opacity: .3;
+    transition: opacity ease-in-out .25s;
+}
+.anchor-heading .anchor-link:hover {
+    opacity: 1 !important;
+}
+.anchor-heading:hover .anchor-link {
+    opacity: .5;
 }
