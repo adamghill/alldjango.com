@@ -40,6 +40,16 @@
 </head>
 
 <body class="{{ slug }}">
+    {% if 'articles/' in request.path or 'tips/' in request.path %}
+    {% if toc %}
+    <div class="toc">
+        <p style="padding-top: 10px; margin-left: 20px; font-variant: all-small-caps;">Table of Contents</p>
+
+        {{ toc|safe }}
+    </div>
+    {% endif %}
+    {% endif %}
+
     <nav>
         <ul>
             <li>

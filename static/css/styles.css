@@ -106,3 +106,22 @@ h3 code {
 .anchor-heading:hover .anchor-link {
     opacity: .5;
 }
+
+.toc {
+    /* height: 100%;
+    z-index: 1;*/
+    overflow-x: hidden;
+    position: fixed;
+    top: 60px;
+    background-color: white;
+    width: 300px;
+    right: 60px;
+    padding-bottom: 15px;
+    padding-top: 30px;
+}
+
+@media screen and (max-width: 1500px) {
+    .toc {
+        display: none;
+    }
+  }
