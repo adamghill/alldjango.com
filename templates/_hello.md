@@ -7,6 +7,8 @@ production-scale Django websites.
 > Feel free to reach out to [me on Twitter](https://twitter.com/adamghill) with questions, comments, or bitter
 invectives.
 
+> All code is licensed as [MIT](https://choosealicense.com/licenses/mit/).
+
 {% if request.path == "/" or request.path == "" %}
 
 ### Some of my side projects
