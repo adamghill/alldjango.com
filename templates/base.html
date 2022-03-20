@@ -80,7 +80,7 @@
             {% block content %}
 
             {% if title %}
-            <h1 id="{{ title|slugify }}">{{ title }}</h1>
+            <h1 id="{{ title|slugify }}"><a href="/{{ slug }}">{{ title }}</a></h1>
             {% endif %}
 
             {{ content }}
