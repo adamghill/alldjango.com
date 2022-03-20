@@ -8,7 +8,7 @@ header_img: img/map-header.jpg
 icon_img: img/map-icon.jpg
 ---
 
-One feature of [InHerSight.com](https://www.inhersight.com) that has been proved to be extremely useful is the ability to use location as a filter when [exploring potential companies](https://www.inhersight.com/discover). Luckily, we are using [Django](https://www.djangoproject.com/) and [PostgreSQL](https://www.postgresql.org) which has robust support for geographic querying using [GeoDjango](https://docs.djangoproject.com/en/1.9/ref/contrib/gis/) and [PostGIS](http://postgis.net/). I also utilize the awesome [django-cities](https://github.com/coderholic/django-cities) package for an astounding amount of data related to places.
+One feature of [InHerSight.com](https://www.inhersight.com) that has been proved to be extremely useful is the ability to use location as a filter when [exploring potential companies](https://www.inhersight.com/discover). Luckily, we are using [Django](https://www.djangoproject.com/) and [PostgreSQL](https://www.postgresql.org) which has robust support for geographic querying using [GeoDjango](https://docs.djangoproject.com/en/stable/ref/contrib/gis/) and [PostGIS](http://postgis.net/). I also utilize the awesome [django-cities](https://github.com/coderholic/django-cities) package for an astounding amount of data related to places.
 
 There wasn't a lot of great documentation on StackOverflow or through my searching, so I did a lot of trial and error to get to a sufficiently performing solution.
 
