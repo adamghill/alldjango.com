@@ -6,6 +6,8 @@ categories: django python
 description: How to optimize Django ORM queries to improve site performance.
 ---
 
+> This article includes some updates from [daredevil82](https://reddit.com/user/daredevil82) in this [reddit comment](https://reddit.com/r/django/comments/ti6nys/i_just_updated_my_deep_dive_on_how_to_optimize/i1ecdlk/) which I have incorporated.
+
 Recently, I have been optimizing some functions that were slower than expected. As with most MVPs, the initial iteration was to get *something* working and out there. Looking at [Scout APM](https://scoutapp.com/) revealed that some of the database queries were slow, including several `n+1` queries. The `n+1` queries happened because I was looping over a set of models, and either updated or selected the same thing for each model. My goal was to reduce any duplicate queries, and squeeze out as much performance as I could by refactoring the naive, straight-forward operations into more performant equivalents.
 
 In all honesty, the code is slightly more complicated to read through now, but I cut the time for my use-case in half without changing anything else about the server or database.
@@ -28,6 +30,7 @@ class Author(models.Model):
 class Book(models.Model):
     author = models.ForeignKey(Author, related_name="books", on_delete=models.PROTECT)
     title = models.CharField(max_length=255)
+    is_read = models.BooleanField(default=False)
 ```
 
 ## Show me the sql (part 1)
@@ -63,13 +66,23 @@ books = Book.objects.all()
 print("connection.queries", connection.queries)
 ```
 
+## Explain me the sql
+
+Django also has [explain()](https://docs.djangoproject.com/en/stable/ref/models/querysets/#explain) "which details how the database would execute the query, including any indexes or joins that would be used". I've only used this for PostgreSQL, but it is supported for most database backends except for Oracle.
+
+`Explain` can give you detailed insight into performance problems, but it can also be a little obtuse to read the query plan. Luckily, [explain.depesz.com](https://explain.depesz.com/) can make the plan more readable. For really gnarly problems, [pgMustard](https://www.pgmustard.com/) allows 5 free `EXPLAIN` analyses, and the paid plan is very reasonable for a business that prioritizes database performance, but can't afford a specialized DBA.
+
 ## The one Toolbar to rule them all
 
-If your code is called from a view, the easiest way to start deciphering what SQL is generated is installing [Django Debug Toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/). DDT provides an unbelievably helpful diagnostic tool which shows all of the SQL queries being run, how many are similar to each other and how many are duplicated. You can also look at the query plan for each SQL query and dig into why it might be slow.
+If your code is called from a view, the easiest way to start deciphering what SQL is generated is installing [Django Debug Toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/). DDT provides an unbelievably helpful diagnostic tool which shows all of the SQL queries being run, how many are similar to each other and how many are duplicated. You can also look at the query plan (similar to the output from `explain()`) for each SQL query and dig into why it might be slow.
+
+## Silky smooth profiling
+
+If you're using Django as an API (e.g. using `Django REST Framework`), `Django Debug Toolbar` won't be as useful because it requires a template to show its debugging panels. [`django-silk`](https://github.com/jazzband/django-silk) can be used in those instances to get some of the same generated SQL for each of your endpoints.
 
 ## Select and prefetch *all* the relateds
 
-One thing to realize is that Django's ORM is pretty lazy by default. It will not run queries until the result has been asked for (either in code or directly in a view). It also won't join models by their ForeignKeys until needed. Those are beneficial optimizations, however they can bite you if you don't realize.
+One thing to realize is that Django's ORM is "lazy" by default. It will not run queries until the result has been asked for (either in code or directly in a view). It also won't join models by their ForeignKeys until needed. Those are beneficial optimizations, however they can bite you if you don't realize.
 
 ```python
 # views.py
@@ -192,19 +205,26 @@ Book.objects.bulk_create([
 
 ## We want to bulk *you* up
 
-[`update`](https://docs.djangoproject.com/en/stable/ref/models/querysets/#update) is a method on `QuerySet`, so you are able to retrieve a set of objects and update a field on all of them with one SQL query. However, if you want to update a set of models with different field values [`django-bulk-update`](https://github.com/aykut/django-bulk-update) will come in handy. It automagically creates one SQL statement for a set of model updates even if they have differing values.
+[`update`](https://docs.djangoproject.com/en/stable/ref/models/querysets/#update) is a method on `QuerySet`, so you are able to retrieve a set of objects and update a field on all of them with one SQL query. `update` can only be used when the field should be updated to the same value for all models.
 
 ```python
-from django.utils import timezone
-from django_bulk_update.helper import bulk_update
+neil_gaiman_books = Book.objects.filter(author__name="Neil Gaiman")
 
-books = Book.objects.all()
-for book in books:
-    book.title = f"{book.title} - {timezone.now}"
-
-# generates 1 sql query to update all books
-bulk_update(books, update_fields=['title'])
+neil_gaiman_books.update(is_read=True)
 ```
+
+However, to efficiently update a queryset of models with different field values, [`bulk_update`](https://docs.djangoproject.com/en/stable/ref/models/querysets/#bulk-update) can be used.
+
+```python
+neil_gaiman_books = Book.objects.filter(author__name="Neil Gaiman")
+neil_gaiman_books[0].is_read = True
+neil_gaiman_books[1].is_read = False
+neil_gaiman_books[2].is_read = True
+
+neil_gaiman_books.bulk_update()
+```
+
+`bulk_update` comes with a few caveats, namely that you cannot update the model's primary key and that the model's `pre_save` and `post_save` signals will not fire when it gets updated.
 
 ## Gonna make you sweat (everybody Raw Sql now)
 
@@ -213,6 +233,10 @@ If you really can't figure out a way to get the Django ORM to generate performan
 ## Automatic for the people
 
 [django-auto-prefetch](https://github.com/tolomea/django-auto-prefetch) will automatically prefetch the foreign keys or one-to-one models. It's a great way to create more performant queries just by inheriting from a different base `Model` class. Highly recommended to save yourself from manually trying to figure out what fields are needed in `select_related` or `prefetch_related` method calls.
+
+## Indices make the world go round
+
+If you are still running into slowness, you can start to investigate database indexes. Going into detail about indexes is out of scope for this article, but some clues can be deciphered by using the output from `explain`. Django has a robust infrastructure for [specifying indexes](https://docs.djangoproject.com/en/stable/ref/models/options/#django.db.models.Options.indexes) that ensures they are part of your database migrations. For more information, [Indexing in Postgres](https://medium.com/geekculture/indexing-in-postgres-db-4cf502ce1b4e) and [Postgres Indexes for Newbies](https://blog.crunchydata.com/blog/postgres-indexes-for-newbies) are two solid articles that give an overview of indexing.
 
 ## Putting on the ritz
 
