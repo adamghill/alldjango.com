@@ -30,7 +30,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "coltrane-web"
-version = "0.18.0"
+version = "0.18.1"
 description = "A simple content site framework that harnesses the power of Django without the hassle."
 category = "main"
 optional = false
@@ -316,8 +316,8 @@ colorama = [
     {file = "colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"},
 ]
 coltrane-web = [
-    {file = "coltrane-web-0.18.0.tar.gz", hash = "sha256:58665bd6ed3201930677e2c7e19a7e4abbd59bb52a5ee113149eb5c3d565a1f7"},
-    {file = "coltrane_web-0.18.0-py3-none-any.whl", hash = "sha256:de65aa1c4887de5949ca53135aaa9ec9345488a83ac4d6cf23b9c1b07bcc1543"},
+    {file = "coltrane-web-0.18.1.tar.gz", hash = "sha256:72956e855899707742e44c811a29c474be1093595de90277ac4bd86d5a631c54"},
+    {file = "coltrane_web-0.18.1-py3-none-any.whl", hash = "sha256:31f74dd1b76fe01a8a763682e221206e2c0bb3253a37233efeae9c6355e2d956"},
 ]
 commonmark = [
     {file = "commonmark-0.9.1-py2.py3-none-any.whl", hash = "sha256:da2f38c92590f83de410ba1a3cbceafbc74fee9def35f9251ba9a971d6d66fd9"},
