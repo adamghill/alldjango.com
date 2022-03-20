@@ -1,6 +1,7 @@
 ---
 template: base.html
 title: Easily update URL querystrings in a template
+description: How to dynamically update URLs with a template tag.
 tags: django,templatetag
 ---
 
