@@ -94,7 +94,7 @@ Run the following in your source code directory on your local machine.
 
 ## Deploy Django code
 
-My [`docker-something-something` repository](https://github.com/adamghill/docker-something) has the files needed for `CapRover` to work correctly.
+My [`docker-python-poetry-django` repository](https://github.com/adamghill/docker-python-poetry-django) has the files needed for `CapRover` to work correctly.
 
 - `captain-definition`: tells `CapRover` where to find the `Dockerfile`
 - `Dockerfile`: multi-stage definition for how the server should be setup to run the Django site; it installs dependencies via `poetry`, runs the `bin/post_compile` script for Django-specific management commands, and serves the site via `gunicorn`
