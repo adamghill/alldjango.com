@@ -4,7 +4,8 @@
 ago and never looked back. `alldjango` includes all the hard-won experience I've gained over the years building
 production-scale Django websites.
 
-> Feel free to reach out to [me on Twitter](https://twitter.com/adamghill) with questions, comments, or bitter
+> Feel free to reach out to [me on Mastodon](https://indieweb.social.com/@adamghill) or [GitHub
+Issues](https://github.com/adamghill/alldjango.com/issues) with questions, comments, or bitter
 invectives.
 
 > All code is licensed as [MIT](https://choosealicense.com/licenses/mit/).

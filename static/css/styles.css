@@ -125,3 +125,7 @@ h3 code {
         display: none;
     }
   }
+
+  code {
+    word-break: break-word;
+  }
