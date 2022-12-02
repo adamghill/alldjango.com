@@ -62,7 +62,7 @@ A `project` holds related servers together. To make things easier, I just have o
 
 It might take a few minutes, but eventually `Digital Ocean` will provide an `ipv4` address on the `droplet` page. With that you can start setting up `CapRover`.
 
-At this point, you *can* access `CapRover` by going to `droplet` IP address and a port of 3000, e.g. if your IP address was 123.456.789.123, then you could go to 123.456.789.123:3000. The default login "captain42". I suggest continuing on, though. The `CapRover` setup will prompt you to change the password.
+At this point, you *can* access `CapRover` by going to `droplet` IP address and a port of 3000, e.g. if your IP address was 123.456.789.123, then you could go to 123.456.789.123:3000. The default login is "captain42", but I suggest continuing on. The `CapRover` setup will prompt you to change the password in the next step.
 
 ## `CapRover` setup
 
