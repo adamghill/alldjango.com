@@ -124,6 +124,12 @@ h3 code {
     .toc {
         display: none;
     }
+    .main {
+        padding-right: 14px;
+    }
+    .ethical-ads {
+        display: none;
+    }
   }
 
 code {
@@ -155,4 +161,7 @@ ul > li > ul {
     padding-left: 18px;
     padding-right: 60px;
 }
-  
+
+.ethical-ads {
+    float: right;
+}
