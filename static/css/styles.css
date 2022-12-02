@@ -94,8 +94,7 @@ h3 code {
 }
 
 .anchor-heading .anchor-link {
-    display: inline-block;
-    padding-left: 1rem;
+    padding-left: .8rem;
     text-decoration: none;
     opacity: .3;
     transition: opacity ease-in-out .25s;
