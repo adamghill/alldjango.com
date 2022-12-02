@@ -72,7 +72,7 @@ You can use any domain name for the `CapRover` instance. It doesn't need to be t
 
 You can do this in any DNS provider, but I tend to use `Cloudflare`, however other DNS providers should be similar.
 
-1. Log into https://www.cloudflare.com/
+1. Log into [Cloudflare](https://www.cloudflare.com/)
 2. Click on the domain name you want to use for the `CapRover` admin UI, e.g. `boat-lovers.com`
 3. Click on *DNS* in the sidebar
 4. Click on *Add record*
@@ -120,7 +120,7 @@ The first level domain can be either "naked" or a third-level domain name. A "na
 
 This will alias `boat-lovers.com` to `boats-r-us.apps.boat-lovers.com`.
 
-1. Log into https://www.cloudflare.com/
+1. Log into [Cloudflare](https://www.cloudflare.com/)
 2. Click on the domain name you want to use, e.g. `boat-lovers.com`
 3. Click on *DNS* in the sidebar
 4. Click on *Add record*
@@ -134,7 +134,7 @@ This will alias `boat-lovers.com` to `boats-r-us.apps.boat-lovers.com`.
 
 This will alias `www.boat-lovers.com` to `boats-r-us.apps.boat-lovers.com`.
 
-1. Log into https://www.cloudflare.com/
+1. Log into [Cloudflare](https://www.cloudflare.com/)
 2. Click on the domain name you want to use, e.g. `boat-lovers.com`
 3. Click on *DNS* in the sidebar
 4. Click on *Add record*
@@ -170,7 +170,7 @@ A *private key* (named `deploykey`) and a *public key* (`deploykey.pub`) will be
 ### Add the public key to GitHub
 
 1. Create a deploy key in GitHub by going to `https://github.com/{USERNAME}/{REPOSITORY_NAME}/settings/keys/new`
-2. Give the key a *Title* (e.g. "Caprover") 
+2. Give the key a *Title* (e.g. "CapRover") 
 3. Paste the contents of `deploykey.pub` into the *Key* text field
 4. Do not check *Allow write access* unless you have a good reason to
 5. Click *Add key*
@@ -198,7 +198,7 @@ Now when you push to the branch in GitHub:
 
 ## Troubleshooting `CapRover`
 
-At one point, I broke the `CapRover` admin UI  because of an SSL issue.
+At one point, I broke the `CapRover` admin UI because of an SSL issue. I ended up looking through the logs and restarting the `CapRover` instance to fix it.
 
 ### Logging into the `droplet`
 
@@ -233,8 +233,6 @@ docker exec {CONTAINER_ID} python manage.py {MANAGEMENT_COMMAND}
 ## Conclusion
 
 Hopefully this has been helpful for anyone who wants to host a Django site (or a few!) relatively inexpensively. Just a reminder if you sign up for [`Digital Ocean`](https://m.do.co/c/617d629f56c0) with my referral code you will get $200 in free credits (and my undying appreciation!).
-
-Feedback, questions, or comments? Feel free to make an issue.
 
 ## More resources, documentation, and details
 
