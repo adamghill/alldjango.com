@@ -244,3 +244,5 @@ Feedback, questions, or comments? Feel free to make an issue.
 - [Docker multi-staged builds](https://github.com/michaeloliverx/python-poetry-docker-example/) by [michaeloliverx](https://github.com/michaeloliverx)
 - [Explanation of Docker](https://fastapi.tiangolo.com/deployment/docker/) by [Tiangolo](https://github.com/tiangolo)
 - More information about [GitHub deploy keys](https://github.com/caprover/caprover/issues/1265#issuecomment-973651341)
+- [How to Deploy Django using CapRover](https://justdjango.com/blog/deploy-django-caprover)
+- [The Essential Django Deployment Guide](https://www.saaspegasus.com/guides/django-deployment/)
