@@ -110,8 +110,9 @@ h3 code {
 .toc {
     /* height: 100%;
     z-index: 1;*/
-    overflow-x: hidden;
-    position: fixed;
+    /* overflow-x: auto;
+    overflow-y: auto; */
+    position: sticky;
     top: 60px;
     background-color: white;
     width: 300px;
@@ -126,6 +127,33 @@ h3 code {
     }
   }
 
-  code {
+code {
     word-break: break-word;
-  }
+}
+
+ul > li > ul {
+    margin-bottom: 0px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main {
+    /* width: 60%;
+    height: 150vh; */
+    margin: 0 auto;
+    width: 100%;
+}
+
+.sidebar {
+    width: 25%;
+    height: 25vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    padding-left: 18px;
+    padding-right: 60px;
+}
+  
