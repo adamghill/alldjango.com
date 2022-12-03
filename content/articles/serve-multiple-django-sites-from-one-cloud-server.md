@@ -218,7 +218,7 @@ Now when `CapRover` starts up the container it will start up my worker instead o
 
 ## Cron jobs
 
-I have a few cron jobs that I need run that are currently Django management commands. I spent a while researching how to run these cron jobs in Docker, but kept getting turned around about how to think about it.
+I have a few cron jobs that I need to run that are currently Django management commands. I spent a while researching how to run these cron jobs in Docker, but kept getting turned around when thinking about them.
 
 [Cron + Docker = The Easiest Job Scheduler You’ll Ever Create](https://levelup.gitconnected.com/cron-docker-the-easiest-job-scheduler-youll-ever-create-e1753eb5ea44) seems useful if your cron jobs are independent of your code. [Chadburn](https://github.com/PremoWeb/Chadburn) is a one-click install for `CapRover` and seemingly helps manage cron tasks, but has the same limitations since it is contained with its own container. However, my cron jobs need to either 1) be in the same Docker instance as my code, or 2) be able to call *into* the Docker container with my code.
 
