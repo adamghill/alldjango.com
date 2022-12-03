@@ -10,7 +10,7 @@ I was a long time user of `Heroku`, but after they announced the removal of all 
 
 Initially I moved most of my sites to [render](https://render.com). It is a delightful hosting platform very similar to Heroku, although you'll need to translate any custom `buildpacks` into the `render.yml` file, so it's not quite as simple a translation as I would like. However, `render` is easy to use and has a nice UI to provision services. I still have a few sites hosted there, mostly for their managed Postgres database support. I even have a [checklist](https://gist.github.com/adamghill/ba816554995d1fe5e5b2195ec76eaef8) I use to deploy sites to `render`.
 
-However, for low traffic sites I have increasingly become enamored with [`CapRover`](https://caprover.com/) after [Tobi-De](https://github.com/Tobi-De) suggested it to me. `CapRover` can be hosted on lots of hosting platforms, but I have primarily used it on `Digital Ocean`. If you sign up for [`Digital Ocean`](https://m.do.co/c/617d629f56c0) you will get $200 in free credits (and full disclosure, I get a little credit for my hosting costs as well).
+However, for low traffic sites I have increasingly become enamored with [`CapRover`](https://caprover.com/) after [Tobi-De](https://github.com/Tobi-De) suggested it to me. `CapRover` can be hosted on lots of hosting platforms, but I have primarily used it on Digital Ocean. If you sign up for [Digital Ocean](https://m.do.co/c/617d629f56c0) you will get $200 in free credits (and full disclosure, I get a little credit for my hosting costs as well).
 
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=617d629f56c0&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
 
@@ -36,7 +36,7 @@ One other con is that I have noticed a short time where my sites are unavailable
 
 ### Sign up
 
-There are lots of options for servers in the cloud, however the easiest one I have used with `CapRover` is `Digital Ocean`. [Sign up for an account](https://m.do.co/c/617d629f56c0) to get started.
+There are lots of options for servers in the cloud, however the easiest one I have used with `CapRover` is Digital Ocean. [Sign up for an account](https://m.do.co/c/617d629f56c0) to get started.
 
 ### Create a project
 
@@ -44,7 +44,7 @@ A `project` holds related servers together. To make things easier, I just have o
 
 ### Create a server
 
-`Digital Ocean` calls their cloud servers `droplets` (which is sort of adorable come to think of it).
+Digital Ocean calls their cloud servers `droplets` (which is sort of adorable come to think of it).
 
 1. Click the green *Create* button in the top navigation header
 2. Click *Droplets* ![Create droplet]({% static 'img/deploy/digital-ocean-create-droplet.png' %})
@@ -60,7 +60,7 @@ A `project` holds related servers together. To make things easier, I just have o
 12. Put in a memorable name for your new server in the cloud in the text box under *Choose a hostname*
 13. Click *Create Droplet*
 
-It might take a few minutes, but eventually `Digital Ocean` will provide an `ipv4` address on the `droplet` page. With that you can start setting up `CapRover`.
+It might take a few minutes, but eventually there will be an `ipv4` address on the `droplet` page. With that you can start setting up `CapRover`.
 
 At this point, you *can* access `CapRover` by going to `droplet` IP address and a port of 3000, e.g. if your IP address was 123.456.789.123, then you could go to 123.456.789.123:3000. The default login is "captain42", but I suggest continuing on. The `CapRover` setup will prompt you to change the password in the next step.
 
@@ -79,7 +79,7 @@ You can do this in any DNS provider, but I tend to use `Cloudflare`, however oth
 5. Make sure that *Type* is "A"
 6. Decide on a unique subdomain which will be the third-level domain where all `CapRover` services will be created -- this will require a wildcard fourth-level A name to be added; e.g. `apps` could be your third-level domain name for `boat-lovers.com` so an app named `boats-r-us` would live at `boats-r-us.apps.boat-lovers.com`
     a. Add the subdomain with the fourth-level wildcard to the *Name* text box; e.g. "*.apps"
-7. Put the `ipv4` address for the `Digital Ocean` `droplet` into the *IPv4 address* text box
+7. Put the `ipv4` address for the `droplet` into the *IPv4 address* text box
 8. Make sure the the *Proxy status* is un-checked, i.e. it is grey and says *DNS only*
 9. Click *Save*
 
@@ -126,7 +126,7 @@ This will alias `boat-lovers.com` to `boats-r-us.apps.boat-lovers.com`.
 4. Click on *Add record*
 5. Make sure that *Type* is "A"
 6. Put "@" in for the *Name*
-7. Put the `Digital Ocean` `ipv4` address into the *IPv4 address* text box
+7. Put the *droplet* `ipv4` address into the *IPv4 address* text box
 8. Make sure the the *Proxy status* is checked
 9. Click *Save*
 
@@ -165,11 +165,11 @@ Generate a *private key* and *public key* in the same directory as your code.
 ssh-keygen -t ed25519 -C "skiff@boat-lovers.com" -f ./deploykey -q -N ""
 ```
 
-A *private key* (named `deploykey`) and a *public key* (`deploykey.pub`) will be created in the directory.
+A *private key* (named `deploykey`) and a *public key* (`deploykey.pub`) will be created in the current directory.
 
 ### Add the public key to GitHub
 
-1. Create a deploy key in GitHub by going to `https://github.com/{USERNAME}/{REPOSITORY_NAME}/settings/keys/new`
+1. Create a deploy key in GitHub by going to `https://github.com/USERNAME/REPOSITORY_NAME/settings/keys/new`
 2. Give the key a *Title* (e.g. "CapRover") 
 3. Paste the contents of `deploykey.pub` into the *Key* text field
 4. Do not check *Allow write access* unless you have a good reason to
@@ -179,22 +179,56 @@ A *private key* (named `deploykey`) and a *public key* (`deploykey.pub`) will be
 
 Go to the *Deployment* tab for your app in `CapRover`. Scroll down to *Method 3: Deploy from Github/Bitbucket/Gitlab*.
 
-1. Put your GitHub repo into *Repository*
-2. Put the branch you want to automatically deploy into *Branch* (typically either _main_ or _master_)
-3. Paste the contents of `deploykey` into the text field underneath of *Or, instead of username/password, use SSH Key:*
+1. Type your GitHub repo into *Repository*
+2. Put the branch you want to automatically deploy into *Branch* (typically either "main" or "master")
+3. Paste the contents of the `deploykey` file into the text field underneath of *Or, instead of username/password, use SSH Key:*
+4. Make sure there is a blank line at the bottom of the pasted contents otherwise GitHub won't validate it
 4. Click *Save & Update*
 5. The text box above *Repository* should now have a long URL inside of it; copy that into your clipboard
 
 ### Add the webhook to GitHub
 
-1. Go to https://github.com/{USERNAME}/{REPOSITORY}/settings/hooks/new and paste the generated URL from the last step into the *Payload URL* text box; leave the rest of the settings as-is
+1. Go to https://github.com/USERNAME/REPOSITORY/settings/hooks/new and paste the generated URL from the last step into the *Payload URL* text box; leave the rest of the settings as-is
 2. Click *Add webhook*
 
-Now when you push to the branch in GitHub:
+Now when you push commits to the branch you specified:
 1. GitHub calls the webhook
 2. `CapRover` pulls the new code from GitHub
 3. `CapRover` builds the _Dockerfile_
 4. `CapRover` deploys the site
+
+## Custom Dockerfile per app
+
+For one of my side projects, [devmarks.io](https://devmarks.io), there is a web site and a worker process. They share the same code. So, I have two apps in `CapRover`. One named `devmarks-web` and one named `devmarks-worker`. Typically my [`Dockerfile`](https://github.com/adamghill/docker-python-poetry-django/blob/main/Dockerfile#L45) calls a [script](https://github.com/adamghill/docker-python-poetry-django/blob/main/bin/post_compile) that runs `collectstatic` and a few other management commands and then runs [`gunicorn`](https://github.com/adamghill/docker-python-poetry-django/blob/main/bin/post_compile#L19). However, for my worker app I don't need `collectstatic` to run and instead of `gunicorn` I would like to start my worker process.
+
+`CapRover` allows per-app changes to the `Dockerfile` via the *Service Update Override*. For this use-case I can change the `CMD` statement at the end of my `Dockerfile`.
+
+1. Go to your app in the `CapRover` admin UI
+2. Click the *App Configs* tab
+3. Scroll to the bottom to the *Service Update Override* textbox
+4. Paste in the following and click *Save & Update*
+```yaml
+TaskTemplate:
+  ContainerSpec:
+    Command:
+      - python /app/manage.py worker
+```
+
+Now when `CapRover` starts up the container it will start up my worker instead of calling the script like normal. Anything in the `TaskTemplate` in the [Docker API](https://docs.docker.com/engine/api/v1.40/#tag/Service/operation/ServiceUpdate) can be updated.
+
+## Cron jobs
+
+I have a few cron jobs that I need run that are currently Django management commands. I spent a while researching how to run these cron jobs in Docker, but kept getting turned around about how to think about it.
+
+[Cron + Docker = The Easiest Job Scheduler You’ll Ever Create](https://levelup.gitconnected.com/cron-docker-the-easiest-job-scheduler-youll-ever-create-e1753eb5ea44) seems useful if your cron jobs are independent of your code. [Chadburn](https://github.com/PremoWeb/Chadburn) is a one-click install for `CapRover` and seemingly helps manage cron tasks, but has the same limitations since it is contained with its own container. However, my cron jobs need to either 1) be in the same Docker instance as my code, or 2) be able to call *into* the Docker container with my code.
+
+Setting up cron *inside* my Docker container with my source code would mean that *every* instance would run the cron jobs, potentially duplicating the cron jobs when more than one instance of my app was running. That didn't seem ideal.
+
+The option I am leaning toward is to specify the cron jobs in the *droplet* that contains all of my containers. It feels a little messy, but I will document them in my code repository to try to mitigate that. This solution works because from the *droplet* I can call into any `CapRover` app I want.
+
+```shell
+docker exec -it $(docker ps --filter name=srv-captain--APP_NAME -q) python manage.py MANAGEMENT_COMMAND
+```
 
 ## Troubleshooting `CapRover`
 
@@ -207,7 +241,7 @@ Log into `Digital Ocean` and click the *Console* button for your `droplet`. ![Di
 ### View logs
 
 ```shell
-docker service logs srv-captain--{APP_NAME} --since 60m --follow
+docker service logs srv-captain--APP_NAME --since 60m --follow
 ```
 
 ### Restart `CapRover`
@@ -227,16 +261,38 @@ docker ps
 Get the `Docker` container id from the `ps` command above and use it with `docker exec`.
 
 ```shell
-docker exec {CONTAINER_ID} python manage.py {MANAGEMENT_COMMAND}
+docker exec -it CONTAINER_ID python manage.py MANAGEMENT_COMMAND
 ```
+
+Or to run a command by the `CapRover` app name.
+
+```shell
+docker exec -it $(docker ps --filter name=srv-captain--APP_NAME -q) python manage.py MANAGEMENT_COMMAND
+```
+
+### Domain Verification Failed - Error 1107
+
+Enabling HTTPS for a domain is usually painless, but one time I kept getting a validation error for an extended period. I double-checked that the new IP and domain were set properly in Cloudflare multiple times and waited a few hours, but it never worked. However, you can skip domain verification if needed.
+
+1. Log into [Digital Ocean](https://www.digital-ocean.com)
+2. Go to your *droplet*
+3. Click on the *Console* button
+4. Copy the following into the terminal and pretty Enter
+```
+echo  "{\"skipVerifyingDomains\":\"true\"}" >  /captain/data/config-override.json
+docker service update captain-captain --force
+```
+5. Wait a few minutes for `CapRover` to restart
+6. Try to enable HTTPS for your app again and hopefully it will work
 
 ## Conclusion
 
-Hopefully this has been helpful for anyone who wants to host a Django site (or a few!) relatively inexpensively. Just a reminder if you sign up for [`Digital Ocean`](https://m.do.co/c/617d629f56c0) with my referral code you will get $200 in free credits (and my undying appreciation!).
+Hopefully this has been helpful for anyone who wants to host a Django site (or a few!) relatively inexpensively. Just a reminder if you sign up for [Digital Ocean](https://m.do.co/c/617d629f56c0) with my referral code you will get $200 in free credits (and my undying appreciation!).
 
 ## More resources, documentation, and details
 
 - [`CapRover` documentation](https://caprover.com/docs/get-started.html)
+- [`CapRover` service override](https://caprover.com/docs/service-update-override.html)
 - [`bash` strict mode](https://gist.github.com/mohanpedala/1e2ff5661761d3abd0385e8223e16425)
 - [Docker setup](https://github.com/Tobi-De/fuzzy-couscous/tree/main/project_name/docker) by [Tobi-De](https://github.com/Tobi-De)
 - [Docker multi-staged builds](https://github.com/michaeloliverx/python-poetry-docker-example/) by [michaeloliverx](https://github.com/michaeloliverx)
