@@ -18,7 +18,7 @@ However, for low traffic sites I have increasingly become enamored with [`CapRov
 
 ### Benefits
 
-One major pro of using [`CapRover`](https://caprover.com/) is that you can use one server to host multiple sites at once. On Heroku or `render` each "service" will host one site by default. Free tiers will typically limit you to one free site, even for very low traffic sites. Sometimes services in the free tier will be "put to sleep" as well. On `CapRover`, I can host multiple Django apps on a $6/month server _and_ they are fast and reliable.
+One major pro of using [`CapRover`](https://caprover.com/) is that you can use one server to host multiple sites at once. On Heroku or `render` each "service" will host one site by default. Free tiers will typically limit you to one free site, even for very low traffic sites. Sometimes services in the free tier will be "put to sleep" as well. On `CapRover`, I can host multiple Django apps on a $6/month server *and* they are fast and reliable.
 
 Another pro is that `CapRover` has a long list of one-click installs for open source software. This includes backend services like `Postgres`, `mysql`, and `redis`. Complete packages are also available like analytics tracking ([`umami`](https://umami.is/) and [`ackee`](https://ackee.electerious.com/)), error monitoring ([`glitchtip`](https://glitchtip.com/)), or uptime monitoring ([`Uptime Kuma`](https://uptime.kuma.pet/)) are all one click away.
 
@@ -70,7 +70,7 @@ At this point, you *can* access `CapRover` by going to `droplet` IP address and 
 
 You can use any domain name for the `CapRover` instance. It doesn't need to be the site that you want `CapRover` to host. For example, let's say you have two domains, `boats-r-us.com` and `boats-and-totes.com`. Both will be `Django` projects that are deployed using `CapRover`. You could use either of those domains for the `CapRover` admin UI or *another* domain. For example, you might want to host `CapRover` on `boat-lovers.com`. It's up to you to decide for your situation.
 
-You can do this in any DNS provider, but I tend to use `Cloudflare`, however other DNS providers should be similar.
+You can do this in any DNS provider, but I tend to use `Cloudflare`. Other DNS providers should be a similar process.
 
 1. Log into [Cloudflare](https://www.cloudflare.com/)
 2. Click on the domain name you want to use for the `CapRover` admin UI, e.g. `boat-lovers.com`
@@ -194,27 +194,22 @@ Go to the *Deployment* tab for your app in `CapRover`. Scroll down to *Method 3:
 Now when you push commits to the branch you specified:
 1. GitHub calls the webhook
 2. `CapRover` pulls the new code from GitHub
-3. `CapRover` builds the _Dockerfile_
+3. `CapRover` builds the *Dockerfile*
 4. `CapRover` deploys the site
 
 ## Custom Dockerfile per app
 
 For one of my side projects, [devmarks.io](https://devmarks.io), there is a web site and a worker process. They share the same code. So, I have two apps in `CapRover`. One named `devmarks-web` and one named `devmarks-worker`. Typically my [`Dockerfile`](https://github.com/adamghill/docker-python-poetry-django/blob/main/Dockerfile#L45) calls a [script](https://github.com/adamghill/docker-python-poetry-django/blob/main/bin/post_compile) that runs `collectstatic` and a few other management commands and then runs [`gunicorn`](https://github.com/adamghill/docker-python-poetry-django/blob/main/bin/post_compile#L19). However, for my worker app I don't need `collectstatic` to run and instead of `gunicorn` I would like to start my worker process.
 
-`CapRover` allows per-app changes to the `Dockerfile` via the *Service Update Override*. For this use-case I can change the `CMD` statement at the end of my `Dockerfile`.
+`CapRover` allows per-app changes to the `captain-definition` file. So, for `devmarks-worker` I created a `captain-definition-worker` file that references a new `Dockerfile-worker` file. The only difference in `Dockerfile-worker` is the  `CMD` statement at the end which calls `python manage.py worker`.
 
 1. Go to your app in the `CapRover` admin UI
-2. Click the *App Configs* tab
-3. Scroll to the bottom to the *Service Update Override* textbox
-4. Paste in the following and click *Save & Update*
-```yaml
-TaskTemplate:
-  ContainerSpec:
-    Command:
-      - python /app/manage.py worker
-```
+2. Click the *Deployment* tab
+3. Scroll to the bottom to the *captain-definition Relative Path* textbox
+4. Click `Edit`
+5. Type in `./captain-definition-worker` and click *Save & Update*
 
-Now when `CapRover` starts up the container it will start up my worker instead of calling the script like normal. Anything in the `TaskTemplate` in the [Docker API](https://docs.docker.com/engine/api/v1.40/#tag/Service/operation/ServiceUpdate) can be updated.
+Now when `CapRover` starts up the container it will use `captain-definition-worker` and `Dockerfile-worker` to start up my worker process.
 
 ## Cron jobs
 
