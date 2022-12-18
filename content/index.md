@@ -19,7 +19,7 @@ template: base.html
 
 ### [Articles](/articles)
 
-{% directory_contents "articles" as articles %}
+{% directory_contents "articles" order_by="-date" as articles %}
 
 {% for article in articles %}
 {% if not article.draft %}
@@ -29,7 +29,7 @@ template: base.html
 
 ### [Tips](/tips)
 
-{% directory_contents "tips" as tips %}
+{% directory_contents "tips" order_by="-date" as tips %}
 
 {% for tip in tips %}
 {% if not tip.draft %}
