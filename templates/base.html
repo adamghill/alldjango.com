@@ -70,24 +70,26 @@
                         id="alldjango" class="ethical-ads">
                     </div>
 
-                    {% block content %}
+                    <div style="padding-bottom: 20px;">
+                        {% block content %}
 
-                    {% if title %}
-                    <h1 id="{{ title|slugify }}"><a href="/{{ slug|cut:"/index" }}">{{ title }}</a></h1>
-                    {% endif %}
+                        {% if title %}
+                        <h1 id="{{ title|slugify }}"><a href="/{{ slug|cut:"/index" }}">{{ title }}</a></h1>
+                        {% endif %}
 
-                    {{ content }}
-                    {% endblock content %}
+                        {{ content }}
+                        {% endblock content %}
+                    </div>
 
                     <hr>
 
                     {% if 'articles/' in request.path or 'tips/' in request.path %}
-                    <div style="padding-top: 40px;">
+                    <div style="padding-top: 20px;">
                         {% include '_related_contents.html' %}
                     </div>
                     {% endif %}
 
-                    <div style="padding-top: 40px;">
+                    <div style="padding-top: 20px;">
                         {% include_md '_hello.md' %}
                     </div>
                 </article>
@@ -136,13 +138,15 @@
             </main>
         </div>
 
-        {% if 'articles/' in request.path or 'tips/' in request.path and toc %}
+        {% if 'articles/' in request.path or 'tips/' in request.path %}
         <div class="sidebar">
+            {% if toc and toc != "" %}
             <div class="toc">
                 <p style="padding-top: 10px; margin-left: 20px; font-variant: all-small-caps;">Table of Contents</p>
 
                 {{ toc|safe }}
             </div>
+            {% endif %}
         </div>
         {% endif %}
     </div>

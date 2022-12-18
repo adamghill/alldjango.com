@@ -61,13 +61,13 @@ blockquote {
     font-style: normal;
 }
 h1 {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 h2 {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 h3 {
-    margin-top: 30px;
+    margin-top: 20px;
 }
 code {
     background-color: var(--grey);

@@ -25,7 +25,7 @@ efficient, and better tasting
 - [minestrone](https://minestrone.readthedocs.io/): An opinionated Python library that lets you search, modify, and
 parse messy HTML with ease 🥫
 
-### `alldjango` inspiration
+### Inspiration
 
 This project is extremely indebted to the ethos (and design!) of [boringrails.com](https://boringrails.com) by [Matt
 Swanson](https://twitter.com/_swanson). Check it out if you are more into 💎 than 🐍.
