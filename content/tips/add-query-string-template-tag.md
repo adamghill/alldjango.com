@@ -9,8 +9,6 @@ On [devmarks.io](https://devmarks.io) I have a side bar with tags that, when cli
 
 The following example is how the template tag works in a template.
 
-{% verbatim %}
-
 ```html
 {% load url_tags %}
 
@@ -25,8 +23,6 @@ The following example is how the template tag works in a template.
 <a href="{% add_query_string view='view-0' %}">Adds a new `view=view-0` querystring on the current URL</a>
 <!-- href would be https://devmarks.io/bookmarks?filter=filter-0&view=view-0 -->
 ```
-
-{% endverbatim %}
 
 And here is the Django template tag that provides the functionality above.
 

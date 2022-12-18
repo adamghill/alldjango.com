@@ -92,16 +92,12 @@ def index(request):
     return render(request, { "books": books })
 ```
 
-{% verbatim %}
-
 ```html
 <!-- index.html -->
 {% for book in books %} Book Author: {{ book.author.name }}
 <br />
 {% endfor %}
 ```
-
-{% endverbatim %}
 
 In the code above, each book in the `for loop` in `index.html` will call the database again for the author's name. So, there would be 1 database call to retrieve the set of all books, and then an additional database call for every book in the list.
 
