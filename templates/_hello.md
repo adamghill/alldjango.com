@@ -14,6 +14,7 @@ invectives.
 
 ### Some of my side projects
 
+- [fediview.com](https://fediview.com/): Generate a personalized summary from your Mastodon timeline
 - [devmarks.io](https://devmarks.io/): Bookmarking for Developers
 - [Unicorn](https://www.django-unicorn.com): A full-stack component library for Django 🦄
 - [coltrane](https://coltrane.readthedocs.io/): A simple content site framework that harnesses the power of Django
