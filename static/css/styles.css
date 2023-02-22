@@ -162,3 +162,7 @@ ul > li > ul {
 .ethical-ads {
     float: right;
 }
+
+* {
+    word-break: break-word;
+}
