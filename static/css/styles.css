@@ -127,6 +127,9 @@ h3 code {
     .main {
         padding-right: 14px;
     }
+    h1 {
+        font-size: var(--font-size-h2);
+    }
   }
 
 code {
