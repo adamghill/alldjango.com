@@ -1,3 +1,9 @@
+.main {
+    margin: auto;
+    width: 50%;
+    min-width: 480px;
+}
+
 nav {
     background: #20AA76;
     height: auto;
@@ -120,18 +126,6 @@ h3 code {
     padding-top: 30px;
 }
 
-@media screen and (max-width: 1500px) {
-    .toc {
-        display: none;
-    }
-    .main {
-        padding-right: 14px;
-    }
-    h1 {
-        font-size: var(--font-size-h2);
-    }
-  }
-
 code {
     word-break: break-word;
 }
@@ -143,13 +137,6 @@ ul > li > ul {
 .wrapper {
     display: flex;
     justify-content: space-between;
-}
-
-.main {
-    /* width: 60%;
-    height: 150vh; */
-    margin: 0 auto;
-    width: 100%;
 }
 
 .sidebar {
@@ -168,4 +155,30 @@ ul > li > ul {
 
 * {
     word-break: break-word;
+}
+
+@media screen and (max-width: 1500px) {
+    .sidebar {
+        display: none;
+    }
+    .main {
+        padding-right: 14px;
+    }
+    article {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    h1 {
+        font-size: var(--font-size-h2);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .sidebar {
+        display: none;
+    }
+    .main {
+        width: 100%;
+        min-width: auto;
+    }
 }
