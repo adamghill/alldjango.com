@@ -1,9 +1,9 @@
 ---
 template: base.html
-title: Developer Marketing
+title: Marketing for Developers
 date: 2023-02-26 10:20:16 -0500
 categories: django python
-description: How to promote your Django package.
+description: How to promote your open-source library as a developer to other developers.
 ---
 
 I can sometimes view the world in idealistic ways. I _want_ to believe in meritocracy and that marketing is unnecessary, but even for developer tools, marketing is necessary for people to find and use your code. Writing the code and clicking the `Public` radio button when creating the repo in GitHub is just the first step.
@@ -14,9 +14,9 @@ I mostly know the Django ecosystem, so that's what I focused on, but I'm sure ot
 
 ## Make the repo public
 
-You made a thing! That's awesome! Make sure it's `public` otherwise, your code will just sit around being sad and lonely.
+You made a thing! That's awesome! Make sure it's `public`, otherwise your code will just sit around being sad and lonely.
 
-Make sure to give your repo a succinct, but illustrative tagline so people know what it is. Then add tags to the repo so your repo can be found easier when searching in GitHub.
+Give your repo a succinct, but descriptive tagline so people know what it is. Then add tags to the repo so your repo can be found easier when searching in GitHub.
 
 ## Create a `README.md`
 
