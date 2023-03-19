@@ -20,7 +20,7 @@ Give your repo a succinct, but descriptive tagline so people know what it is. Th
 
 ## Create a `README.md`
 
-First impressions matter for code just like everything else. Only the most die-hard developer will look through your code if there isn't a `README.md` file. The least you can do is create a `README.md` in the root directory and include things like:
+First impressions matter for code just like everything else. Only the most die-hard developer will delve through your code without some basic information. The least you can do is create a `README.md` in the root directory and include things like:
 
 - a longer description of what your library does
 - a list of features
@@ -39,6 +39,8 @@ There are a few websites where you can easily submit your library for others to 
 ## GitHub Discussions
 
 Creating posts in GitHub Discussions are an easy to way to engage with the community. Personally, I have found it's hard to generate a lot engagement in here, but maybe with bigger projects or a more deliberate strategy it could be a valuable tool.
+
+One thing I _have_ experimented with in some repositories is disabling the creation of `GitHub Issues` and using `Discussions` for that instead. One thing I like about this approach is it allows users to engage in a way that feels less aggressive. A user is not creating a problem for you to solve, they are creating a topic to talk through.
 
 ## Write blog posts
 
@@ -89,3 +91,7 @@ Most conferences will not accept a long talk strictly about your library, howeve
 Creating a conference talk is _hard_. My one and only real conference talk took 40-60 hours to create and record. Not for the faint of heart, but it is a good experience to do at least once in my opinion.
 
 Shorter "lightning" or "attendance" talks are another approach. They are usually in the 5-15 minute range so are much more focused, just stressful, and talking about a specific tool seems ok in this context.
+
+## In summary
+
+Creating a repository that others know about and will use is way more involved than just writing code and it requires _some_ marketing from the developer. Hopefully this provided some ideas about how to promote your awesome library and help people find what you make!
