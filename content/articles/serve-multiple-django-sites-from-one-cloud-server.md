@@ -280,6 +280,14 @@ docker service update captain-captain --force
 5. Wait a few minutes for `CapRover` to restart
 6. Try to enable HTTPS for your app again and hopefully it will work
 
+### Postgres 15 permission error
+
+This is not about CapRover, but Postgres 15 has changed how permissions are created for database users. For every new project, I tend to create a new database, user, and PG Bouncer pool. However, for Postgres 15 I would see an error about "Can't create tables in public schema" for `django_migration`. I had to explicitly give permission to my new user to change the new database.
+
+```shell
+PGPASSWORD=PASSWORD psql -U doadmin -h DATABASE_URL -p PORT -d DATABASE_NAME --set=sslmode=require -c "ALTER DATABASE DATABASE_NAME OWNER TO DATABASE_USER;"
+```
+
 ## Conclusion
 
 Hopefully this has been helpful for anyone who wants to host a Django site (or a few!) relatively inexpensively. Just a reminder if you sign up for [Digital Ocean](https://m.do.co/c/617d629f56c0) with my referral code you will get $200 in free credits (and my undying appreciation!).
