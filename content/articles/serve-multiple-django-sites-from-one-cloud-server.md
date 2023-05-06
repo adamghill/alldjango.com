@@ -10,7 +10,7 @@ I was a long time user of `Heroku`, but after they announced the removal of all 
 
 Initially I moved most of my sites to [render](https://render.com). It is a delightful hosting platform very similar to Heroku, although you'll need to translate any custom `buildpacks` into the `render.yml` file, so it's not quite as simple a translation as I would like. However, `render` is easy to use and has a nice UI to provision services. I still have a few sites hosted there, mostly for their managed Postgres database support. I even have a [checklist](https://gist.github.com/adamghill/ba816554995d1fe5e5b2195ec76eaef8) I use to deploy sites to `render`.
 
-However, for low traffic sites I have increasingly become enamored with [`CapRover`](https://caprover.com/) after [Tobi-De](https://github.com/Tobi-De) suggested it to me. `CapRover` can be hosted on lots of hosting platforms, but I have primarily used it on Digital Ocean. If you sign up for [Digital Ocean](https://m.do.co/c/617d629f56c0) you will get $200 in free credits (and full disclosure, I get a little credit for my hosting costs as well).
+However, for low traffic sites I have increasingly become enamored with [`CapRover`](https://caprover.com/) after [Tobi-De](https://github.com/Tobi-De) suggested it to me. `CapRover` can be hosted on lots of hosting platforms, but I have primarily used it on **Digital Ocean**. If you sign up for [**Digital Ocean**](https://m.do.co/c/617d629f56c0) you will get $200 in free credits (and full disclosure, I get a little credit for my hosting costs as well).
 
 [![DigitalOcean Referral Badge](https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg)](https://www.digitalocean.com/?refcode=617d629f56c0&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge)
 
@@ -36,7 +36,7 @@ One other con is that I have noticed a short time where my sites are unavailable
 
 ### Sign up
 
-There are lots of options for servers in the cloud, however the easiest one I have used with `CapRover` is Digital Ocean. [Sign up for an account](https://m.do.co/c/617d629f56c0) to get started.
+There are lots of options for servers in the cloud, however the easiest one I have used with `CapRover` is **Digital Ocean**. [Sign up for an account](https://m.do.co/c/617d629f56c0) to get started.
 
 ### Create a project
 
@@ -44,7 +44,7 @@ A `project` holds related servers together. To make things easier, I just have o
 
 ### Create a server
 
-Digital Ocean calls their cloud servers `droplets` (which is sort of adorable come to think of it).
+**Digital Ocean** calls their cloud servers `droplets` (which is sort of adorable come to think of it).
 
 1. Click the green *Create* button in the top navigation header
 2. Click *Droplets* ![Create droplet]({% static 'img/deploy/digital-ocean-create-droplet.png' %})
@@ -213,17 +213,33 @@ Now when `CapRover` starts up the container it will use `captain-definition-work
 
 ## Cron jobs
 
-I have a few cron jobs that I need to run that are currently Django management commands. I spent a while researching how to run these cron jobs in Docker, but kept getting turned around when thinking about them.
+I have a few cron jobs that I need to run that are currently Django management commands.
 
-[Cron + Docker = The Easiest Job Scheduler You’ll Ever Create](https://levelup.gitconnected.com/cron-docker-the-easiest-job-scheduler-youll-ever-create-e1753eb5ea44) seems useful if your cron jobs are independent of your code. [Chadburn](https://github.com/PremoWeb/Chadburn) is a one-click install for `CapRover` and seemingly helps manage cron tasks, but has the same limitations since it is contained with its own container. However, my cron jobs need to either 1) be in the same Docker instance as my code, or 2) be able to call *into* the Docker container with my code.
+[Cron + Docker = The Easiest Job Scheduler You’ll Ever Create](https://levelup.gitconnected.com/cron-docker-the-easiest-job-scheduler-youll-ever-create-e1753eb5ea44) seems useful if your cron jobs are independent of your code. [Chadburn](https://github.com/PremoWeb/Chadburn) is a one-click install for `CapRover` and seemingly helps manage cron tasks, but it is contained with its own container. However, my cron jobs need to either 1) be in the same Docker instance as my code, or 2) be able to call *into* the Docker container.
 
 Setting up cron *inside* my Docker container with my source code would mean that *every* instance would run the cron jobs, potentially duplicating the cron jobs when more than one instance of my app was running. That didn't seem ideal.
 
-The option I am leaning toward is to specify the cron jobs in the *droplet* that contains all of my containers. It feels a little messy, but I will document them in my code repository to try to mitigate that. This solution works because from the *droplet* I can call into any `CapRover` app I want.
+### Manually setup cron jobs
+
+One option is to specify the cron jobs in the `droplet` that contains all of my containers. It feels a little messy, but I will document them in my code repository to try to mitigate that. This solution works because from the `droplet` I can call into any `CapRover` app I want.
 
 ```shell
 docker exec -it $(docker ps --filter name=srv-captain--APP_NAME -q) python manage.py MANAGEMENT_COMMAND
 ```
+
+I think theoretically this should work, but I could never figure out why my cron jobs never ran. I'm sure I was missing some straight-forward Linux-y thing, but I tried troubleshooting off and on and never did figure out what was going on.
+
+### Queues with scheduled tasks
+
+Eventually I decided to investigate queues that integrate with Django *and* support scheduled tasks.
+
+I evaluated:
+- [`django-rq-scheduler`](https://django-rq-scheduler.readthedocs.io/)
+- [`huey`](https://huey.readthedocs.io/)
+- [`django-q2`](https://django-q2.readthedocs.io/)
+- [`Celery`](https://docs.celeryq.dev/)
+
+After trying each option out, I have landed on using `django-q2`. For me, it was the best mix of Django integration, low resource use, and understandable to debug.
 
 ## Troubleshooting `CapRover`
 
@@ -231,7 +247,7 @@ At one point, I broke the `CapRover` admin UI because of an SSL issue. I ended u
 
 ### Logging into the `droplet`
 
-Log into `Digital Ocean` and click the *Console* button for your `droplet`. ![Digital Ocean Console]({% static 'img/deploy/digital-ocean-console.png' %})
+Log into **Digital Ocean** and click the *Console* button for your `droplet`. ![Digital Ocean Console]({% static 'img/deploy/digital-ocean-console.png' %})
 
 ### View logs
 
@@ -288,6 +304,15 @@ This is not about CapRover, but Postgres 15 has changed how permissions are crea
 PGPASSWORD=PASSWORD psql -U doadmin -h DATABASE_URL -p PORT -d DATABASE_NAME --set=sslmode=require -c "ALTER DATABASE DATABASE_NAME OWNER TO DATABASE_USER;"
 ```
 
+### NetData missing container statistics
+
+I keep a close eye on the **Digital Ocean** `droplet` and `Postgres` statistic graphs to make sure the server is healthy and working correctly. `CapRover` also includes the `NetData` monitoring tool which has some more detailed statistics. However, my individual Docker container statistic were not showing. To fix this log into your droplet and run the following to update the version of `NetData`.
+
+```
+echo  "{\"netDataImageName\":\"caprover/netdata:v1.34.1\"}" >  /captain/data/config-override.json
+docker service update captain-captain --force
+```
+
 ## Conclusion
 
 Hopefully this has been helpful for anyone who wants to host a Django site (or a few!) relatively inexpensively. Just a reminder if you sign up for [Digital Ocean](https://m.do.co/c/617d629f56c0) with my referral code you will get $200 in free credits (and my undying appreciation!).
@@ -301,5 +326,6 @@ Hopefully this has been helpful for anyone who wants to host a Django site (or a
 - [Docker multi-staged builds](https://github.com/michaeloliverx/python-poetry-docker-example/) by [michaeloliverx](https://github.com/michaeloliverx)
 - [Explanation of Docker](https://fastapi.tiangolo.com/deployment/docker/) by [Tiangolo](https://github.com/tiangolo)
 - More information about [GitHub deploy keys](https://github.com/caprover/caprover/issues/1265#issuecomment-973651341)
+- More details about [NetData missing container statistics](https://github.com/caprover/caprover/issues/1522)
 - [How to Deploy Django using CapRover](https://justdjango.com/blog/deploy-django-caprover)
 - [The Essential Django Deployment Guide](https://www.saaspegasus.com/guides/django-deployment/)
