@@ -153,11 +153,17 @@ This will alias `www.boat-lovers.com` to `boats-r-us.apps.boat-lovers.com`.
 5. Click *Connect New Domain*
 6. Once all domains are added, click *Enable HTTPS* for each one (even though this seems unnecessary since `Cloudflare` provides free SSL as well)
 
-## Automatic deploys after pushing to GitHub
+## Automatic deploys
 
 Once manual deploys are working, you can set up `CapRover` to deploy a new version of your code every time you push to a specific branch in your repository.
 
-### Generate the keys for deploys
+There are a few ways to automatically deploy new code to your `CapRover` app after pushing the code to GitHub. The first way is to set up a webhook from GitHub that calls `CapRover` and `CapRover` builds the Docker image. Another option is to use a GitHub Action to build the Docker file and push the built image directly to `CapRover`.
+
+### `CapRover` builds the Docker image
+
+The benefit of having `CapRover` build your Docker image is the output of building the Docker image is in the *Deployment* tab for your application in the `CapRover` UI. The downside is if your server is resource-constrained then building the Docker image will take away CPU and memory from any other applications the server is running.
+
+#### Generate the keys for deploys
 
 Generate a *private key* and *public key* in the same directory as your code.
 
@@ -167,7 +173,7 @@ ssh-keygen -t ed25519 -C "skiff@boat-lovers.com" -f ./deploykey -q -N ""
 
 A *private key* (named `deploykey`) and a *public key* (`deploykey.pub`) will be created in the current directory.
 
-### Add the public key to GitHub
+#### Add the public key to GitHub
 
 1. Create a deploy key in GitHub by going to `https://github.com/USERNAME/REPOSITORY_NAME/settings/keys/new`
 2. Give the key a *Title* (e.g. "CapRover") 
@@ -175,7 +181,7 @@ A *private key* (named `deploykey`) and a *public key* (`deploykey.pub`) will be
 4. Do not check *Allow write access* unless you have a good reason to
 5. Click *Add key*
 
-### Add the private key to `CapRover`
+#### Add the private key to `CapRover`
 
 Go to the *Deployment* tab for your app in `CapRover`. Scroll down to *Method 3: Deploy from Github/Bitbucket/Gitlab*.
 
@@ -186,7 +192,7 @@ Go to the *Deployment* tab for your app in `CapRover`. Scroll down to *Method 3:
 4. Click *Save & Update*
 5. The text box above *Repository* should now have a long URL inside of it; copy that into your clipboard
 
-### Add the webhook to GitHub
+#### Add the webhook to GitHub
 
 1. Go to https://github.com/USERNAME/REPOSITORY/settings/hooks/new and paste the generated URL from the last step into the *Payload URL* text box; leave the rest of the settings as-is
 2. Click *Add webhook*
@@ -197,11 +203,63 @@ Now when you push commits to the branch you specified:
 3. `CapRover` builds the *Dockerfile*
 4. `CapRover` deploys the site
 
+### GitHub Action builds the Docker image
+
+The benefit of having a GitHub Action build your Docker image is that the process will not steal resources from other applications running on your *droplet*. The negative is that if there is an issue deploying your application, you might need to debug the problem in either GitHub or `CapRover` depending on the issue.
+
+#### Create GitHub personal access token
+
+1. Go to the [Personal access tokens page on GitHub](https://github.com/settings/tokens)
+2. Click *Generate new token (classic)*
+3. Type something like "CapRover Docker repository" for the *Note*
+4. Set *Expiration* to *No expiration*
+5. Select *read:packages* checkbox
+6. Click *Generate token*
+7. Copy token to clipboard
+
+#### Add Docker registry to `CapRover`
+
+![CapRover Docker Registry]({% static 'img/deploy/caprover-docker-registry.png' %})
+
+1. Go `CapRover` admin UI
+2. Click *Cluster* in the left-hand navigation
+3. Click *Add Remote Registry*
+4. Put your GitHub username in *Username*
+5. Put the generated GitHub token from above in *Password*
+6. Type "ghcr.io" for the *Domain*
+7. Click *Add Remote Registry*
+
+#### Create `CapRover` app token
+
+1. Go `CapRover` admin UI
+2. Click *Apps* in the left-hand navigation
+3. Click the application you want to set up
+4. Click the *Deployment* tab
+5. Go to the *Method 1: Official CLI* sub-header
+6. Click *Enable App Token*
+7. Copy the generated app token
+
+#### Add secrets for the GitHub Action
+
+1. Go to https://github.com/USERNAME/REPOSITORY_NAME/settings/secrets/actions
+2. Click *New repository secret* and type "CAPROVER_APP_TOKEN" into *Name* and the generated app token from the last step into *Secret*; click *Add secret*
+3. Click *New repository secret* and type "CAPROVER_SERVER_URL" into *Name* and the URL for your `CapRover` server into *Secret*; click *Add secret*
+
+#### Add the GitHub Action
+
+This GitHub Action will build the Docker image and push to `CapRover` when code is pushed to the `main` branch.
+
+1. Go to https://github.com/USERNAME/REPOSITORY_NAME/actions
+2. Click *New workflow*
+3. Click *set up a workflow for yourself*
+4. Name the workflow "deploy-to-caprover.yml" or something similar
+5. Copy the following `yaml` from [my gist](https://gist.github.com/adamghill/e63556cb9dbd0ee85dc0334549a7a00f), making sure to update the `CAPROVER_APP` in the `env` section
+
 ## Custom Dockerfile per app
 
-For one of my side projects, [devmarks.io](https://devmarks.io), there is a web site and a worker process. They share the same code. So, I have two apps in `CapRover`. One named `devmarks-web` and one named `devmarks-worker`. Typically my [`Dockerfile`](https://github.com/adamghill/docker-python-poetry-django/blob/main/Dockerfile#L45) calls a [script](https://github.com/adamghill/docker-python-poetry-django/blob/main/bin/post_compile) that runs `collectstatic` and a few other management commands and then runs [`gunicorn`](https://github.com/adamghill/docker-python-poetry-django/blob/main/bin/post_compile#L19). However, for my worker app I don't need `collectstatic` to run and instead of `gunicorn` I would like to start my worker process.
+For one of my side projects, [devmarks.io](https://devmarks.io), there is a web site and a worker process and they share the same code. I have two apps in `CapRover`, one named `devmarks-web` and another named `devmarks-worker`. Typically my [`Dockerfile`](https://github.com/adamghill/docker-python-poetry-django/blob/main/Dockerfile#L45) calls a [script](https://github.com/adamghill/docker-python-poetry-django/blob/main/bin/post_compile) that runs `collectstatic` and a few other management commands and then runs [`gunicorn`](https://github.com/adamghill/docker-python-poetry-django/blob/main/bin/post_compile#L19). However, for my worker app I don't need `collectstatic` to run and instead of `gunicorn` I would like to start the worker process.
 
-`CapRover` allows per-app changes to the `captain-definition` file. So, for `devmarks-worker` I created a `captain-definition-worker` file that references a new `Dockerfile-worker` file. The only difference in `Dockerfile-worker` is the  `CMD` statement at the end which calls `python manage.py worker`.
+`CapRover` allows per-app changes to the `captain-definition` file. So, for `devmarks-worker` I created a `captain-definition-worker` file that references a new `Dockerfile-worker` file. The only difference in `Dockerfile-worker` is the  `CMD` statement at the end which calls `python manage.py qcluster`.
 
 1. Go to your app in the `CapRover` admin UI
 2. Click the *Deployment* tab
