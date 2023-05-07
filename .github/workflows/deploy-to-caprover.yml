@@ -13,7 +13,7 @@ env:
   DOCKER_REGISTRY: ghcr.io
   DOCKER_FILE_NAME: ./Dockerfile
   IMAGE_NAME: ${{ github.repository }}
-  CAPROVER_APP: alldjango
+  CAPROVER_APP: alldjango-web
 
 jobs:
   build-and-push-image:
