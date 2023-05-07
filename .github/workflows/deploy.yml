@@ -7,6 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: foo
-        uses: adamghill/deploy-to-caprover@v1
+        uses: adamghill/deploy-to-caprover@v2
         with:
           caprover-app-name: alldjango-web
