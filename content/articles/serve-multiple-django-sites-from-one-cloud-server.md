@@ -345,7 +345,7 @@ docker exec -it $(docker ps --filter name=srv-captain--APP_NAME -q) python manag
 
 Enabling HTTPS for a domain is usually painless, but one time I kept getting a validation error for an extended period. I double-checked that the new IP and domain were set properly in Cloudflare multiple times and waited a few hours, but it never worked. However, you can skip domain verification if needed.
 
-1. Log into [Digital Ocean](https://www.digital-ocean.com)
+1. Log into [Digital Ocean](https://www.digitalocean.com)
 2. Go to your *droplet*
 3. Click on the *Console* button
 4. Copy the following into the terminal and pretty Enter
