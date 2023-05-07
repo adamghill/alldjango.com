@@ -254,6 +254,8 @@ This GitHub Action will build the Docker image and push to `CapRover` when code 
 3. Click *set up a workflow for yourself*
 4. Name the workflow "deploy-to-caprover.yml" or something similar
 5. Copy the following `yaml` from [my gist](https://gist.github.com/adamghill/e63556cb9dbd0ee85dc0334549a7a00f), making sure to update the `CAPROVER_APP` in the `env` section
+6. Click *Commit changes...*
+7. Click the *Actions` sub-navigation to see the workflow run
 
 ## Custom Dockerfile per app
 
