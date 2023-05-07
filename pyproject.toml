@@ -7,6 +7,7 @@ authors = ["adamghill <adamghill@yahoo.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 coltrane = { version = "<1", extras = ["mistune"] }
+gunicorn = "^20.1.0"
 
 [tool.poetry.dev-dependencies]
 
