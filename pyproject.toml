@@ -8,6 +8,7 @@ authors = ["adamghill <adamghill@yahoo.com>"]
 python = "^3.9"
 coltrane = { version = "<1", extras = ["mistune"] }
 gunicorn = "^20.1.0"
+whitenoise = "^6.4.0"
 
 [tool.poetry.dev-dependencies]
 
