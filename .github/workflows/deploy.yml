@@ -6,8 +6,7 @@ jobs:
     name: Deploy to CapRover
     steps:
       - uses: actions/checkout@v3
-      - uses: adamghill/ build-docker-and-deploy-to-caprover
-@v1
+      - uses: adamghill/ build-docker-and-deploy-to-caprover@v1
         with:
           caprover-app-name: alldjango-web
           github-token: ${{ secrets.GITHUB_TOKEN }}
