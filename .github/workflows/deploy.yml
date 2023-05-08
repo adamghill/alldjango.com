@@ -9,6 +9,6 @@ jobs:
       - uses: adamghill/deploy-to-caprover@v2.0.1
         with:
           caprover-app-name: alldjango-web
-          github-token: ${{ GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           caprover-server-url: ${{ secrets.CAPROVER_SERVER_URL }}
           caprover-app-token: ${{ secrets.CAPRVOER_APP_TOKEN }}
