@@ -3,10 +3,12 @@ on: [push]
 jobs:
   deploy_to_caprover:
     runs-on: ubuntu-latest
-    name: Testing
+    name: Deploy to CapRover
     steps:
       - uses: actions/checkout@v3
-      - id: foo
-        uses: adamghill/deploy-to-caprover@v2
+      - uses: adamghill/deploy-to-caprover@v2.0.1
         with:
           caprover-app-name: alldjango-web
+          github-token: ${{ GITHUB_TOKEN }}
+          caprover-server-url: ${{ secrets.CAPROVER_SERVER_URL }}
+          caprover-app-token: ${{ secrets.CAPRVOER_APP_TOKEN }}
