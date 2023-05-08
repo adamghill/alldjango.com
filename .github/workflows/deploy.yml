@@ -11,4 +11,4 @@ jobs:
           caprover-app-name: alldjango-web
           github-token: ${{ secrets.GITHUB_TOKEN }}
           caprover-server-url: ${{ secrets.CAPROVER_SERVER_URL }}
-          caprover-app-token: ${{ secrets.CAPRVOER_APP_TOKEN }}
+          caprover-app-token: ${{ secrets.CAPROVER_APP_TOKEN }}
