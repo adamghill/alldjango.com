@@ -253,7 +253,24 @@ This GitHub Action will build the Docker image and push to `CapRover` when code 
 2. Click *New workflow*
 3. Click *set up a workflow for yourself*
 4. Name the workflow "deploy-to-caprover.yml" or something similar
-5. Copy the following `yaml` from [my gist](https://gist.github.com/adamghill/e63556cb9dbd0ee85dc0334549a7a00f), making sure to update the `CAPROVER_APP` in the `env` section
+5. Copy the following into your file
+```yaml
+on: [push]
+
+jobs:
+  deploy_to_caprover:
+    runs-on: ubuntu-latest
+    name: Deploy to CapRover
+    steps:
+      - uses: actions/checkout@v3
+      - uses: adamghill/build-docker-and-deploy-to-caprover@v1
+        with:
+          caprover-app-name: alldjango-web
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          caprover-server-url: ${{ secrets.CAPROVER_SERVER_URL }}
+          caprover-app-token: ${{ secrets.CAPROVER_APP_TOKEN }}
+
+```
 6. Click *Commit changes...*
 7. Click the *Actions` sub-navigation to see the workflow run
 
