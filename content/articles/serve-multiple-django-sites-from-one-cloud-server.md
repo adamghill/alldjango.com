@@ -157,11 +157,11 @@ This will alias `www.boat-lovers.com` to `boats-r-us.apps.boat-lovers.com`.
 
 Once manual deploys are working, you can set up `CapRover` to deploy a new version of your code every time you push to a specific branch in your repository.
 
-There are a few ways to automatically deploy new code to your `CapRover` app after pushing the code to GitHub. The first way is to set up a webhook from GitHub that calls `CapRover` and `CapRover` builds the Docker image. Another option is to use a GitHub Action to build the Docker file and push the built image directly to `CapRover`.
+The first option is to set up a webhook from GitHub that calls `CapRover` and `CapRover` builds the Docker image. The second option is to use a GitHub Action to build the Docker file and push the image to your `CapRover` installation.
 
 ### `CapRover` builds the Docker image
 
-The benefit of having `CapRover` build your Docker image is the output of building the Docker image is in the *Deployment* tab for your application in the `CapRover` UI. The downside is if your server is resource-constrained then building the Docker image will take away CPU and memory from any other applications the server is running.
+The benefit of having `CapRover` build your Docker image is that it is less hassle to setup and the output of building the Docker image is in the `CapRover` UI. The downside is building the Docker image can use a lot of CPU and memory on your server.
 
 #### Generate the keys for deploys
 
@@ -205,7 +205,7 @@ Now when you push commits to the branch you specified:
 
 ### GitHub Action builds the Docker image
 
-The benefit of having a GitHub Action build your Docker image is that the process will not steal resources from other applications running on your *droplet*. The negative is that if there is an issue deploying your application, you might need to debug the problem in either GitHub or `CapRover` depending on the issue.
+The benefit of having a GitHub Action build your Docker image is that the process will not steal resources from other applications running on your *droplet*.
 
 #### Create GitHub personal access token
 
@@ -273,6 +273,15 @@ jobs:
 ```
 6. Click *Commit changes...*
 7. Click the *Actions` sub-navigation to see the workflow run
+
+#### Make sure Actions have the right permissions
+
+1. Got to https://github.com/USERNAME/REPOSITORY_NAME/settings/actions
+2. Go to the *Workflow permissions* section
+3. Click the *Read and write permissions* radio button
+4. Click *Save*
+
+![Create droplet]({% static 'img/deploy/action-workflow-permissions.png' %})
 
 ## Custom Dockerfile per app
 
