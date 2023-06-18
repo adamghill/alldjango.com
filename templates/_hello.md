@@ -16,15 +16,19 @@ invectives.
 
 - [fediview.com](https://fediview.com/): Generate a personalized summary from your Mastodon timeline
 - [devmarks.io](https://devmarks.io/): Bookmarking for Developers
+- [unsuckjs.com](https://unsuckjs.com/): A listing of JavaScript libraries to progressively enhance HTML
+- [python-utils.adamghill.com](https://python-utils.adamghill.com/): The online playground for Python utilities
+
+### Some of my OSS libraries
+
 - [Unicorn](https://www.django-unicorn.com): A full-stack component library for Django 🦄
 - [coltrane](https://coltrane.readthedocs.io/): A simple content site framework that harnesses the power of Django
 without the hassle 🎵
-- [python-utils.com](https://www.python-utils.com/): The online playground for Python utilities
 - [django-fbv](https://django-fbv.readthedocs.io/): Utilities to make Django function-based views cleaner, more
 efficient, and better tasting
-- [unsuckjs.com](https://unsuckjs.com/): Progressively enhance HTML with lightweight JavaScript libraries
 - [minestrone](https://minestrone.readthedocs.io/): An opinionated Python library that lets you search, modify, and
 parse messy HTML with ease 🥫
+- Follow me at [github.com/adamghill](https://github.com/adamghill) for more
 
 ### Inspiration
 
