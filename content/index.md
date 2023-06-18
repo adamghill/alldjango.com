@@ -13,7 +13,7 @@ template: base.html
 - Skip the tangled web of microservices and use Django apps to stay in a delightful monolith
 - Stick to tried-and-true technology like `PostgreSQL` and `Redis`
 - Use server-side templates and the least amount of JavaScript possible while still providing a great user experience
-- Offload slow processing to [`RQ`](https://github.com/rq/django-rq) or [`django-db-queue`](https://github.com/dabapps/django-db-queue) to keep rendering time fast
+- Offload slow processing to a background queue like [`django-q2`](https://github.com/django-q2/django-q2) to keep rendering time fast
 
 <br />
 
