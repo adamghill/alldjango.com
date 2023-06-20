@@ -36,3 +36,10 @@ This project is extremely indebted to the ethos (and design!) of [boringrails.co
 Swanson](https://twitter.com/_swanson). Check it out if you are more into 💎 than 🐍.
 
 {% endif %}
+
+<div style="text-align: center">
+    <a
+        href="https://www.digitalocean.com/?refcode=617d629f56c0&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"><img
+            src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg"
+            alt="DigitalOcean Referral Badge" /></a>
+</div>
