@@ -1,0 +1,82 @@
+body {
+    background-color: #fff;
+    background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+        linear-gradient(#eee .1em, transparent .1em);
+    background-size: 100% 2em;
+}
+
+h1,
+h2 {
+    font-family: 'Over the Rainbow', serif;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+.container {
+    margin-left: 10em;
+    margin-right: 10em;
+}
+
+.header {
+    text-align: center;
+}
+
+.box {
+    width: 600px;
+    background-color: #ffffff;
+    padding: 2em;
+    width: 600px;
+    margin: 0 auto;
+    box-shadow: 6px 6px 6px -6px #ccc;
+    margin-bottom: 2em;
+    border: 1px solid #9b9b9b;
+}
+
+.distress { 
+    background-color: #fff;
+    background-image: url(/static/img/stickers/paper-texture.png);
+    background-size: cover;
+    mix-blend-mode: screen;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #9b9b9b;
+    box-shadow: 6px 6px 6px -6px #ccc;
+}
+
+.circle img {
+    width: 100%;
+}
+
+.emoji {
+    font-size: 10em;
+}
+
+.emboss {
+    text-shadow: 0 -0.5rem 1rem white, 0 0.5rem 1rem #999;
+}
+
+.rotate-30 {
+    transform: rotate(30deg);
+}
+
+.rotate-340 {
+    transform: rotate(340deg);
+}
+
+.quote {
+    border-left: 3px rgb(51, 164, 230) solid;
+    padding-left: 6px;
+}
