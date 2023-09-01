@@ -38,13 +38,6 @@ h2 {
     border: 1px solid #9b9b9b;
 }
 
-.distress { 
-    background-color: #fff;
-    background-image: url(/static/img/stickers/paper-texture.png);
-    background-size: cover;
-    mix-blend-mode: screen;
-}
-
 .circle {
     width: 200px;
     height: 200px;
