@@ -1,7 +1,7 @@
 body {
     background-color: #fff;
-    background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
-        linear-gradient(#eee .1em, transparent .1em);
+    background-image: linear-gradient(90deg, transparent 79px, #FF5C5C 79px, transparent 80px),
+        linear-gradient(0deg, #6EDBDB 1px, transparent 1.1px);
     background-size: 100% 2em;
 }
 
@@ -18,9 +18,29 @@ h2 {
     font-size: 2em;
 }
 
-.container {
+.wrapper {
     margin-left: 10em;
     margin-right: 10em;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    .emoji {
+        display: none
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .wrapper {
+        margin-left: .1em;
+        margin-right: .1em;
+    }
 }
 
 .header {
@@ -28,10 +48,10 @@ h2 {
 }
 
 .box {
-    width: 600px;
+    max-width: 600px;
+    min-width: 300px;
     background-color: #ffffff;
     padding: 2em;
-    width: 600px;
     margin: 0 auto;
     box-shadow: 6px 6px 6px -6px #ccc;
     margin-bottom: 2em;
@@ -72,4 +92,23 @@ h2 {
 .quote {
     border-left: 3px rgb(51, 164, 230) solid;
     padding-left: 6px;
+}
+
+.profile {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.pic {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.hockey-mask {
+    position: absolute;
+    display: none;
+}
+
+h2 img {
+    max-height: 40px;
 }
