@@ -23,54 +23,60 @@
     </div>
 
     <div class="container">
-        <div class="box">
-            <div class="emoji emboss rotate-30" style="float: right; position: relative; right: 23px;">🕶️</div>
+        <img src="{% static 'img/stickers/pony.png' %}" class="sticker"
+            style="height: 300px; top: 10px; position: relative; float: left; left: 50px;" />
 
-            <p>
-                Made with ❤️ for the Django community by some nice humans. Available in person at DjangoCon 2023 US in
-                Durham, NC.
+        <div class="box">
+            <img src="{% static 'img/stickers/3.png' %}" class="sticker"
+                style="padding-left: 10px; float: right; height: 200px;" />
+
+            <p style="margin-top: 0;">
+                We love Django and the community, but we thought one thing was missing -- more <a
+                    href="#stickers"><em>stickers</em></a>
+                designed specifically for Djangonauts.
             </p>
             <p>
-                Act fast! Supplies are limited!
+                Here are some stickers made with ❤️ for the Django community by some nice humans.
             </p>
             <p>
-                Something more here...
+                Available in person at <a href="https://2023.djangocon.us">DjangoCon 2023 US</a> for your
+                laptop, notepad, BMX bike, or water bottle.
+            </p>
+            <p>
+                Come find either <a href="#sangeeta">Sangeeta</a> or <a href="#adam">Adam</a> to get some
+                new rad Django stickers.
             </p>
         </div>
 
-        <div class="header" style="margin-top: 5em; margin-bottom: 1.5em;">
+        <div class="header" style="margin-top: 5em; margin-bottom: 1.5em;" id="stickers">
             <img src="{% static 'img/stickers/stickers.png' %}" style="height: 80px;" />
         </div>
 
         <div class="box">
-            STICKERS GO HERE?
+            <p>
+                STICKERS GO HERE?
+            </p>
         </div>
-
-        {% comment %}
-        <div class="emoji emboss rotate" style="float: right; position: relative; right: 23px;">🔥</div>
-        <div class="emoji emboss rotate" style="float: right; position: relative; right: 23px;">👩‍🚀</div>
-        <div class="emoji emboss rotate" style="float: right; position: relative; right: 23px;">👾</div>
-        <div class="emoji emboss rotate" style="float: right; position: relative; right: 23px;">🖥️</div>
-        <div class="emoji emboss rotate" style="float: right; position: relative; right: 23px;">💻</div>
-        <div class="emoji emboss rotate" style="float: right; position: relative; right: 23px;">🕹️</div>
-        <div class="emoji emboss rotate" style="float: right; position: relative; right: 23px;">💾</div>
-        {% endcomment %}
 
         <div class="header" style="margin-top: 5em; margin-bottom: 1.5em;">
             <img src="{% static 'img/stickers/made-by.png' %}" style="height: 80px;" />
         </div>
 
-        <div class="emoji emboss rotate" style="float: left; position: relative; left: 100px;">💯</div>
+        <img src="{% static 'img/stickers/6.png' %}" class="sticker"
+            style="height: 120px; float: left; position: relative; left: 100px;" />
 
         <div class="box">
-            Because of COVID restrictions for the conference, <a href="javascript: void(0);" id="mask-up">see what</a>
-            we will look like during the conference.
+            <p>
+                Because of COVID restrictions for the conference,
+                <a href="javascript: void(0);" id="mask-up">see what</a>
+                we will look like with masks on.
+            </p>
         </div>
 
-        <div class="box">
+        <div class="box profile" id="sangeeta">
             <div class="header">
-                <div class="profile">
-                    <img src="{% static 'img/stickers/sjbitcode.jpeg' %}" class="circle profile" />
+                <div class="pictures">
+                    <img src="{% static 'img/stickers/sjbitcode.jpeg' %}" class="circle pic" />
                     <img src="{% static 'img/stickers/hockey-mask.png' %}" class="hockey-mask"
                         style="top: 30px; left: 245px; width: 100px; transform: rotate(-8deg);" />
                 </div>
@@ -80,11 +86,13 @@
                 </h2>
             </div>
 
-            <div class="emoji emboss rotate-340" style="float: right; position: relative; right: 23px;">🤖
-            </div>
+            <img src="{% static 'img/stickers/4.png' %}" class="sticker"
+                style="height: 120px; float: right; position: relative; right: 23px;" />
 
-            <div>
-                <h3>Quick Facts</h3>
+            <div class="section">
+                <h3>
+                    <img src="{% static 'img/stickers/quick-facts.png' %}" />
+                </h3>
                 <ul>
                     <li>Loves running</li>
                     <li>Drinks the most bitter coffee available</li>
@@ -92,25 +100,30 @@
                 </ul>
             </div>
 
-            <div>
-                <h3>Favorite Quote</h3>
-                <div class="quote">What goes around comes around.</div>
+            <div class="section">
+                <h3>
+                    <img src="{% static 'img/stickers/favorite-quote.png' %}" />
+                </h3>
+                <p class="quote">What goes around comes around.</p>
             </div>
 
-            <div>
-                <h3>Superlatives</h3>
+            <div class="section">
+                <h3>
+                    <img src="{% static 'img/stickers/superlatives.png' %}" />
+                </h3>
                 <ul>
-                    <li>Best sticker artist</li>
+                    <li>Best artist</li>
                     <li>Most helpful</li>
                 </ul>
             </div>
         </div>
 
-        <div class="emoji emboss rotate-30" style="float: right; position: relative; right: 103px;">🚀</div>
+        <img src="{% static 'img/stickers/5.png' %}" class="sticker"
+            style="height: 120px; float: right; position: relative; right: 103px; top: 360px;" />
 
-        <div class="box">
+        <div class="box profile" id="adam">
             <div class="header">
-                <div class="circle profile">
+                <div class="circle pictures">
                     <img src="{% static 'img/stickers/adamghill.jpg' %}" class="pic" />
                     <img src="{% static 'img/stickers/hockey-mask.png' %}" class="hockey-mask"
                         style="left: 95px; width: 80px; top: 42px;" />
@@ -121,8 +134,10 @@
                 </h2>
             </div>
 
-            <div>
-                <h3>Quick Facts</h3>
+            <div class="section">
+                <h3>
+                    <img src="{% static 'img/stickers/quick-facts.png' %}" />
+                </h3>
                 <ul>
                     <li>Owns 2 pinball machines</li>
                     <li>Light-roast coffee snob</li>
@@ -133,18 +148,20 @@
                 </ul>
             </div>
 
-            <div>
-                <h3>Favorite Quote</h3>
+            <div class="section">
+                <h3>
+                    <img src="{% static 'img/stickers/favorite-quote.png' %}" />
+                </h3>
                 <div class="quote">Oh no, here we go again.</div>
             </div>
 
-            <div class="emoji emboss rotate" style="float: right; position: relative; right: 23px;">👩‍💻</div>
-
-            <div>
-                <h3>Superlatives</h3>
+            <div class="section">
+                <h3>
+                    <img src="{% static 'img/stickers/superlatives.png' %}" />
+                </h3>
                 <ul>
-                    <li>Most stubborn</li>
                     <li>Best dog owner</li>
+                    <li>Most stubborn</li>
                 </ul>
             </div>
         </div>
