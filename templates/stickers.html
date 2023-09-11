@@ -18,39 +18,54 @@
 </head>
 
 <body>
-    <div class="header" style="padding-top: 3.5em; margin-bottom: 3.5em;">
-        <img src="{% static 'img/stickers/logo.png' %}" style="height: 120px;" />
-    </div>
+    <h1 class="header">
+        <img src="{% static 'img/stickers/logo.png' %}" id="logo" alt="Django stickers" />
+    </h1>
 
-    <div class="container">
-        <img src="{% static 'img/stickers/pony.png' %}" class="sticker"
-            style="height: 300px; top: 10px; position: relative; float: left; left: 50px;" />
+    <div class="wrapper">
+        <img src="{% static 'img/stickers/pony.png' %}" id="pony" class="sticker" alt="Django pony" />
 
         <div class="box">
-            <img src="{% static 'img/stickers/3.png' %}" class="sticker"
-                style="padding-left: 10px; float: right; height: 200px;" />
+            <img src="{% static 'img/stickers/sparkle.png' %}" id="sparkle" class="sticker" alt="sparkle" />
 
-            <p style="margin-top: 0;">
-                We love Django and the community, but we thought one thing was missing -- more <a
-                    href="#stickers"><em>stickers</em></a>
-                designed specifically for Djangonauts.
+            <p class="mt-0">
+                We love Django and the community, but we thought
+                <img src="{% static 'img/stickers/one-written.png' %}" id="one" />
+                thing was missing...
             </p>
+
             <p>
-                Here are some stickers made with ❤️ for the Django community by some nice humans.
+                Django needs more
+                <a href="#stickers"><em>stickers</em></a>
+                designed specifically for Djangonauts!
             </p>
+            {% comment %} <p>
+                Here are some stickers made with
+                <img src="{% static 'img/stickers/heart.png' %}" id="heart" />
+                for the Django community by some nice humans.
+            </p> {% endcomment %}
+        </div>
+
+        <div class="box alert">
             <p>
-                Available in person at <a href="https://2023.djangocon.us">DjangoCon 2023 US</a> for your
-                laptop, notepad, BMX bike, or water bottle.
+                Stickers made with
+                <img src="{% static 'img/stickers/heart.png' %}" id="heart" />
+                for Django will be available at
+                <a href="https://2023.djangocon.us">DjangoCon 2023 US</a>.
             </p>
             <p>
                 Come find either <a href="#sangeeta">Sangeeta</a> or <a href="#adam">Adam</a> to get some
-                new rad Django stickers.
+                new rad Django stickers for your laptop, composition book, BMX bike, or water bottle!
             </p>
         </div>
 
-        <div class="header" style="margin-top: 5em; margin-bottom: 1.5em;" id="stickers">
-            <img src="{% static 'img/stickers/stickers.png' %}" style="height: 80px;" />
+        <div class="header">
+            <img src="{% static 'img/stickers/dotted-line-3.png' %}" class="dotted-line" alt="dotted line" />
         </div>
+
+        <h2 class="header" id="stickers">
+            <img src="{% static 'img/stickers/stickers.png' %}" alt="Stickers" />
+        </h2>
 
         <div class="box">
             <p>
@@ -58,41 +73,51 @@
             </p>
         </div>
 
-        <div class="header" style="margin-top: 5em; margin-bottom: 1.5em;">
-            <img src="{% static 'img/stickers/made-by.png' %}" style="height: 80px;" />
+        <div class="header">
+            <img src="{% static 'img/stickers/dotted-line-3.png' %}" class="dotted-line" alt="dotted line" />
         </div>
 
-        <img src="{% static 'img/stickers/6.png' %}" class="sticker"
-            style="height: 120px; float: left; position: relative; left: 100px;" />
+        <h2 class="header" id="made-by">
+            <img src="{% static 'img/stickers/made-by.png' %}" alt="Made by" />
+        </h2>
 
-        <div class="box">
+        <img src="{% static 'img/stickers/a-plus.png' %}" id="a-plus" class="sticker" alt="A+" />
+
+        <div class="box alert" id="masks">
             <p>
-                Because of COVID restrictions for the conference,
-                <a href="javascript: void(0);" id="mask-up">see what</a>
-                we will look like with masks on.
+                Because of
+                <a href="https://2023.djangocon.us/covid/">COVID restrictions</a>
+                it might be hard to recognize us at the conference.
+            </p>
+            <p>
+                <a href="javascript: void(0);" id="mask-up">See what</a>
+                we will look like with masks on!
+            </p>
+            <p id="again">
+                <a href="javascript: void(0);" id="mask-up-again">Try another mask!</a>
             </p>
         </div>
 
         <div class="box profile" id="sangeeta">
             <div class="header">
                 <div class="pictures">
-                    <img src="{% static 'img/stickers/sjbitcode.jpeg' %}" class="circle pic" />
+                    <img src="{% static 'img/stickers/sjbitcode.jpeg' %}" class="circle pic"
+                        alt="Sangeeta's profile picture" />
                     <img src="{% static 'img/stickers/hockey-mask.png' %}" class="hockey-mask"
-                        style="top: 30px; left: 245px; width: 100px; transform: rotate(-8deg);" />
+                        alt="Sangeeta's hockey mask" />
                 </div>
 
-                <h2>
-                    <img src="{% static 'img/stickers/sangeeta.png' %}" />
-                </h2>
+                <h3>
+                    <img src="{% static 'img/stickers/sangeeta.png' %}" alt="Sangeeta" />
+                </h3>
             </div>
 
-            <img src="{% static 'img/stickers/4.png' %}" class="sticker"
-                style="height: 120px; float: right; position: relative; right: 23px;" />
+            <img src="{% static 'img/stickers/paperclip.png' %}" id="paperclip" class="sticker" alt="paperclip" />
 
             <div class="section">
-                <h3>
-                    <img src="{% static 'img/stickers/quick-facts.png' %}" />
-                </h3>
+                <h4>
+                    <img src="{% static 'img/stickers/quick-facts.png' %}" alt="Quick facts" />
+                </h4>
                 <ul>
                     <li>Loves running</li>
                     <li>Drinks the most bitter coffee available</li>
@@ -101,16 +126,18 @@
             </div>
 
             <div class="section">
-                <h3>
-                    <img src="{% static 'img/stickers/favorite-quote.png' %}" />
-                </h3>
-                <p class="quote">What goes around comes around.</p>
+                <h4>
+                    <img src="{% static 'img/stickers/favorite-quote.png' %}" alt="Favorite quote" />
+                </h4>
+                <p class="quote">
+                    What goes around comes around.
+                </p>
             </div>
 
             <div class="section">
-                <h3>
-                    <img src="{% static 'img/stickers/superlatives.png' %}" />
-                </h3>
+                <h4>
+                    <img src="{% static 'img/stickers/superlatives.png' %}" alt="Superlatives" />
+                </h4>
                 <ul>
                     <li>Best artist</li>
                     <li>Most helpful</li>
@@ -118,52 +145,72 @@
             </div>
         </div>
 
-        <img src="{% static 'img/stickers/5.png' %}" class="sticker"
-            style="height: 120px; float: right; position: relative; right: 103px; top: 360px;" />
+        <img src="{% static 'img/stickers/pencil.png' %}" id="pencil" class="sticker rotate-100" alt="pencil" />
+        <img src="{% static 'img/stickers/ruler.png' %}" id="ruler" class="sticker rotate-100" alt="ruler" />
 
         <div class="box profile" id="adam">
             <div class="header">
                 <div class="circle pictures">
-                    <img src="{% static 'img/stickers/adamghill.jpg' %}" class="pic" />
+                    <img src="{% static 'img/stickers/adamghill.jpg' %}" class="pic" alt="Adam's profile picture" />
                     <img src="{% static 'img/stickers/hockey-mask.png' %}" class="hockey-mask"
-                        style="left: 95px; width: 80px; top: 42px;" />
+                        alt="Adam's hockey mask" />
                 </div>
-
-                <h2>
-                    <img src="{% static 'img/stickers/adam.png' %}" />
-                </h2>
+                <h3>
+                    <img src="{% static 'img/stickers/adam.png' %}" alt="Adam" />
+                </h3>
             </div>
 
             <div class="section">
-                <h3>
-                    <img src="{% static 'img/stickers/quick-facts.png' %}" />
-                </h3>
+                <h4>
+                    <img src="{% static 'img/stickers/quick-facts.png' %}" alt="Quick facts" />
+                </h4>
                 <ul>
                     <li>Owns 2 pinball machines</li>
                     <li>Light-roast coffee snob</li>
                     <li>
-                        Perpetually juggling <a href="">too</a> <a href="">many</a> <a href="">side</a> <a
-                            href="">projects</a>
+                        Perpetually juggling
+                        <a href="https://alldjango.com" target="_blank">way</a>
+                        <a href="https://www.django-unicorn.com" target="_blank">too</a>
+                        <a href="https://devmarks.io" target="_blank">many</a>
+                        <a href="https://unsuckjs.com" target="_blank">side</a>
+                        <a href="https://fediview.com" target="_blank">projects</a>
                     </li>
                 </ul>
             </div>
 
             <div class="section">
-                <h3>
-                    <img src="{% static 'img/stickers/favorite-quote.png' %}" />
-                </h3>
-                <div class="quote">Oh no, here we go again.</div>
+                <h4>
+                    <img src="{% static 'img/stickers/favorite-quote.png' %}" alt="Favorite quote" />
+                </h4>
+                <p class="quote">
+                    Oh no, here we go again.
+                </p>
             </div>
 
             <div class="section">
-                <h3>
-                    <img src="{% static 'img/stickers/superlatives.png' %}" />
-                </h3>
+                <h4>
+                    <img src="{% static 'img/stickers/superlatives.png' %}" alt="Superlatives" />
+                </h4>
                 <ul>
                     <li>Best dog owner</li>
                     <li>Most stubborn</li>
                 </ul>
             </div>
+        </div>
+
+        <div class="box alert" style="margin-top: 10em;">
+            <p>
+                Built with semantic-ish HTML, barely passable CSS,
+                vanilla JavaScript, and
+                <a href="https://coltrane.readthedocs.io" target="_blank">Coltrane</a>.
+                And coffee.
+            </p>
+            <p>
+                Hosted on the glorious <a href="https://alldjango.com">alldjango.com</a>.
+            </p>
+            <p>
+                &copy; Adam Hill
+            </p>
         </div>
     </div>
 
@@ -175,6 +222,12 @@
                     const el = maskEls[i];
                     el.style.display = "block";
                 }
+
+                document.getElementById('again').style.display = 'block';
+            }, false);
+
+            document.getElementById('mask-up').addEventListener('click', (e) => {
+                // random integer and show/hide mask-int.png
             }, false);
         });
     </script>

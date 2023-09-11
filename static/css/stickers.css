@@ -1,25 +1,3 @@
-@media screen and (max-width: 800px) {
-    .wrapper {
-        margin-left: 1em;
-        margin-right: 1em;
-    }
-
-    .emoji {
-        display: none
-    }
-
-    .sticker {
-        display: none
-    }
-}
-
-@media screen and (max-width: 400px) {
-    .wrapper {
-        margin-left: .1em;
-        margin-right: .1em;
-    }
-}
-
 body {
     background-color: #fff;
     background-image: linear-gradient(90deg, transparent 79px, #FF5C5C 79px, transparent 80px),
@@ -27,17 +5,30 @@ body {
     background-size: 100% 2em;
 }
 
+h1 img {
+    height: 120px;
+    padding-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+
 h2 img {
-    max-height: 40px;
+    max-height: 80px;
+    margin-top: 1em;
+    margin-bottom: .5em;
 }
 
 h3 img {
+    max-height: 40px;
+}
+
+h4 img {
     max-height: 26px;
 }
 
 p {
     margin-top: 0;
     margin-bottom: 1em;
+    text-align: left;
 }
 
 p:last-child {
@@ -46,15 +37,20 @@ p:last-child {
 
 ul {
     margin: 0;
+    padding-left: 1.3em;
 }
 
 a {
     color: #5272B7;
 }
 
+.mt-0 {
+    margin-top: 0;
+}
+
 .wrapper {
-    margin-left: 10em;
-    margin-right: 10em;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .header {
@@ -67,11 +63,11 @@ a {
     padding: 2em;
     margin: 0 auto;
     margin-bottom: 2em;
-    /*box-shadow: 6px 6px 6px -6px #ccc;*/
-    /*border: 1px solid #9b9b9b;*/
-    /*background-color: #ffffff;*/
     background-color: #66B68E;
 
+    /*
+    From https://css-generators.com/custom-borders/
+    */
     --mask: 
       linear-gradient(#000 0 0) center/calc(100% - 20px) calc(100% - 20px) no-repeat,
       conic-gradient(from  135deg at top   ,#0000,#000 1deg 89deg,#0000 90deg) 0 0   /20px 10px space no-repeat,
@@ -88,6 +84,14 @@ a {
     color: white;
 }
 
+.box.alert {
+    background-color: #fadf70;
+}
+
+.dotted-line {
+    margin-top: 3em;
+}
+
 .circle {
     width: 200px;
     height: 200px;
@@ -96,23 +100,18 @@ a {
     display: inline-block;
     vertical-align: middle;
     border: 1px solid #5f5f5f;
-    /* box-shadow: 6px 6px 6px -6px #ccc; */
 }
 
 .circle img {
     width: 100%;
 }
 
-.emoji {
-    font-size: 10em;
-}
-
-.emboss {
-    text-shadow: 0 -0.5rem 1rem white, 0 0.5rem 1rem #999;
-}
-
 .rotate-30 {
     transform: rotate(30deg);
+}
+
+.rotate-100 {
+    transform: rotate(100deg);
 }
 
 .rotate-340 {
@@ -144,4 +143,166 @@ a {
 
 .profile .section {
     padding-top: 2.3em;
+}
+
+.sticker {
+    height: 120px;
+    position: relative;
+}
+
+#one, #heart {
+    height: 18px;
+}
+
+#pony {
+    height: 300px;
+    top: 170px;
+    position: absolute;
+    left: 20px;
+}
+
+#sparkle {
+    padding-left: 10px;
+    float: right;
+    height: 180px;
+}
+
+#paperclip {
+    float: right;
+    right: 23px;
+}
+
+#pencil {
+    float: right;
+    right: 103px;
+    top: 360px;
+}
+
+#a-plus {
+    float: left;
+    left: 100px;
+    top: -60px;
+}
+
+#ruler {
+    float: left;
+    left: 100px;
+    top: -100px;
+}
+
+.hockey-mask {
+    display: none;
+}
+
+#sangeeta .hockey-mask {
+    top: 30px;
+    left: 245px;
+    width: 100px;
+    transform: rotate(-8deg);
+}
+
+#adam .hockey-mask {
+    left: 95px;
+    width: 80px;
+    top: 42px;
+}
+
+#masks {
+    float: right;
+    min-width: 120px;
+    max-width: 200px;
+    top: 40px;
+}
+
+#masks p {
+    font-size: 1.2em;
+}
+
+#masks p#again {
+    display: none;
+}
+
+.alert p {
+    color: black;
+}
+
+@media screen and (max-width: 1200px) {
+    h1 img {
+        max-width: 800px;
+        padding-top: 1.5em;
+        margin-bottom: 1.5em;
+    }
+
+    .wrapper {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+    .sticker {
+        display: none;
+    }
+
+    #masks {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    h1 img {
+        max-width: 600px;
+        padding-top: 1.5em;
+        margin-bottom: 1.5em;
+    }
+
+    .sticker {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    h1 img {
+        max-width: 400px;
+        padding-top: 1.5em;
+        margin-bottom: 1.5em;
+    }
+
+    .sticker {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    h1 img {
+        height: 40px;
+        padding-top: 1.5em;
+        margin-bottom: 1.5em;
+    }
+
+    .wrapper {
+        margin-left: .1em;
+        margin-right: .1em;
+    }
+
+    .sticker {
+        display: none;
+    }
+
+    h1 img {
+        height: 40px;
+        padding-top: .5em;
+        margin-bottom: 0;
+    }
+
+    h2 {
+        margin-bottom: 0;
+    }
+
+    h2 img {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    h4 {
+        margin: 0;
+    }
 }
