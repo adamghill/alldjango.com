@@ -30,20 +30,16 @@
 
             <p class="mt-0">
                 We love Django and the community, but we thought
-                <img src="{% static 'img/stickers/one-written.png' %}" id="one" />
+                <img src="{% static 'img/stickers/one-written.png' %}" id="one" alt="one" />
                 thing was missing...
             </p>
 
             <p>
                 Django needs more
-                <a href="#stickers"><em>stickers</em></a>
+                <a href="#stickers">
+                    <img src="{% static 'img/stickers/stickers.png' %}" id="stickers-copy" alt="Stickers" /></a>
                 designed specifically for Djangonauts!
             </p>
-            {% comment %} <p>
-                Here are some stickers made with
-                <img src="{% static 'img/stickers/heart.png' %}" id="heart" />
-                for the Django community by some nice humans.
-            </p> {% endcomment %}
         </div>
 
         <div class="box alert">
@@ -198,7 +194,7 @@
             </div>
         </div>
 
-        <div class="box alert" style="margin-top: 10em;">
+        <div class="box alert mt-10">
             <p>
                 Built with semantic-ish HTML, barely passable CSS,
                 vanilla JavaScript, and
@@ -226,8 +222,9 @@
                 document.getElementById('again').style.display = 'block';
             }, false);
 
-            document.getElementById('mask-up').addEventListener('click', (e) => {
+            document.getElementById('mask-up-again').addEventListener('click', (e) => {
                 // random integer and show/hide mask-int.png
+                alert("Coming soon!");
             }, false);
         });
     </script>

@@ -45,7 +45,11 @@ a {
 }
 
 .mt-0 {
-    margin-top: 0;
+    margin-top: 0 !important;
+}
+
+.mt-10 {
+    margin-top: 10em !important;
 }
 
 .wrapper {
@@ -150,7 +154,7 @@ a {
     position: relative;
 }
 
-#one, #heart {
+#one, #heart, #stickers-copy {
     height: 18px;
 }
 
