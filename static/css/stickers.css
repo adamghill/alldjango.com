@@ -14,11 +14,15 @@ h1 img {
 h2 img {
     max-height: 80px;
     margin-top: 1em;
-    margin-bottom: .5em;
+    margin-bottom: 0;
 }
 
 h3 img {
     max-height: 40px;
+}
+
+h4 {
+    margin-bottom: .5em;
 }
 
 h4 img {
@@ -59,6 +63,7 @@ a {
 
 .header {
     text-align: center;
+    margin-bottom: 0.5em;
 }
 
 .box {
@@ -103,7 +108,7 @@ a {
     overflow: hidden;
     display: inline-block;
     vertical-align: middle;
-    border: 1px solid #5f5f5f;
+    border: 2px solid #fadf70;
 }
 
 .circle img {
@@ -116,6 +121,10 @@ a {
 
 .rotate-100 {
     transform: rotate(100deg);
+}
+
+.rotate-130 {
+    transform: rotate(130deg);
 }
 
 .rotate-340 {
@@ -146,23 +155,23 @@ a {
 }
 
 .profile .section {
-    padding-top: 2.3em;
+    padding-top: .5em;
 }
 
 .sticker {
-    height: 120px;
+    height: 140px;
     position: relative;
 }
 
-#one, #heart, #stickers-copy {
+p #one, p #heart, p #stickers-copy, p #coffee {
     height: 18px;
 }
 
 #pony {
     height: 300px;
-    top: 170px;
+    top: 150px;
     position: absolute;
-    left: 20px;
+    left: 40px;
 }
 
 #sparkle {
@@ -189,6 +198,7 @@ a {
 }
 
 #ruler {
+    height: 180px;
     float: left;
     left: 100px;
     top: -100px;
@@ -249,6 +259,10 @@ a {
     #masks {
         display: none;
     }
+}
+
+.stickers img {
+    max-width: 600px;
 }
 
 @media screen and (max-width: 1000px) {
