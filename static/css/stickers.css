@@ -243,6 +243,26 @@ p #one, p #heart, p #stickers-copy, p #coffee {
     color: black;
 }
 
+.icons a {
+    text-decoration: none;
+}
+
+.icons img {
+    max-height: 52px;
+}
+
+.box .icons img {
+    margin-left: 4px;
+}
+
+.box .icons {
+    text-align: center;
+}
+
+.profile h3 .icons img {
+    max-height: 30px;
+}
+
 @media screen and (max-width: 1200px) {
     h1 img {
         max-width: 800px;
