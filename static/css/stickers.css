@@ -11,9 +11,12 @@ h1 img {
     margin-bottom: 1.5em;
 }
 
+h2.header {
+    margin-top: 3.5em;
+}
+
 h2 img {
     max-height: 80px;
-    margin-top: 1em;
     margin-bottom: 0;
 }
 
