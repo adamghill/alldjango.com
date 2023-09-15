@@ -240,8 +240,9 @@ p #stickers-text {
     height: 180px;
     float: left;
     position: absolute;
-    left: calc(50% - 690px);
-    margin-top: 30px;
+    left: calc(50% - 700px);
+    margin-top: 10px;
+    transform: rotate(350deg);
 }
 
 #symbols-red {
