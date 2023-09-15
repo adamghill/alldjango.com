@@ -56,12 +56,20 @@ a {
 }
 
 .mt-10 {
-    margin-top: 6em !important;
+    margin-top: 8em !important;
+}
+
+.mb-1 {
+    margin-bottom: 10px;
 }
 
 .wrapper {
     margin-left: 0;
     margin-right: 0;
+}
+
+.is-centered {
+    text-align: center;
 }
 
 .header {
@@ -160,6 +168,7 @@ a {
 .sticker {
     height: 140px;
     position: relative;
+    z-index: 1;
 }
 
 p #one, p #heart, p #coffee-text  {
@@ -167,22 +176,26 @@ p #one, p #heart, p #coffee-text  {
 }
 
 p #stickers-text {
-    height: 38px;
+    height: 200px;
     top: 10px;
     position: relative;
 }
 
 #pony {
-    height: 300px;
+    height: 500px;
     top: 150px;
     position: absolute;
-    left: calc(50% - 650px);
+    left: calc(50% - 780px);
+    z-index: 99;
+    transform: rotate(350deg);
 }
 
 #sparkle {
-    padding-left: 10px;
     float: right;
-    height: 180px;
+    height: 190px;
+    right: calc(50% - 560px);
+    top: 28px;
+    transform: rotate(4deg);
 }
 
 #paperclip {
@@ -192,8 +205,9 @@ p #stickers-text {
 
 #pencil {
     float: right;
-    right: calc(50% - 600px);
-    top: -40px;
+    right: calc(50% - 510px);
+    top: 60px;
+    margin-left: 10px
 }
 
 #a-plus {
@@ -251,11 +265,18 @@ p #stickers-text {
     padding-right: 20px;
 }
 
+#symbols-blue {
+    height: 120px;
+    float: left;
+    left: calc(50% - 590px);
+    top: -10px;
+}
+
 #laptop {
     height: 180px;
     float: right;
     right: calc(50% - 280px);
-    top: -100px;
+    top: -80px;
 }
 
 #rocket {
@@ -274,6 +295,19 @@ p #stickers-text {
     transform: rotate(200deg);
 }
 
+#wavy-lines-1 {
+    height: 100px;
+    float: right;
+    transform: rotate(90deg);
+    top: 150px;
+    right: -200px;
+}
+
+#robot {
+    height: 40px;
+    padding-left: 10px;
+}
+
 .hockey-mask {
     display: none;
 }
@@ -283,6 +317,11 @@ p #stickers-text {
     left: 245px;
     width: 100px;
     transform: rotate(-8deg);
+}
+
+#adam {
+    transform: rotate(1deg);
+    margin-top: 23px;
 }
 
 #adam .hockey-mask {
@@ -318,12 +357,8 @@ p #stickers-text {
     max-height: 52px;
 }
 
-.box .icons img {
-    margin-left: 4px;
-}
-
-.box .icons {
-    text-align: center;
+.box .icons img.code {
+    margin-right: 4px;
 }
 
 .profile {
