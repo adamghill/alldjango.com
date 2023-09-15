@@ -19,34 +19,39 @@
 
 <body>
     <h1 class="header">
-        <img src="{% static 'img/stickers/logo.png' %}" id="logo" alt="Django stickers" />
+        <img src="{% static 'img/stickers/text/django-stickers.png' %}" id="logo" alt="Django stickers" />
     </h1>
 
     <div class="wrapper">
-        <img src="{% static 'img/stickers/pony.png' %}" id="pony" class="sticker" alt="Django pony" />
+        <img src="{% static 'img/stickers/pony.png' %}" id="pony" class="sticker" alt="Django pony" style="" />
 
         <div class="box">
             <img src="{% static 'img/stickers/sparkle.png' %}" id="sparkle" class="sticker" alt="sparkle" />
 
             <p class="mt-0">
                 We love Django and the community, but we thought
-                <img src="{% static 'img/stickers/one-written.png' %}" id="one" alt="one" />
+                <img src="{% static 'img/stickers/text/one.png' %}" id="one" alt="one" />
                 thing was missing...
             </p>
 
             <p>
                 Django needs more
                 <a href="#stickers">
-                    <img src="{% static 'img/stickers/stickers.png' %}" id="stickers-copy" alt="Stickers" /></a>
+                    <img src="{% static 'img/stickers/text/stickers-yay.png' %}" id="stickers-text"
+                        alt="Stickers" /></a>
                 designed specifically for Djangonauts!
             </p>
 
             <div class="icons">
-                <img src="{% static 'img/stickers/contact/chemical-hand-drawn-container.png' %}" />
+                <img src="{% static 'img/stickers/icons/chemical-beaker.png' %}" />
             </div>
         </div>
 
+        <img src="{% static 'img/stickers/pencil.png' %}" id="pencil" class="sticker rotate-100" alt="pencil" />
+
         <div class="box alert">
+            <img src="{% static 'img/stickers/symbols-red.png' %}" id="symbols-red" class="sticker" alt="red symbols" />
+
             <p>
                 Stickers made with
                 <img src="{% static 'img/stickers/heart.png' %}" id="heart" />
@@ -55,29 +60,42 @@
             </p>
             <p>
                 Come find either <a href="#sangeeta">Sangeeta</a> or <a href="#adam">Adam</a> to get some
-                new rad Django stickers for your laptop, composition book, BMX bike, or water bottle!
+                new rad Django stickers for your laptop, composition book, skateboard, or water bottle!
             </p>
 
             <div class="icons">
-                <img src="{% static 'img/stickers/contact/robot-hand-drawn-outline.png' %}" />
+                <img src="{% static 'img/stickers/icons/robot.png' %}" />
             </div>
         </div>
 
+        <img src="{% static 'img/stickers/sun.png' %}" id="sun" class="sticker" alt="sun" />
+
         <h2 class="header" id="stickers">
-            <img src="{% static 'img/stickers/stickers.png' %}" alt="Stickers" />
+            <img src="{% static 'img/stickers/text/stickers.png' %}" alt="Stickers" />
         </h2>
 
-        <div class="box stickers">
-            <img src="{% static 'img/stickers/drop-one/djurassic-park.png' %}" alt="Djurrasic Park" />
+        <img src="{% static 'img/stickers/lightning-green.png' %}" id="lightning-green" class="sticker"
+            alt="green lightning" />
+
+        <div class="stickers">
+            <div class="box" style="transform: rotate(-1deg);">
+                <img src="{% static 'img/stickers/drop-one/djurassic-park.png' %}" alt="Djurrasic Park"
+                    style="transform: rotate(1deg);" />
+            </div>
+            <div class="box" style="transform: rotate(1deg); top: 2px; position: relative;">
+                <img src="{% static 'img/stickers/drop-one/djurassic-park.png' %}" alt="Djurrasic Park"
+                    style="transform: rotate(-1deg);" />
+            </div>
         </div>
 
+        <img src="{% static 'img/stickers/a-plus.png' %}" id="a-plus" class="sticker" alt="A+" />
+        <img src="{% static 'img/stickers/ruler.png' %}" id="ruler" class="sticker rotate-130" alt="ruler" />
+
         <h2 class="header" id="made-by">
-            <img src="{% static 'img/stickers/made-by.png' %}" alt="Made by" />
+            <img src="{% static 'img/stickers/text/made-by.png' %}" alt="Made by" />
         </h2>
 
-        <img src="{% static 'img/stickers/a-plus.png' %}" id="a-plus" class="sticker" alt="A+" />
-
-        <div class="box alert" id="masks">
+        {% comment %} <div class="box alert" id="masks">
             <p>
                 Because of
                 <a href="https://2023.djangocon.us/covid/">COVID restrictions</a>
@@ -90,137 +108,155 @@
             <p id="again">
                 <a href="javascript: void(0);" id="mask-up-again">Try another mask!</a>
             </p>
-        </div>
+        </div> {% endcomment %}
 
-        <div class="box profile" id="sangeeta">
-            <div class="header">
-                <div class="pictures">
-                    <img src="{% static 'img/stickers/sjbitcode.jpeg' %}" class="circle pic"
-                        alt="Sangeeta's profile picture" />
-                    <img src="{% static 'img/stickers/hockey-mask.png' %}" class="hockey-mask"
-                        alt="Sangeeta's hockey mask" />
+        <div style="text-align: center;">
+            <div class="box profile" id="sangeeta">
+                <div class="header">
+                    <div class="pictures">
+                        <img src="{% static 'img/stickers/profile/sjbitcode.jpeg' %}" class="circle pic"
+                            alt="Sangeeta's profile picture" />
+                        {% comment %} <img src="{% static 'img/stickers/hockey-mask.png' %}" class="hockey-mask"
+                            alt="Sangeeta's hockey mask" /> {% endcomment %}
+                    </div>
+
+                    <h3>
+                        <img src="{% static 'img/stickers/text/sangeeta.png' %}" alt="Sangeeta"
+                            style="max-height: 80px;" />
+
+                        <div class="icons">
+                            <a href="https://github.com/sjbitcode" target="_blank">
+                                <img src="{% static 'img/stickers/contact/github.png' %}" alt="Code" />
+                            </a>
+                            <a href="https://fosstodon.org/@sjbitcode" target="_blank">
+                                <img src="{% static 'img/stickers/contact/social.png' %}" alt="Social media" />
+                            </a>
+                        </div>
+                    </h3>
                 </div>
 
-                <h3>
-                    <img src="{% static 'img/stickers/sangeeta.png' %}" alt="Sangeeta" />
-
-                    <div class="icons">
-                        <a href="https://github.com/sjbitcode" target="_blank">
-                            <img src="{% static 'img/stickers/contact/octocat-hand-drawn-logo-outline.png' %}"
-                                alt="Code" />
-                        </a>
-                        <a href="#" target="_blank">
-                            <img src="{% static 'img/stickers/contact/chat-bubbles-couple-hand-drawn-outlines.png' %}"
-                                alt="Social media" />
-                        </a>
-                        <a href="#" target="_blank">
-                            <img src="{% static 'img/stickers/contact/arroba-hand-drawn-symbol.png' %}" alt="Email" />
-                        </a>
-                    </div>
-                </h3>
-            </div>
-
-            <img src="{% static 'img/stickers/paperclip.png' %}" id="paperclip" class="sticker" alt="paperclip" />
-
-            <div class="section">
-                <h4>
-                    <img src="{% static 'img/stickers/random-facts.png' %}" alt="Random facts" />
-                </h4>
-                <ul>
-                    <li>Loves running endlessly without actually getting anywhere</li>
-                    <li>Chooses to drink the most bitter coffee available no matter where she is</li>
-                    <li>Collects giant mugs from Etsy</li>
-                    <li>TBD</li>
-                </ul>
-            </div>
-
-            <div class="section">
-                <h4>
-                    <img src="{% static 'img/stickers/favorite-quote.png' %}" alt="Favorite quote" />
-                </h4>
-                <p class="quote">
-                    What goes around comes around.
-                </p>
-            </div>
-
-            <div class="section">
-                <h4>
-                    <img src="{% static 'img/stickers/superlatives.png' %}" alt="Superlatives" />
-                </h4>
-                <ul>
-                    <li>Best artist</li>
-                    <li>Most helpful</li>
-                </ul>
-            </div>
-        </div>
-
-        <img src="{% static 'img/stickers/pencil.png' %}" id="pencil" class="sticker rotate-100" alt="pencil" />
-        <img src="{% static 'img/stickers/ruler.png' %}" id="ruler" class="sticker rotate-130" alt="ruler" />
-
-        <div class="box profile" id="adam">
-            <div class="header">
-                <div class="circle pictures">
-                    <img src="{% static 'img/stickers/adamghill.jpg' %}" class="pic" alt="Adam's profile picture" />
-                    <img src="{% static 'img/stickers/hockey-mask.png' %}" class="hockey-mask"
-                        alt="Adam's hockey mask" />
+                <div class="section">
+                    <h4>
+                        <img src="{% static 'img/stickers/text/random-facts.png' %}" alt="Random facts" />
+                    </h4>
+                    <ul>
+                        <li>
+                            <img src="{% static 'img/stickers/running.png' %}" id="running" class="sticker"
+                                alt="running" />
+                            Loves running endlessly without actually getting anywhere
+                        </li>
+                        <li>
+                            Chooses to drink the most bitter coffee available no matter where she is
+                            <img src="{% static 'img/stickers/coffee.png' %}" id="coffee" class="sticker"
+                                alt="coffee" />
+                        </li>
+                        <li>
+                            Collects giant mugs from Etsy
+                        </li>
+                        <li>
+                            TBD
+                        </li>
+                    </ul>
                 </div>
-                <h3>
-                    <img src="{% static 'img/stickers/adam.png' %}" alt="Adam" />
 
-                    <div class="icons">
-                        <a href="https://github.com/sjbitcode" target="_blank">
-                            <img src="{% static 'img/stickers/contact/octocat-hand-drawn-logo-outline.png' %}"
-                                alt="Code" />
-                        </a>
-                        <a href="#" target="_blank">
-                            <img src="{% static 'img/stickers/contact/chat-bubbles-couple-hand-drawn-outlines.png' %}"
-                                alt="Social media" />
-                        </a>
-                        <a href="#" target="_blank">
-                            <img src="{% static 'img/stickers/contact/arroba-hand-drawn-symbol.png' %}" alt="Email" />
-                        </a>
+                <div class="section">
+                    <h4>
+                        <img src="{% static 'img/stickers/text/favorite-quote.png' %}" alt="Favorite quote" />
+                    </h4>
+                    <p class="quote">
+                        What goes around comes around.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h4>
+                        <img src="{% static 'img/stickers/text/superlatives.png' %}" alt="Superlatives" />
+                    </h4>
+                    <ul>
+                        <li>Best artist</li>
+                        <li>Most helpful</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="box profile" id="adam">
+                <div class="header">
+                    <div class="circle pictures">
+                        <img src="{% static 'img/stickers/profile/adamghill.jpg' %}" class="pic"
+                            alt="Adam's profile picture" />
+                        {% comment %} <img src="{% static 'img/stickers/hockey-mask.png' %}" class="hockey-mask"
+                            alt="Adam's hockey mask" /> {% endcomment %}
                     </div>
-                </h3>
-            </div>
+                    <h3>
+                        <img src="{% static 'img/stickers/text/adam.png' %}" alt="Adam"
+                            style="top: 10px; position: relative; margin-bottom: 14px;" />
 
-            <div class="section">
-                <h4>
-                    <img src="{% static 'img/stickers/quick-facts.png' %}" alt="Quick facts" />
-                </h4>
-                <ul>
-                    <li>Has 2 pinball machines, a record player, and way too many toys in his office</li>
-                    <li>Loves Halloween and bad horror movies</li>
-                    <li>Unabashed coffee snob</li>
-                    <li>
-                        Perpetually juggling
-                        <a href="https://alldjango.com" target="_blank">way</a>
-                        <a href="https://www.django-unicorn.com" target="_blank">too</a>
-                        <a href="https://devmarks.io" target="_blank">many</a>
-                        <a href="https://unsuckjs.com" target="_blank">side</a>
-                        <a href="https://fediview.com" target="_blank">projects</a>
-                    </li>
-                </ul>
-            </div>
+                        <div class="icons">
+                            <a href="https://github.com/adamghill" target="_blank">
+                                <img src="{% static 'img/stickers/contact/github.png' %}" alt="Code" />
+                            </a>
+                            <a href="https://indieweb.social/@adamghill" target="_blank">
+                                <img src="{% static 'img/stickers/contact/social.png' %}" alt="Social media" />
+                            </a>
+                        </div>
+                    </h3>
+                </div>
 
-            <div class="section">
-                <h4>
-                    <img src="{% static 'img/stickers/favorite-quote.png' %}" alt="Favorite quote" />
-                </h4>
-                <p class="quote">
-                    Oh no... here we go again.
-                </p>
-            </div>
+                <div class="section">
+                    <h4>
+                        <img src="{% static 'img/stickers/text/random-facts.png' %}" alt="Random facts" />
+                    </h4>
+                    <ul>
+                        <li>
+                            <img src="{% static 'img/stickers/arcade.png' %}" id="arcade" class="sticker"
+                                alt="arcade" />
+                            Has 2 pinball machines, a record player, and way too many toys in his office
+                        </li>
+                        <li>
+                            Loves Halloween and bad horror movies
+                        </li>
+                        <li>
+                            Unabashed coffee snob
 
-            <div class="section">
-                <h4>
-                    <img src="{% static 'img/stickers/superlatives.png' %}" alt="Superlatives" />
-                </h4>
-                <ul>
-                    <li>Best dog owner</li>
-                    <li>Most stubborn</li>
-                </ul>
+                        </li>
+                        <li>
+                            Perpetually juggling
+                            <a href="https://alldjango.com" target="_blank">way</a>
+                            <a href="https://www.django-unicorn.com" target="_blank">too</a>
+                            <a href="https://devmarks.io" target="_blank">many</a>
+                            <a href="https://unsuckjs.com" target="_blank">side</a>
+                            <a href="https://fediview.com" target="_blank">projects</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h4>
+                        <img src="{% static 'img/stickers/text/favorite-quote.png' %}" alt="Favorite quote" />
+                    </h4>
+                    <p class="quote">
+                        Oh no... here we go again.
+                    </p>
+                </div>
+
+                <img src="{% static 'img/stickers/ghost.png' %}" id="ghost" class="sticker" alt="ghost" />
+
+                <div class="section">
+                    <h4>
+                        <img src="{% static 'img/stickers/text/superlatives.png' %}" alt="Superlatives" />
+                    </h4>
+
+                    <ul>
+                        <li>Best dog owner</li>
+                        <li>Most stubborn</li>
+                    </ul>
+                </div>
             </div>
         </div>
+
+        <img src="{% static 'img/stickers/triangle.png' %}" id="triangle" class="sticker" alt="triangle" />
+        <img src="{% static 'img/stickers/rocket.png' %}" id="rocket" class="sticker" alt="rocket" />
+        <img src="{% static 'img/stickers/laptop.png' %}" id="laptop" class="sticker" alt="laptop" />
 
         <div class="box alert mt-10">
             <p>
@@ -228,7 +264,7 @@
                 vanilla JavaScript,
                 <a href="https://coltrane.readthedocs.io" target="_blank">Coltrane</a>,
                 and lots of
-                <img src="{% static 'img/stickers/coffee.png' %}" id="coffee" alt="coffee" />.
+                <img src="{% static 'img/stickers/text/coffee.png' %}" id="coffee-text" alt="coffee" />.
             </p>
             <p>
                 <a href="https://github.com/adamghill/alldjango.com" target="_blank">Code</a>
@@ -247,6 +283,7 @@
         </div>
     </div>
 
+    {% comment %}
     <script>
         window.addEventListener("load", () => {
             document.getElementById('mask-up').addEventListener('click', (e) => {
@@ -264,7 +301,7 @@
                 alert("Coming soon!");
             }, false);
         });
-    </script>
+    </script> {% endcomment %}
 </body>
 
 </html>

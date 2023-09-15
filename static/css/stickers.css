@@ -21,7 +21,7 @@ h2 img {
 }
 
 h3 img {
-    max-height: 40px;
+    max-height: 60px;
 }
 
 h4 {
@@ -56,7 +56,7 @@ a {
 }
 
 .mt-10 {
-    margin-top: 10em !important;
+    margin-top: 6em !important;
 }
 
 .wrapper {
@@ -70,7 +70,7 @@ a {
 }
 
 .box {
-    max-width: 600px;
+    max-width: 800px;
     min-width: 300px;
     padding: 2em;
     margin: 0 auto;
@@ -98,10 +98,6 @@ a {
 
 .box.alert {
     background-color: #fadf70;
-}
-
-.dotted-line {
-    margin-top: 3em;
 }
 
 .circle {
@@ -166,15 +162,21 @@ a {
     position: relative;
 }
 
-p #one, p #heart, p #stickers-copy, p #coffee {
+p #one, p #heart, p #coffee-text  {
     height: 18px;
+}
+
+p #stickers-text {
+    height: 38px;
+    top: 10px;
+    position: relative;
 }
 
 #pony {
     height: 300px;
     top: 150px;
     position: absolute;
-    left: 40px;
+    left: calc(50% - 650px);
 }
 
 #sparkle {
@@ -190,21 +192,85 @@ p #one, p #heart, p #stickers-copy, p #coffee {
 
 #pencil {
     float: right;
-    right: 103px;
-    top: 360px;
+    right: calc(50% - 600px);
+    top: -40px;
 }
 
 #a-plus {
-    float: left;
-    left: 100px;
-    top: -60px;
+    float: right;
+    right: calc(50% - 560px);
+    top: -70px;
 }
 
 #ruler {
     height: 180px;
     float: left;
-    left: 100px;
+    left: calc(50% - 600px);
+    top: 100px;
+}
+
+#ghost {
+    height: 100px;
+    float: right;
+}
+
+#arcade {
+    height: 100px;
+    float: right;
+}
+
+#running {
+    height: 80px;
+    float: right;
+}
+
+#coffee {
+    height: 160px;
+    float: right;
+}
+
+#sun {
+    height: 180px;
+    float: left;
+    position: absolute;
+    left: calc(50% - 700px);
+}
+
+#lightning-green {
+    height: 180px;
+    float: left;
+    position: absolute;
+    left: calc(50% - 690px);
+    margin-top: 30px;
+}
+
+#symbols-red {
+    height: 180px;
+    float: left;
+    padding-right: 20px;
+}
+
+#laptop {
+    height: 180px;
+    float: right;
+    right: calc(50% - 280px);
     top: -100px;
+}
+
+#rocket {
+    height: 180px;
+    float: left;
+    left: calc(50% - 600px);
+    top: -500px;
+    transform: rotate(300deg);
+}
+
+#triangle {
+    height: 180px;
+    float: right;
+    right: calc(50% - 570px);
+    top: -1000px;
+    transform: rotate(200deg);
 }
 
 .hockey-mask {
@@ -259,6 +325,15 @@ p #one, p #heart, p #stickers-copy, p #coffee {
     text-align: center;
 }
 
+.profile {
+    max-width: 400px;
+    min-width: 250px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 15px;
+    text-align: left;
+}
+
 .profile h3 .icons img {
     max-height: 30px;
 }
@@ -284,8 +359,20 @@ p #one, p #heart, p #stickers-copy, p #coffee {
     }
 }
 
+.stickers {
+    text-align: center;   
+}
+
+.stickers .box {
+    display: inline-block;
+}
+
+.stickers .box:not(:last-child) {
+    margin-right: 10px;
+}
+
 .stickers img {
-    max-width: 600px;
+    max-width: 400px;
 }
 
 @media screen and (max-width: 1000px) {
