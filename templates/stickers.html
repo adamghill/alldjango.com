@@ -8,6 +8,7 @@
 
     <title>alldjango.com</title>
 
+    <link rel="stylesheet" href="{% static 'css/sanitize.css' %}">
     <link rel="stylesheet" href="{% static 'css/stickers.css' %}">
     {% comment %}
     <link rel="stylesheet" href="{% static 'css/hover-min.css' %}"> {% endcomment %}
@@ -75,9 +76,6 @@
                     class="hvr-grow-pico" />
             </div>
         </div>
-
-        <img src="{% static 'img/stickers/a-plus.png' %}" id="a-plus" class="sticker hvr-rotate" alt="A+" />
-        <img src="{% static 'img/stickers/ruler.png' %}" id="ruler" class="sticker rotate-130" alt="ruler" />
 
         <h2 class="header" id="made-by">
             <img src="{% static 'img/stickers/text/made-by.png' %}" alt="Made by" />
@@ -229,12 +227,12 @@
                     </p>
                 </div>
 
-                <img src="{% static 'img/stickers/ghost.png' %}" id="ghost" class="sticker hvr-bob" alt="ghost" />
-
                 <div class="section">
                     <h4>
                         <img src="{% static 'img/stickers/text/superlatives.png' %}" alt="Superlatives" />
                     </h4>
+
+                    <img src="{% static 'img/stickers/ghost.png' %}" id="ghost" class="sticker hvr-bob" alt="ghost" />
 
                     <ul>
                         <li>Best dog owner</li>
@@ -244,42 +242,41 @@
             </div>
         </div>
 
+        <img src="{% static 'img/stickers/a-plus.png' %}" id="a-plus" class="sticker hvr-rotate" alt="A+" />
+        <img src="{% static 'img/stickers/ruler.png' %}" id="ruler" class="sticker rotate-130" alt="ruler" />
         <img src="{% static 'img/stickers/triangle.png' %}" id="triangle" class="sticker" alt="triangle" />
         <img src="{% static 'img/stickers/rocket.png' %}" id="rocket" class="sticker" alt="rocket" />
         <img src="{% static 'img/stickers/laptop.png' %}" id="laptop" class="sticker hvr-grow-pico" alt="laptop" />
 
-        <div class="box alert mt-10">
-            <div>
-                <img src="{% static 'img/stickers/wavy-lines-1.png' %}" id="wavy-lines-1" class="sticker"
-                    alt="wavy lines" />
+        <div class="box alert mt-10 clear">
+            <img src="{% static 'img/stickers/wavy-lines-1.png' %}" id="wavy-lines-1" class="sticker"
+                alt="wavy lines" />
 
-                <p>
-                    Built with semantic-ish HTML, barely passable CSS,
-                    vanilla JavaScript,
-                    <a href="https://coltrane.readthedocs.io" target="_blank">Coltrane</a>,
-                    and lots of
-                    <img src="{% static 'img/stickers/text/coffee.png' %}" id="coffee-text" alt="coffee" />.
-                </p>
-                <p>
-                    <a href="https://github.com/adamghill/alldjango.com" target="_blank">Code</a>
-                    hosted on the glorious
-                    <a href="https://alldjango.com">alldjango.com</a>.
-                </p>
-                <p>
-                    CSS animation by
-                    <a href="https://github.com/IanLunn/Hover">hover.css</a>.
-                    <br />
-                    <a href="https://www.flaticon.com/packs/hand-drawn">
-                        Hand-drawn icons created by Freepik - Flaticon</a>.
-                </p>
-                <p>
-                    &copy; Sangeeta Jadoonanan & Adam Hill
-                </p>
-                <p style="text-align: center;">
-                    <img src="{% static 'img/stickers/icons/robot.png' %}" id="robot" class="sticker hvr-buzz-out"
-                        alt="robot" />
-                </p>
-            </div>
+            <p>Built with semantic-ish HTML, barely passable CSS,
+                vanilla JavaScript,
+                <a href="https://coltrane.readthedocs.io" target="_blank">Coltrane</a>,
+                and lots of
+                <img src="{% static 'img/stickers/text/coffee.png' %}" id="coffee-text" alt="coffee" />.
+            </p>
+            <p>
+                <a href="https://github.com/adamghill/alldjango.com" target="_blank">Code</a>
+                hosted on the glorious
+                <a href="https://alldjango.com">alldjango.com</a>.
+            </p>
+            <p>
+                CSS animation by
+                <a href="https://github.com/IanLunn/Hover">hover.css</a>.
+                <br />
+                <a href="https://www.flaticon.com/packs/hand-drawn">
+                    Hand-drawn icons created by Freepik - Flaticon</a>.
+            </p>
+            <p>
+                &copy; Sangeeta Jadoonanan & Adam Hill
+            </p>
+            <p style="text-align: center;">
+                <img src="{% static 'img/stickers/icons/robot.png' %}" id="robot" class="sticker hvr-buzz-out"
+                    alt="robot" />
+            </p>
         </div>
     </div>
 

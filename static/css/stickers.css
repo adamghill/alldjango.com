@@ -182,10 +182,10 @@ p #stickers-text {
 }
 
 #pony {
+    position: absolute;
     height: 500px;
     top: 150px;
-    position: absolute;
-    left: calc(50% - 780px);
+    left: calc(50% - 740px);
     z-index: 99;
     transform: rotate(350deg);
 }
@@ -193,7 +193,7 @@ p #stickers-text {
 #sparkle {
     float: right;
     height: 190px;
-    right: calc(50% - 560px);
+    right: calc(50% - 540px);
     top: 28px;
     transform: rotate(4deg);
 }
@@ -213,14 +213,14 @@ p #stickers-text {
 #a-plus {
     float: right;
     right: calc(50% - 560px);
-    top: -70px;
+    top: -1400px;
 }
 
 #ruler {
     height: 180px;
     float: left;
     left: calc(50% - 600px);
-    top: 100px;
+    top: -1200px;
 }
 
 #ghost {
@@ -259,38 +259,36 @@ p #stickers-text {
     transform: rotate(350deg);
 }
 
-#symbols-red {
-    height: 180px;
-    float: left;
-    padding-right: 20px;
-}
-
 #symbols-blue {
     height: 120px;
     float: left;
-    left: calc(50% - 590px);
-    top: -10px;
+    left: calc(50% - 540px);
+    top: 20px;
 }
 
 #laptop {
     height: 180px;
     float: right;
-    right: calc(50% - 280px);
+    right: calc(50% - 420px);
     top: -80px;
 }
 
 #rocket {
     height: 180px;
     float: left;
-    left: calc(50% - 600px);
+    left: calc(50% - 730px);
     top: -500px;
     transform: rotate(300deg);
+}
+
+.clear {
+    clear: both;
 }
 
 #triangle {
     height: 180px;
     float: right;
-    right: calc(50% - 570px);
+    right: calc(50% - 670px);
     top: -1000px;
     transform: rotate(200deg);
 }
@@ -300,7 +298,7 @@ p #stickers-text {
     float: right;
     transform: rotate(90deg);
     top: 150px;
-    right: -200px;
+    right: -50px;
 }
 
 #robot {
