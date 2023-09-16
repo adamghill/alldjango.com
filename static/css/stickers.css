@@ -55,6 +55,14 @@ a {
     margin-top: 0 !important;
 }
 
+.mt-1 {
+    margin-top: 1em !important;
+}
+
+.mt-2 {
+    margin-top: 2em !important;
+}
+
 .mt-10 {
     margin-top: 8em !important;
 }
@@ -219,14 +227,14 @@ p #stickers-text {
 #a-plus {
     float: right;
     right: calc(50% - 560px);
-    top: -1400px;
+    top: -1500px;
 }
 
 #ruler {
     height: 180px;
     float: left;
-    left: calc(50% - 600px);
-    top: -1200px;
+    left: calc(50% - 560px);
+    top: -1300px;
 }
 
 #ghost {
@@ -284,7 +292,7 @@ p #stickers-text {
     float: left;
     left: calc(50% - 730px);
     top: -500px;
-    transform: rotate(300deg);
+    
 }
 
 .clear {
