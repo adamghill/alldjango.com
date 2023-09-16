@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{% static 'css/hover-min.css' %}"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/hover-stickers.css' %}">
 
+    <script src="{% static 'js/rough-notation/0.5.1/rough-notation.iife.js' %}"></script>
+
     {% if not debug %}
     <script defer data-domain="alldjango.com" src="https://plausible.io/js/plausible.js"></script>
     {% endif %}
@@ -21,7 +23,7 @@
 
 <body>
     <h1 class="header">
-        <img src="{% static 'img/stickers/text/django-stickers.png' %}" id="logo" alt="Django stickers" />
+        <img src="{% static 'img/stickers/text/django-stickers.png' %}" id="django-stickers" alt="Django stickers" />
     </h1>
 
     <div class="wrapper">
@@ -100,16 +102,13 @@
             <div class="box profile" id="sangeeta">
                 <div class="header">
                     <div class="pictures">
-                        <img src="{% static 'img/stickers/profile/sjbitcode.jpeg' %}" class="circle pic"
-                            alt="Sangeeta's profile picture" />
+                        <img src="{% static 'img/stickers/profile/sangeeta-tape-1.png' %}" class="polaroid"
+                            alt="Sangeeta's profile picture" style="transform: rotate(-1deg)" />
                         {% comment %} <img src="{% static 'img/stickers/hockey-mask.png' %}" class="hockey-mask"
                             alt="Sangeeta's hockey mask" /> {% endcomment %}
                     </div>
 
                     <h3>
-                        <img src="{% static 'img/stickers/text/sangeeta.png' %}" alt="Sangeeta"
-                            style="max-height: 80px;" />
-
                         <div class="icons">
                             <a href="https://github.com/sjbitcode" target="_blank">
                                 <img src="{% static 'img/stickers/contact/github.png' %}" class="code" alt="Code" />
@@ -168,16 +167,13 @@
 
             <div class="box profile" id="adam">
                 <div class="header">
-                    <div class="circle pictures">
-                        <img src="{% static 'img/stickers/profile/adamghill.jpg' %}" class="pic"
+                    <div class="pictures">
+                        <img src="{% static 'img/stickers/profile/adam-tape-2.png' %}" class="polaroid"
                             alt="Adam's profile picture" />
                         {% comment %} <img src="{% static 'img/stickers/hockey-mask.png' %}" class="hockey-mask"
                             alt="Adam's hockey mask" /> {% endcomment %}
                     </div>
                     <h3>
-                        <img src="{% static 'img/stickers/text/adam.png' %}" alt="Adam"
-                            style="top: 10px; position: relative; margin-bottom: 14px;" />
-
                         <div class="icons">
                             <a href="https://github.com/adamghill" target="_blank">
                                 <img src="{% static 'img/stickers/contact/github.png' %}" class="code" alt="Code" />
@@ -301,7 +297,7 @@
     </script> {% endcomment %}
 
     <script>
-        window.addEventListener("load", () => {
+        function observe() {
             var observer = new IntersectionObserver((entries, opts) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -313,7 +309,21 @@
                 threshold: .3
             });
 
-            observer.observe(document.querySelector('#adam'))
+            observer.observe(document.querySelector('#adam'));
+        }
+
+        function annotate() {
+            const e = document.querySelector('#django-stickers');
+            const annotation = RoughNotation.annotate(e, {
+                type: 'highlight',
+                color: '#60b4f9'
+            });
+            annotation.show();
+        }
+
+        window.addEventListener("load", () => {
+            observe();
+            annotate();
         });
     </script>
 </body>

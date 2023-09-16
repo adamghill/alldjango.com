@@ -7,8 +7,8 @@ body {
 
 h1 img {
     height: 120px;
-    padding-top: 1.5em;
-    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    margin-bottom: 5em;
 }
 
 h2.header {
@@ -104,6 +104,10 @@ a {
     color: white;
 }
 
+.stickers .box {
+    background-color: #60b4f9;
+}
+
 .box.alert {
     background-color: #fadf70;
 }
@@ -150,10 +154,12 @@ a {
     left: 0;
 }
 
-.pic {
+.polaroid {
     position: relative;
     top: 0;
     left: 0;
+    max-width: 300px;
+    transform: rotate(2deg);
 }
 
 .hockey-mask {
@@ -184,7 +190,7 @@ p #stickers-text {
 #pony {
     position: absolute;
     height: 500px;
-    top: 150px;
+    top: 200px;
     left: calc(50% - 740px);
     z-index: 99;
     transform: rotate(350deg);
@@ -375,7 +381,7 @@ p #stickers-text {
 @media screen and (max-width: 1200px) {
     h1 img {
         max-width: 800px;
-        padding-top: 1.5em;
+        margin-top: 1.5em;
         margin-bottom: 1.5em;
     }
 
@@ -412,7 +418,7 @@ p #stickers-text {
 @media screen and (max-width: 1000px) {
     h1 img {
         max-width: 600px;
-        padding-top: 1.5em;
+        margin-top: 1.5em;
         margin-bottom: 1.5em;
     }
 
@@ -436,7 +442,7 @@ p #stickers-text {
 @media screen and (max-width: 400px) {
     h1 img {
         height: 40px;
-        padding-top: 1.5em;
+        margin-top: 1.5em;
         margin-bottom: 1.5em;
     }
 
@@ -451,7 +457,7 @@ p #stickers-text {
 
     h1 img {
         height: 40px;
-        padding-top: .5em;
+        margin-top: .5em;
         margin-bottom: 0;
     }
 
