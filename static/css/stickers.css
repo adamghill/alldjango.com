@@ -292,7 +292,7 @@ p #stickers-text {
     float: left;
     left: calc(50% - 730px);
     top: -500px;
-    
+    transform: rotate(300deg);
 }
 
 .clear {
@@ -359,6 +359,10 @@ p #stickers-text {
 
 .alert p {
     color: black;
+}
+
+.icons {
+    text-align: center;
 }
 
 .icons a {
