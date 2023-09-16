@@ -197,11 +197,10 @@ p #stickers-text {
 
 #pony {
     position: absolute;
-    height: 500px;
-    top: 200px;
+    height: 350px;
+    top: 300px;
     left: calc(50% - 740px);
     z-index: 99;
-    transform: rotate(350deg);
 }
 
 #sparkle {
@@ -288,11 +287,10 @@ p #stickers-text {
 }
 
 #rocket {
-    height: 180px;
+    height: 220px;
     float: left;
     left: calc(50% - 730px);
     top: -500px;
-    transform: rotate(300deg);
 }
 
 .clear {
