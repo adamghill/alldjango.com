@@ -71,6 +71,10 @@ a {
     margin-bottom: 10px;
 }
 
+.pt-0 {
+    padding-top: 0 !important;
+}
+
 .wrapper {
     margin-left: 0;
     margin-right: 0;
@@ -313,9 +317,16 @@ p #stickers-text {
     right: -50px;
 }
 
+#checklist {
+    float: right;
+    height: 250px;
+    transform: rotate(10deg);
+    padding-right: 20px;
+    top: -20px;
+}
+
 #robot {
     height: 40px;
-    padding-left: 10px;
 }
 
 .hockey-mask {
