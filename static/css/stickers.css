@@ -189,7 +189,7 @@ a {
     z-index: 1;
 }
 
-p #one, p #heart, p #coffee-text  {
+#one, #heart, #coffee-text  {
     height: 18px;
 }
 
@@ -319,10 +319,10 @@ p #stickers-text {
 
 #checklist {
     float: right;
-    height: 250px;
+    height: 160px;
     transform: rotate(10deg);
     padding-right: 20px;
-    top: -20px;
+    top: -40px;
 }
 
 #robot {
