@@ -194,7 +194,7 @@ a {
 }
 
 p #stickers-text {
-    height: 200px;
+    max-height: 200px;
     top: 10px;
     position: relative;
 }
@@ -400,16 +400,20 @@ p #stickers-text {
 }
 
 @media screen and (max-width: 1200px) {
+    body {
+        margin-right: 1.5em;
+    }
+
     h1 img {
         max-width: 800px;
         margin-top: 1.5em;
         margin-bottom: 1.5em;
     }
 
-    .wrapper {
+    /* .wrapper {
         margin-left: 1em;
         margin-right: 1em;
-    }
+    } */
 
     .sticker {
         display: none;
@@ -436,11 +440,15 @@ p #stickers-text {
     max-width: 400px;
 }
 
+#footer {
+    margin-top: 8em;
+}
+
 @media screen and (max-width: 1000px) {
     h1 img {
         max-width: 600px;
-        margin-top: 1.5em;
-        margin-bottom: 1.5em;
+        /* margin-top: 1.5em;
+        margin-bottom: 1.5em; */
     }
 
     .sticker {
@@ -449,24 +457,48 @@ p #stickers-text {
 }
 
 @media screen and (max-width: 600px) {
+    body {
+        margin-right: 0;
+    }
+
+    img {
+        /* max-width: 400px; */
+    }
+
     h1 img {
-        max-width: 400px;
-        padding-top: 1.5em;
-        margin-bottom: 1.5em;
+        /* max-width: 400px; */
+        max-width: 100%;
+        margin-top: 0;
+        margin-bottom: 1em;
     }
 
     .sticker {
-        display: none;
+        display: none !important;
+    }
+
+    p #stickers-text {
+        max-width: 300px;
+    }
+
+    .stickers .box {
+        display: block;
+        margin-right: 0 !important;
+    }
+
+    .stickers img {
+        max-width: 300px;
+    }
+
+    #footer {
+        margin-top: 0;
+    }
+
+    .profile {
+        margin-right: 0;
     }
 }
 
 @media screen and (max-width: 400px) {
-    h1 img {
-        height: 40px;
-        margin-top: 1.5em;
-        margin-bottom: 1.5em;
-    }
-
     .wrapper {
         margin-left: .1em;
         margin-right: .1em;
@@ -477,7 +509,7 @@ p #stickers-text {
     }
 
     h1 img {
-        height: 40px;
+        /* height: 40px; */
         margin-top: .5em;
         margin-bottom: 0;
     }
