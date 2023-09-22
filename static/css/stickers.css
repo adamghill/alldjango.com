@@ -6,7 +6,7 @@ body {
 }
 
 h1 img {
-    height: 120px;
+    max-height: 120px;
     margin-top: 1.5em;
     margin-bottom: 5em;
 }
@@ -426,21 +426,18 @@ p #stickers-text {
         margin-bottom: 1.5em;
     }
 
-    .wrapper {
-        margin-left: 0;
-        margin-right: 2em;
-    }
-
     .sticker {
         display: none !important;
+    }
+
+    .wrapper {
+        margin-right: 0.5em;
     }
 }
 
 @media screen and (max-width: 1000px) {
     h1 img {
         max-width: 600px;
-        /* margin-top: 1.5em;
-        margin-bottom: 1.5em; */
     }
 }
 
@@ -449,14 +446,14 @@ p #stickers-text {
         margin-right: 0;
     }
 
-    img {
-        /* max-width: 400px; */
+    .wrapper {
+        margin-right: 0;
     }
 
     h1 img {
-        max-width: 100%;
+        max-width: 380px;
         margin-top: 0;
-        margin-bottom: 1em;
+        margin-bottom: .5em;
     }
 
     p #stickers-text {
@@ -482,17 +479,12 @@ p #stickers-text {
 }
 
 @media screen and (max-width: 400px) {
-    .wrapper {
-        margin-left: .1em;
-        margin-right: .1em;
-    }
-
     .sticker {
         display: none;
     }
 
     h1 img {
-        /* height: 40px; */
+        max-width: 340px;
         margin-top: .5em;
         margin-bottom: 0;
     }
