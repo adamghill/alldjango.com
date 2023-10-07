@@ -8,7 +8,9 @@ header_img: img/magic-header.jpg
 icon_img: img/magic-icon.jpg
 ---
 
-Track versions of Wagtail _snippets_ for an automatic audit trail to find the bad guys.
+>This is now built-in to Wagtail as of 2.15 because of [Model audit log](https://docs.wagtail.org/en/stable/extending/audit_log.html#log-models) done in [#7550](https://github.com/wagtail/wagtail/pull/7550).
+
+Track versions of Wagtail `snippets` for an automatic audit trail to find the bad guys.
 
 ## There are trade-offs with everything (or how I stopped worrying and learned to love Wagtail CMS)
 
@@ -16,15 +18,15 @@ Track versions of Wagtail _snippets_ for an automatic audit trail to find the ba
 
 I'll be honest -- coming from Django where I have a pretty good grasp of how things work (and where to figure things out if I need to) was a hard transition to Wagtail. It definitely took a little time to understand its philosophy around content.
 
-But, at this point, I have come to appreciate all of the benefits that Wagtail provides... and work around some of the pieces that I like less. One thing that took me a while to understand is that Wagtail uses the term _snippet_ to refer to Django models that aren't explicitly a _Page_. Coming from Django, I am used to defining a data model and tying models together with many-to-many or foreign key relationships. _Snippets_ are where to store those pieces of information that could be shared with many different _Page_ models. However, _snippets_ feel like they are not completely integrated into the Wagtail experience, and they lose a lot of the nice functionality that comes "for free" with a page model -- one glaring omission is the lack of revisions for _snippets_. There are a few open issues for this in Wagtail (notably https://github.com/wagtail/wagtail/issues/4541 and https://github.com/wagtail/wagtail/issues/2270).
+But, at this point, I have come to appreciate all of the benefits that Wagtail provides... and work around some of the pieces that I like less. One thing that took me a while to understand is that Wagtail uses the term `snippet` to refer to Django models that aren't explicitly a `Page`. Coming from Django, I am used to defining a data model and tying models together with many-to-many or foreign key relationships. `Snippets` are where to store those pieces of information that could be shared with many different `Page` models. However, `snippets` feel like they are not completely integrated into the Wagtail experience, and they lose a lot of the nice functionality that comes "for free" with a page model -- one glaring omission is the lack of revisions for `snippets`. There are a [few](https://github.com/wagtail/wagtail/issues/4541) [open](https://github.com/wagtail/wagtail/issues/2270) issues for this in Wagtail.
 
 ## Django audits in one easy payment of $0
 
-One package that I have really appreciated in the past with a normal Django application is [django-reversion](https://django-reversion.readthedocs.io/) which integrates tightly into the Django admin and automatically saves versions of an object as an audit trail. Wagtail provides something very similar for _Page_ models, but snippets eren't invited to the party and feel very left out.
+One package that I have really appreciated in the past with a normal Django application is [django-reversion](https://django-reversion.readthedocs.io/) which integrates tightly into the Django admin and automatically saves versions of an object as an audit trail. Wagtail provides something very similar for `Page` models, but snippets aren't invited to the party and feel very left out.
 
 ## ¡Ay, caramba! Automatic auditing for Wagtail snippets!
 
-All is well in Wagtail-land, though! With a little perserverance, Wagtail _snippets_ can also get automatic revisions and it isn't **too** hard.
+All is well in Wagtail-land, though! With a little perseverance, Wagtail `snippets` can also get automatic revisions and it isn't **too** hard.
 
 ### Setup django-reversion
 
