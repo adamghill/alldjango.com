@@ -8,7 +8,7 @@ header_img: img/magic-header.jpg
 icon_img: img/magic-icon.jpg
 ---
 
->This is now built-in to Wagtail as of 2.15 because of [Model audit log](https://docs.wagtail.org/en/stable/extending/audit_log.html#log-models) done in [#7550](https://github.com/wagtail/wagtail/pull/7550).
+>This is now built-in to Wagtail as of 2.15 because of [Model audit log](https://docs.wagtail.org/en/stable/extending/audit_log.html#log-models).
 
 Track versions of Wagtail `snippets` for an automatic audit trail to find the bad guys.
 
