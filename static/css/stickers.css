@@ -117,7 +117,12 @@ a {
 }
 
 .stickers .box {
+    display: inline-block;
     background-color: #60b4f9;
+}
+
+.stickers .box:not(:last-child) {
+    margin-right: 10px;
 }
 
 .box.alert {
@@ -191,6 +196,10 @@ a {
 
 #one, #heart, #coffee-text  {
     height: 18px;
+}
+
+#or {
+    height: 30px;
 }
 
 p #stickers-text {
@@ -401,14 +410,6 @@ p #stickers-text {
 
 .stickers {
     text-align: center;   
-}
-
-.stickers .box {
-    display: inline-block;
-}
-
-.stickers .box:not(:last-child) {
-    margin-right: 10px;
 }
 
 .stickers img {
