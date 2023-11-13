@@ -57,9 +57,9 @@ One thing that makes `rye` standout from the other options is that it handles Py
 
 # GitHub Stats
 
-GitHub stats are not particularly useful, but the number of stars do give some indication of the community engagement with a particular tool.
+GitHub stats are not particularly useful, but the number of stars do give some indication of the community engagement with a particular tool (current as of 2023-11-12).
 
-<iframe style="width:100%;height:auto;min-width:400px;min-height:400px;" src="https://star-history.com/embed?secret=Z2hwX2ppWWd3RHJIZElaVDRhQlhjZ25pczFoSVNINTl3djBsNDR5UA==#pypa/hatch&python-poetry/poetry&pdm-project/pdm&mitsuhiko/rye&pypa/pipenv&Date" frameBorder="0"></iframe>
+<img src="{% static 'img/python-package-manager-star-history-20231112.png' %}" />
 
 # Conclusions and takeaways
 
