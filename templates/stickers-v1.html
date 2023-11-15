@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Django Stickers | alldjango.com</title>
+
+    <link rel="stylesheet" href="{% static 'css/sanitize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stickers-v1.css' %}">
+
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'css/hover-min.css' %}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/hover-stickers.css' %}">
+
+    <script src="{% static 'js/rough-notation/0.5.1/rough-notation.iife.js' %}"></script>
+
+    {% if not debug %}
+    <script defer data-domain="alldjango.com" src="https://plausible.io/js/plausible.js"></script>
+    {% endif %}
+</head>
+
+<body>
+    <h1 class="header">
+        <img src="{% static 'img/stickers/drop-one/text/django-stickers.png' %}" id="django-stickers"
+            alt="Django stickers" />
+    </h1>
+
+    <div class="wrapper">
+        <img src="{% static 'img/stickers/drop-one/pony.png' %}" id="pony" class="sticker bob" alt="Django pony" />
+        <img src="{% static 'img/stickers/drop-one/sparkle.png' %}" id="sparkle" class="sticker" alt="sparkle" />
+
+        <div class="box">
+            <p class="mt-0 mb-1">
+                We love Django and the community, but we thought
+                <img src="{% static 'img/stickers/drop-one/text/one.png' %}" id="one" alt="one" />
+                thing was missing...
+            </p>
+            <p class="is-centered">
+                <a href="#stickers">
+                    <img src="{% static 'img/stickers/drop-one/text/stickers-yay.png' %}" id="stickers-text"
+                        alt="Stickers" class="hvr-grow-pico" /></a>
+            </p>
+        </div>
+
+        <img src="{% static 'img/stickers/drop-one/pencil.png' %}" id="pencil" class="sticker rotate-100"
+            alt="pencil" />
+        <img src="{% static 'img/stickers/drop-one/symbols-blue.png' %}" id="symbols-blue" class="sticker"
+            alt="blue symbols" />
+
+        <div class="box alert">
+            <p>
+                Special-edition stickers made with
+                <img src="{% static 'img/stickers/drop-one/heart.png' %}" id="heart" alt="love" />
+                will be available <em>in person</em> at
+                <a href="https://2023.djangocon.us">DjangoCon 2023 US</a>.
+            </p>
+            <p>
+                Come find either <a href="#sangeeta">Sangeeta</a> or <a href="#adam">Adam</a> to get some
+                new rad Django stickers for your laptop, composition book, skateboard, or water bottle!
+            </p>
+            <p class="is-centered">
+                <img src="{% static 'img/stickers/drop-one/text/or.png' %}" id="or" alt="or" />
+            </p>
+            <p>
+                If you aren't able to make it to DjangoCon US 2023 😔,
+                we now offer the regular editions of
+                <a
+                    href="https://www.redbubble.com/people/sjbitcode/shop?artistUserName=sjbitcode&collections=3725890&iaCode=all-stickers">stickers</a>
+                and <a
+                    href="https://www.redbubble.com/people/sjbitcode/shop?artistUserName=sjbitcode&collections=3725890&iaCode=u-tees">t-shirts</a>
+                for sale.
+            </p>
+        </div>
+
+        <img src="{% static 'img/stickers/drop-one/sun.png' %}" id="sun" class="sticker hvr-rotate" alt="sun" />
+
+        <h2 class="header" id="stickers">
+            <img src="{% static 'img/stickers/drop-one/text/stickers.png' %}" alt="Stickers" />
+        </h2>
+
+        <img src="{% static 'img/stickers/drop-one/lightning-green.png' %}" id="lightning-green" class="sticker"
+            alt="green lightning" />
+
+        <div class="stickers">
+            <div style="border: 1px solid black; border: 1px solid black; max-width: 842px; margin: 0 auto 20px;">
+                <div style="border-top: 30px solid white;
+                border-left: 20px solid white;
+                border-right: 20px solid white;
+                border-bottom: 60px solid white;
+                display: inline-block;">
+                    <img src="{% static 'img/stickers/drop-one/stickers/all.png' %}" style="max-width: 800px;" />
+                </div>
+            </div>
+
+            <div class="box">
+                <img src="{% static 'img/stickers/drop-one/stickers/djurassic-park.png' %}" alt="Djurrasic Park"
+                    class="hvr-grow-pico" />
+            </div>
+
+            <div class="box" style="max-width: 3000px;">
+                <img src="{% static 'img/stickers/drop-one/stickers/djangonaut.png' %}" alt="Djangonaut"
+                    class="hvr-grow-pico" />
+            </div>
+
+            <div class="box">
+                <img src="{% static 'img/stickers/drop-one/stickers/rock-pony.png' %}" alt="Rock Pony"
+                    class="hvr-grow-pico" />
+            </div>
+        </div>
+
+        <h2 class="header" id="made-by">
+            <img src="{% static 'img/stickers/drop-one/text/made-by.png' %}" alt="Made by" />
+        </h2>
+
+        <div class="is-centered">
+            <div class="box profile" id="sangeeta">
+                <div class="header">
+                    <div class="pictures">
+                        <img src="{% static 'img/stickers/drop-one/profile/sangeeta-polaroid.png' %}" class="polaroid"
+                            alt="Sangeeta's profile picture" style="transform: rotate(-1deg)" />
+                    </div>
+                </div>
+
+                <div class="section pt-0">
+                    <div class="icons">
+                        <a href="https://github.com/sjbitcode" target="_blank">
+                            <img src="{% static 'img/stickers/drop-one/contact/gh-thick-orange.png' %}" class="code"
+                                alt="Code" />
+                        </a>
+                        <a href="https://fosstodon.org/@sjbitcode" target="_blank">
+                            <img src="{% static 'img/stickers/drop-one/contact/mastodon-thick-purple.png' %}"
+                                class="social" alt="Social media" />
+                        </a>
+                    </div>
+                </div>
+
+                <div class="section mt-2">
+                    <h4>
+                        <img src="{% static 'img/stickers/drop-one/text/random-facts.png' %}" alt="Random facts" />
+                    </h4>
+                    <ul>
+                        <li>
+                            <img src="{% static 'img/stickers/drop-one/running.png' %}" id="running"
+                                class="sticker hvr-forward" alt="running" />
+                            Loves running endlessly without actually getting anywhere
+                        </li>
+                        <li>
+                            Only drinks intense coffee
+                            <img src="{% static 'img/stickers/drop-one/coffee.png' %}" id="coffee"
+                                class="sticker hvr-buzz-out" alt="coffee" />
+                        </li>
+                        <li>
+                            Collects giant mugs from Etsy
+                        </li>
+                        <li>
+                            Vegan for the animals
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h4>
+                        <img src="{% static 'img/stickers/drop-one/text/favorite-quote.png' %}" alt="Favorite quote" />
+                    </h4>
+                    <p class="quote">
+                        What goes around comes around.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h4>
+                        <img src="{% static 'img/stickers/drop-one/text/superlatives.png' %}" alt="Superlatives" />
+                    </h4>
+                    <ul>
+                        <li>Best artist</li>
+                        <li>Most helpful</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="box profile" id="adam">
+                <div class="header">
+                    <div class="pictures">
+                        <img src="{% static 'img/stickers/drop-one/profile/adam-polaroid.png' %}" class="polaroid"
+                            alt="Adam's profile picture" />
+                    </div>
+                </div>
+
+                <div class="section pt-0">
+                    <div class="icons">
+                        <a href="https://github.com/adamghill" target="_blank">
+                            <img src="{% static 'img/stickers/drop-one/contact/gh-thick-blue.png' %}" class="code"
+                                alt="Code" />
+                        </a>
+                        <a href="https://indieweb.social/@adamghill" target="_blank">
+                            <img src="{% static 'img/stickers/drop-one/contact/mastodon-thick-magenta.png' %}"
+                                class="social" alt="Social media" />
+                        </a>
+                    </div>
+                </div>
+
+                <div class="section mt-2">
+                    <h4>
+                        <img src="{% static 'img/stickers/drop-one/text/random-facts.png' %}" alt="Random facts" />
+                    </h4>
+                    <ul>
+                        <li>
+                            <img src="{% static 'img/stickers/drop-one/arcade.png' %}" id="arcade"
+                                class="sticker hvr-buzz-out" alt="arcade" />
+                            Has 2 pinball machines, a record player, and way too many toys in his office
+                        </li>
+                        <li>
+                            Loves Halloween and bad horror movies
+                        </li>
+                        <li>
+                            Unabashed coffee snob
+
+                        </li>
+                        <li>
+                            Perpetually juggling
+                            <a href="https://alldjango.com" target="_blank">way</a>
+                            <a href="https://www.django-unicorn.com" target="_blank">too</a>
+                            <a href="https://devmarks.io" target="_blank">many</a>
+                            <a href="https://unsuckjs.com" target="_blank">side</a>
+                            <a href="https://fediview.com" target="_blank">projects</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h4>
+                        <img src="{% static 'img/stickers/drop-one/text/favorite-quote.png' %}" alt="Favorite quote" />
+                    </h4>
+                    <p class="quote">
+                        Oh no... here we go again.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h4>
+                        <img src="{% static 'img/stickers/drop-one/text/superlatives.png' %}" alt="Superlatives" />
+                    </h4>
+
+                    <img src="{% static 'img/stickers/drop-one/ghost.png' %}" id="ghost" class="sticker bob"
+                        alt="ghost" />
+
+                    <ul>
+                        <li>Best dog owner</li>
+                        <li>Most stubborn</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <img src="{% static 'img/stickers/drop-one/a-plus.png' %}" id="a-plus" class="sticker hvr-rotate" alt="A+" />
+        <img src="{% static 'img/stickers/drop-one/ruler.png' %}" id="ruler" class="sticker rotate-130" alt="ruler" />
+        <img src="{% static 'img/stickers/drop-one/triangle.png' %}" id="triangle" class="sticker" alt="triangle" />
+        <img src="{% static 'img/stickers/drop-one/rocket.png' %}" id="rocket" class="sticker bob" alt="rocket" />
+        <img src="{% static 'img/stickers/drop-one/laptop.png' %}" id="laptop" class="sticker hvr-grow-pico"
+            alt="laptop" />
+
+        <div class="box alert clear" id="footer">
+            <p>Built with semantic-ish HTML, barely passable CSS,
+                vanilla JavaScript,
+                <a href="https://coltrane.readthedocs.io" target="_blank">Coltrane</a>,
+                and lots of
+                <img src="{% static 'img/stickers/drop-one/text/coffee.png' %}" id="coffee-text" alt="coffee" />.
+            </p>
+            <img src="{% static 'img/stickers/drop-one/checklist.png' %}" id="checklist" class="sticker"
+                alt="checklist" />
+            <p class="mt-1">
+                CSS animation by
+                <a href="https://github.com/IanLunn/Hover">hover.css</a>.
+                The
+                <a href="https://github.com/adamghill/alldjango.com" target="_blank">code</a>
+                is hosted on the glorious
+                <a href="https://alldjango.com">alldjango.com</a>.
+            </p>
+            <p class="mt-1">
+                &copy; Sangeeta Jadoonanan & Adam Hill
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function observe() {
+            var observer = new IntersectionObserver((entries, opts) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transform = "rotate(0deg)";
+                        entry.target.style["margin-top"] = "0px";
+                    }
+                });
+            }, {
+                threshold: .3
+            });
+
+            observer.observe(document.querySelector('#adam'));
+        }
+
+        function annotate() {
+            const e = document.querySelector('#django-stickers');
+            const annotation = RoughNotation.annotate(e, {
+                type: 'highlight',
+                color: '#60b4f9'
+            });
+            annotation.show();
+        }
+
+        window.addEventListener("load", () => {
+            observe();
+            annotate();
+        });
+    </script>
+</body>
+
+</html>

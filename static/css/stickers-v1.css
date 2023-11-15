@@ -89,6 +89,28 @@ a {
     margin-bottom: 0.5em;
 }
 
+.blob {
+    max-width: 800px;
+    min-width: 300px;
+    padding: 2em;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    display: inline-block;
+    background-color: #66B68E;
+
+    /*
+    From https://css-generators.com/custom-borders/
+    */
+    --mask: 
+      linear-gradient(#000 0 0) center/calc(100% - 20px) calc(100% - 20px) no-repeat,
+      conic-gradient(from  135deg at top   ,#0000,#000 1deg 89deg,#0000 90deg) 0 0   /20px 10px space no-repeat,
+      conic-gradient(from  -45deg at bottom,#0000,#000 1deg 89deg,#0000 90deg) 0 100%/20px 10px space no-repeat,
+      conic-gradient(from   45deg at left  ,#0000,#000 1deg 89deg,#0000 90deg) 0 0   /10px 20px no-repeat space,
+      conic-gradient(from -135deg at right ,#0000,#000 1deg 89deg,#0000 90deg) 100% 0/10px 20px no-repeat space;
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+}
+
 .box {
     max-width: 800px;
     min-width: 300px;
