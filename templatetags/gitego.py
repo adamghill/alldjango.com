@@ -1,3 +1,5 @@
+from hashlib import md5
+
 import httpx
 from django import template
 from django.conf import settings
@@ -8,12 +10,40 @@ from glom import glom
 register = template.Library()
 
 
-def _get_stargazers(username: str) -> dict:
-    cache_key = f"stargazers:{username}"
+def _get_gql(gql: str, variables: dict = None) -> dict:
+    if variables is None:
+        variables = {}
+
+    cache_key = md5(gql.encode(), usedforsecurity=False).hexdigest()
+
+    if variables:
+        import json
+
+        cache_key += md5(json.dumps(variables).encode(), usedforsecurity=False).hexdigest()
 
     if data := cache.get(cache_key):
         return data
 
+    url = "https://api.github.com/graphql"
+
+    headers = {"Authorization": f"token {settings.GITHUB_PERSONAL_ACCESS_TOKEN}"}
+
+    res = httpx.post(
+        url,
+        json={"query": gql, "variables": variables},
+        headers=headers,
+        timeout=30,
+    )
+
+    res.raise_for_status()
+    data = res.json()
+
+    cache.set(cache_key, data, 30)
+
+    return data
+
+
+def _get_stargazers(username: str) -> dict:
     gql = """
 query($username: String!) {
   user(login: $username) {
@@ -40,27 +70,54 @@ query($username: String!) {
 }
 """
 
-    url = "https://api.github.com/graphql"
+    data = _get_gql(gql, variables={"username": username})
 
-    headers = {"Authorization": f"token {settings.GITHUB_PERSONAL_ACCESS_TOKEN}"}
+    return data
 
-    res = httpx.post(
-        url,
-        json={"query": gql, "variables": {"username": username}},
-        headers=headers,
-        timeout=30,
-    )
 
-    res.raise_for_status()
-    data = res.json()
+def _get_user(username: str) -> dict:
+    gql = """
+query($username: String!) {
+  user(login: $username) {
+    login
+    avatarUrl
+    websiteUrl
+    repositories {
+      totalCount
+    }
+    followers {
+      totalCount
+    }
+    following {
+      totalCount
+    }
+    starredRepositories {
+      totalCount
+    }
+    sponsoring {
+      totalCount
+    }
+    sponsors {
+      totalCount
+    }
+  }
+}
+"""
 
-    cache.set(cache_key, data, 30)
+    data = _get_gql(gql, variables={"username": username})
 
     return data
 
 
 @register.simple_tag
-def stargazers_by_repo_name(username: str) -> str:
+def get_user(username: str) -> dict:
+    data = _get_user(username)
+
+    return glom(data, "data.user")
+
+
+@register.simple_tag
+def stargazers_by_repo_name(username: str) -> dict:
     data = _get_stargazers(username)
     stargazers_by_repo_name = {}
 
@@ -88,7 +145,7 @@ def stargazers_by_repo_name(username: str) -> str:
 
 
 @register.simple_tag
-def last_stargazers(username: str):
+def last_stargazers(username: str) -> list[str]:
     data = _get_stargazers(username)
     last_stargazers = []
 
