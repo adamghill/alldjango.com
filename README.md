@@ -1,8 +1,14 @@
 # alldjango.com
 
-The website for alldjango.com. Built with Coltrane, sweat, blood, and tears.
+The website for alldjango.com. Built with `Coltrane` and ☕️.
 
-# To build
+# Run locally
+
+- Install `Poetry`
+- `cp .env.example .env` and update `.env` with a secret key
+- `poe r` or `poetry run coltrane play`
+
+# To build static site
 
 `poetry run coltrane build`
 
@@ -10,8 +16,8 @@ The website for alldjango.com. Built with Coltrane, sweat, blood, and tears.
 
 https://coolors.co/8a4f7d-fbb13c-f0544f-20aa76-f4f6f6
 
-# To develop coltrane
+# To develop with local `Coltrane`
 
-1. `poetry remove coltrane-web`
-1. Add `coltrane-web = { path="../coltrane", develop=true }` to `pyproject.toml`
+1. `poetry remove coltrane`
+1. Add `coltrane = { path="../coltrane", develop=true }` to `pyproject.toml`
 1. `poetry lock && poetry install`
