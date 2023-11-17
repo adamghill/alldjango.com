@@ -16,6 +16,7 @@
           hide("#repo");
           hide("#lookup");
           hide("#clear");
+          hide("#intro");
           show("#loading");
           show("#spinner");
 
