@@ -11,6 +11,10 @@ from glom import PathAccessError, glom
 register = template.Library()
 
 
+# Set the limit to 50 otherwise, the query times out
+LIMIT = 50
+
+
 def _get_gql(gql: str, variables: dict = None) -> dict:
     if variables is None:
         variables = {}
@@ -51,12 +55,12 @@ def _get_stargazers(username: str) -> dict:
 query($username: String!) {
   user(login: $username) {
     login
-    repositories(isFork:false, last: 100, orderBy: {field: STARGAZERS, direction: ASC}) {
+    repositories(isFork:false, last: 50, orderBy: {field: STARGAZERS, direction: ASC}) {
       edges {
         node {
           name
           url
-          stargazers(last: 100, orderBy: {field: STARRED_AT, direction: ASC}) {
+          stargazers(last: 50, orderBy: {field: STARRED_AT, direction: ASC}) {
             totalCount
             edges {
               starredAt
@@ -202,7 +206,7 @@ def last_stargazers(username: str) -> list[str]:
 
                 last_stargazers.append(stargazer_data)
 
-        last_stargazers = sorted(last_stargazers, key=lambda s: s.get("starredAt"), reverse=True)[:100]
+        last_stargazers = sorted(last_stargazers, key=lambda s: s.get("starredAt"), reverse=True)[:LIMIT]
     except httpx.HTTPStatusError as e:
         error = e
 
