@@ -6,15 +6,18 @@
       lookup,
       "click",
       () => {
-        const username = value("#username");
+        const usernameEl = $("#username");
+        const username = value(usernameEl);
 
         if (username) {
+          usernameEl.disabled = true;
           hide(lookupEl);
           hide("#user");
           hide("#repo");
-          hide("#intro");
-          show("#spinner");
+          hide("#lookup");
+          hide("#clear");
           show("#loading");
+          show("#spinner");
 
           window.location.search = `?username=${username}`;
         } else {
@@ -32,5 +35,17 @@
       },
       true
     );
+
+    $$(".lookup").forEach((el) => {
+      listen(
+        el,
+        "click",
+        (event, el) => {
+          const lookupUsername = data(el, "username");
+          window.location.search = `?username=${lookupUsername}`;
+        },
+        true
+      );
+    });
   });
 })();

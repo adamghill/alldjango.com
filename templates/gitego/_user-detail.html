@@ -1,0 +1,21 @@
+<img src="{{ user.avatarUrl }}" class="avatar" />
+
+{% if user.login == request.GET.username %}
+<span style="font-size: 20px; font-weight: bold;">{{ user.login }}</span>
+{% else %}
+<a href="{{ request.path }}?username={{ user.login }}">{{ user.login }}</a>
+{% endif %}
+
+{% if user.login in sponsors %}
+💙
+{% endif %}
+
+<span class="emoji-link">
+    <a href="https://github.com/{{ user.login }}">🤖</a>
+</span>
+
+{% if user.websiteUrl %}
+<span class="emoji-link">
+    <a href="{{ user.websiteUrl }}">🏠</a>
+</span>
+{% endif %}

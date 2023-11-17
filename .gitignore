@@ -2,3 +2,4 @@ output.json
 output
 .DS_Store
 .venv
+.env

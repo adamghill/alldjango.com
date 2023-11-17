@@ -21,6 +21,15 @@ function $(query) {
 }
 
 /**
+ * Query for all elements in a document.
+ * @param {String} query - CSS-like query for `Element`s.
+ * @returns All `Element`s found for the query.
+ */
+function $$(query) {
+  return document.querySelectorAll(query);
+}
+
+/**
  * Adds an event listener to a particular `Element`.
  * @param {String|Element} el - `Element` to listen to.
  * @param {*} eventName - Event to listen to, e.g. "click", "mouseover", etc.
@@ -34,7 +43,7 @@ function listen(el, eventName, fn, preventDefault) {
       event.preventDefault();
     }
 
-    return fn(event);
+    return fn(event, el);
   });
 }
 
@@ -47,11 +56,16 @@ function onload(fn) {
 }
 
 /**
- * Get the value of an `Element`.
- * @param {String} query - The query for the `Element` to get the value for.
+ * Get the data value of an `Element`.
+ * @param {String|Element} el - `Element` to get the value for.
+ * @param {String} data - Attribute to get the data from.
  */
-function value(query) {
-  return $(query).value;
+function data(el, data) {
+  el = _get_el(el);
+
+  p(el.dataset[data]);
+
+  return el.data;
 }
 
 /**

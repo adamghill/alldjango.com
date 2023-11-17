@@ -30,185 +30,33 @@
             height: 40px;
             margin-right: 10px;
         }
+
+        .emoji-link {
+            margin-left: 4px;
+        }
+
+        .emoji-link a {
+            text-decoration: none;
+        }
     </style>
 </head>
 
 <body>
-    <h1 class="header">
-        GitEgo
-    </h1>
+    <!-- start header -->
+    {% include "gitego/_header.html" %}
+    <!-- end header -->
 
-    <form method="POST">
-        <input type="text" id="username" style="margin-right: 10px;"
-            placeholder="{% if request.GET.username %}{{ request.GET.username }}{% else %}GitHub username{% endif %}">
-        </input>
-
-        <button type="submit" id="lookup">Lookup</button>
-
-        {% if request.GET.username %}
-        <button type="submit" id="clear">Clear</button>
-        {% endif %}
-
-        <svg id="spinner" style="display: none;" width="24" height="24" viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
-            <style>
-                .spinner_SoJz {
-                    transform-origin: center;
-                    animation: spinner_YGAN 1.5s linear infinite
-                }
-
-                @keyframes spinner_YGAN {
-                    100% {
-                        transform: rotate(360deg)
-                    }
-                }
-            </style>
-            <path class="spinner_SoJz"
-                d="M20.27,4.74a4.93,4.93,0,0,1,1.52,4.61,5.32,5.32,0,0,1-4.1,4.51,5.12,5.12,0,0,1-5.2-1.5,5.53,5.53,0,0,0,6.13-1.48A5.66,5.66,0,0,0,20.27,4.74ZM12.32,11.53a5.49,5.49,0,0,0-1.47-6.2A5.57,5.57,0,0,0,4.71,3.72,5.17,5.17,0,0,1,9.53,2.2,5.52,5.52,0,0,1,13.9,6.45,5.28,5.28,0,0,1,12.32,11.53ZM19.2,20.29a4.92,4.92,0,0,1-4.72,1.49,5.32,5.32,0,0,1-4.34-4.05A5.2,5.2,0,0,1,11.6,12.5a5.6,5.6,0,0,0,1.51,6.13A5.63,5.63,0,0,0,19.2,20.29ZM3.79,19.38A5.18,5.18,0,0,1,2.32,14a5.3,5.3,0,0,1,4.59-4,5,5,0,0,1,4.58,1.61,5.55,5.55,0,0,0-6.32,1.69A5.46,5.46,0,0,0,3.79,19.38ZM12.23,12a5.11,5.11,0,0,0,3.66-5,5.75,5.75,0,0,0-3.18-6,5,5,0,0,1,4.42,2.3,5.21,5.21,0,0,1,.24,5.92A5.4,5.4,0,0,1,12.23,12ZM11.76,12a5.18,5.18,0,0,0-3.68,5.09,5.58,5.58,0,0,0,3.19,5.79c-1,.35-2.9-.46-4-1.68A5.51,5.51,0,0,1,11.76,12ZM23,12.63a5.07,5.07,0,0,1-2.35,4.52,5.23,5.23,0,0,1-5.91.2,5.24,5.24,0,0,1-2.67-4.77,5.51,5.51,0,0,0,5.45,3.33A5.52,5.52,0,0,0,23,12.63ZM1,11.23a5,5,0,0,1,2.49-4.5,5.23,5.23,0,0,1,5.81-.06,5.3,5.3,0,0,1,2.61,4.74A5.56,5.56,0,0,0,6.56,8.06,5.71,5.71,0,0,0,1,11.23Z" />
-        </svg>
-    </form>
-
-    <p id="loading" style="display: none;">
-        Using the dark arts of GraphQL... 🪄
-    </p>
-
-    {% if request.GET.repo %}
+    {% if request.GET.repo and request.GET.username %}
 
     <!-- start repo -->
-    <div id="repo">
-        {% stargazers_by_repo_name username as stargazers_by_repo_name %}
-
-        {% for repo_name, last_stargazers in stargazers_by_repo_name.items %}
-
-        <!-- start specific repo detail -->
-        {% if request.GET.repo == repo_name %}
-        <div style="margin-top: 20px;">
-            <span style="font-size: 20px;">⇠</span>
-            <a href="{{ request.path }}?username={{ username }}">
-                Go back
-            </a>
-        </div>
-
-        <h1>
-            <a href="https://github.com/{{ username }}/{{ request.GET.repo }}">
-                {{ request.GET.repo }}
-            </a>
-        </h1>
-
-        {% if last_stargazers %}
-        <table>
-            <thead>
-                <tr>
-                    <th scope="col">Who</th>
-                    <th scope="col">When</th>
-                </tr>
-            </thead>
-            {% for stargazer in last_stargazers %}
-            <tr>
-                <td>
-                    <img src="{{ stargazer.avatarUrl }}" /><a
-                        href="https://github.com/{{ stargazer.login }}">{{ stargazer.login }}</a>
-                </td>
-                <td>
-                    <span title="{{ stargazer.starredAt }}">
-                        {{ stargazer.starredAt|str_to_date|naturaltime }}
-                    </span>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
-        {% else %}
-        <p>
-            No stargazers. 😢
-        </p>
-        {% endif %}
-
-        {% endif %}
-        <!-- end specific repo detail -->
-    </div>
-
-    {% endfor %}
+    {% include "gitego/_repo.html" %}
     <!-- end repo -->
 
     {% elif request.GET.username %}
 
-    {% with request.GET.username as username %}
-    {% get_user username as user %}
-
     <!-- start user -->
-    <div id="user" style="margin-top: 20px;">
-        <img src="{{ user.avatarUrl }}" class="avatar" /><a
-            href="https://github.com/{{ user.login }}">{{ user.login }}</a>
-
-        {% if user.websiteUrl %}
-        <a href="{{ user.websiteUrl }}">🏠</a>
-        {% endif %}
-
-        <table>
-            <thead>
-                <tr>
-                    <th scope="col">Repos</th>
-                    <th scope="col">Following</th>
-                    <th scope="col">Followers</th>
-                    <th scope="col">Stars</th>
-                    <th scope="col">Sponsoring</th>
-                    <th scope="col">Sponsors</th>
-                </tr>
-            </thead>
-            <tr>
-                <td>{{ user.repositories.totalCount }}</td>
-                <td>{{ user.following.totalCount }}</td>
-                <td>{{ user.followers.totalCount }}</td>
-                <td>{{ user.starredRepositories.totalCount }}</td>
-                <td>{{ user.sponsoring.totalCount }}</td>
-                <td>{{ user.sponsors.totalCount }}</td>
-            </tr>
-        </table>
-
-        {% last_stargazers username as last_stargazers %}
-
-        {% if last_stargazers %}
-        <table>
-            <thead>
-                <tr>
-                    <th scope="col">Who</th>
-                    <th scope="col">What</th>
-                    <th scope="col">When</th>
-                </tr>
-            </thead>
-            {% for stargazer in last_stargazers %}
-            <tr>
-                <td>
-                    <img src="{{ stargazer.avatarUrl }}" /><a
-                        href="https://github.com/{{ stargazer.login }}">{{ stargazer.login }}</a>
-                </td>
-                <td>
-                    <a href="{{ request.path }}?username={{ username }}&repo={{ stargazer.repo_name }}">
-                        {{ stargazer.repo_name }}
-                    </a>
-                </td>
-                <td>
-                    <span title="{{ stargazer.starredAt }}">
-                        {{ stargazer.starredAt|str_to_date|naturaltime }}
-                    </span>
-                </td>
-            </tr>
-            {% endfor %}
-        </table>
-        {% else %}
-        <p>
-            {% if user.repositories.totalCount == 0 %}
-            No repositories. 😢
-            {% else %}
-            No stargazers. 😢
-            {% endif %}
-        </p>
-        {% endif %}
-
-    </div>
+    {% include "gitego/_user.html" %}
     <!-- end user -->
-
-    {% endwith %}
 
     {% else %}
 
@@ -223,29 +71,30 @@
 
     <!-- start colophon -->
     <section>
-        <h4>Colophon</h4>
+        <h4>This silly idea brought to you by:</h4>
         <ul>
-            <li>Built with <a href="https://coltrane.readthedocs.io"><code>Coltrane</code></a></li>
             <li>
-                CSS by
-                <a href="https://simplecss.org">
-                    https://simplecss.org
+                <a href="https://indieweb.social/@adamghill/111178120534328391">A frustrated post</a>
+            </li>
+            <li>
+                <a href="https://coltrane.readthedocs.io"><code>Coltrane</code></a>
+            </li>
+            <li>
+                <a href="https://gist.github.com/adamghill/6cbd7f82fffcc72f4774d68c055f2feb">
+                    dork.js
                 </a>
             </li>
             <li>
-                Loading spinner from
+                <a href="https://simplecss.org">SimpleCSS</a>
+            </li>
+            <li>
                 <a href="https://github.com/n3r4zzurr0/svg-spinners">
                     https://github.com/n3r4zzurr0/svg-spinners
                 </a>
             </li>
-            <li>Code at
+            <li>
                 <a href="https://github.com/adamghill/alldjango.com">
                     adamghill/alldjango.com
-                </a>
-            </li>
-            <li>
-                <a href="https://gist.github.com/adamghill/95eecb1e4f9bc7541912e18b6dc60e66">
-                    Gist for the GQL
                 </a>
             </li>
         </ul>
