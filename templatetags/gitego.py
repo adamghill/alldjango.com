@@ -184,8 +184,10 @@ def get_user(username: str) -> dict:
 
 
 @register.simple_tag
-def stargazers_by_repo_name(username: str, repo_name: str) -> tuple:
+def get_repository(username: str, repo_name: str) -> tuple:
     error = None
+    data = {}
+    result = {}
 
     try:
         data = _get_stargazers(username)
@@ -194,52 +196,51 @@ def stargazers_by_repo_name(username: str, repo_name: str) -> tuple:
     except GqlError as e:
         error = e
 
-    result = {}
+    if not error:
+        for repository in glom(data, "data.user.repositories.edges"):
+            repository_node = repository.get("node", {})
 
-    for repository in glom(data, "data.user.repositories.edges"):
-        repository_node = repository.get("node", {})
+            name = repository_node.get("name")
 
-        name = repository_node.get("name")
-
-        if repo_name != name:
-            continue
-
-        result.update(
-            {
-                "name": repository_node.get("name"),
-                "url": repository_node.get("url"),
-                "description": repository_node.get("description"),
-                "stargazer_count": repository_node.get("stargazerCount"),
-            }
-        )
-
-        commit_edges = glom(repository_node, "defaultBranchRef.target.history.edges")
-
-        if commit_edges:
-            commit_node = commit_edges[0].get("node", {})
-            last_commit_date = commit_node.get("committedDate")
-            last_commit_url = commit_node.get("commitUrl")
+            if repo_name != name:
+                continue
 
             result.update(
                 {
-                    "last_commit_date": last_commit_date,
-                    "last_commit_url": last_commit_url,
+                    "name": repository_node.get("name"),
+                    "url": repository_node.get("url"),
+                    "description": repository_node.get("description"),
+                    "stargazer_count": repository_node.get("stargazerCount"),
                 }
             )
 
-        stargazers = []
+            commit_edges = glom(repository_node, "defaultBranchRef.target.history.edges")
 
-        for stargazer in glom(repository, "node.stargazers.edges"):
-            stargazer_node = stargazer["node"]
+            if commit_edges:
+                commit_node = commit_edges[0].get("node", {})
+                last_commit_date = commit_node.get("committedDate")
+                last_commit_url = commit_node.get("commitUrl")
 
-            if stargazer_node.get("login") == username:
-                continue
+                result.update(
+                    {
+                        "last_commit_date": last_commit_date,
+                        "last_commit_url": last_commit_url,
+                    }
+                )
 
-            stargazer_node["starredAt"] = stargazer["starredAt"]
-            stargazer_node["repo_name"] = repo_name
-            stargazers.insert(0, stargazer_node)
+            stargazers = []
 
-        result["stargazers"] = stargazers
+            for stargazer in glom(repository, "node.stargazers.edges"):
+                stargazer_node = stargazer["node"]
+
+                if stargazer_node.get("login") == username:
+                    continue
+
+                stargazer_node["starredAt"] = stargazer["starredAt"]
+                stargazer_node["repo_name"] = repo_name
+                stargazers.insert(0, stargazer_node)
+
+            result["stargazers"] = stargazers
 
     return (result, error)
 

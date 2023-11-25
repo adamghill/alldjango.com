@@ -9,12 +9,16 @@
 
 <!-- start repo -->
 <div id="repo">
-  {% stargazers_by_repo_name username repo as stargazers_by_repo_name_result %}
-  {% with stargazers_by_repo_name_result.0 as stargazers_by_repo_name %}
-  {% with stargazers_by_repo_name_result.1 as stargazers_by_repo_name_error %}
+  {% get_repository username repo as result %}
+  {% with result.0 as repository %}
+  {% with result.1 as error %}
+
+  {% if error or not repository %}
+  {% raise_404 %}
+  {% endif %}
 
   <!-- start specific repo detail -->
-  <div style="margin-top: 30px;">
+  <div style="margin-top: 30px; margin-bottom: 10px;">
     <span style="font-size: 20px;">⇠</span>
     <a href="/gitego/user/{{ username }}">
       Go back to {{ username }}
@@ -22,34 +26,34 @@
   </div>
 
   <span style="font-size: 20px; font-weight: bold;">
-    {{ stargazers_by_repo_name.name }}
+    {{ repository.name }}
 
     <span class="emoji-link">
-      <a href="https://github.com/{{ username }}/{{ stargazers_by_repo_name.name }}">💿</a>
+      <a href="https://github.com/{{ username }}/{{ repository.name }}">💿</a>
     </span>
 
     <span style="font-weight: normal; margin-left: 20px; color: grey;">
       <a
-        href="https://github.com/{{ username }}/{{ stargazers_by_repo_name.name }}/stargazers">{{ stargazers_by_repo_name.stargazer_count }}</a>
+        href="https://github.com/{{ username }}/{{ repository.name }}/stargazers">{{ repository.stargazer_count|intcomma }}</a>
       ⭐️
     </span>
 
-    {% if stargazers_by_repo_name.last_commit_date and stargazers_by_repo_name.last_commit_url %}
+    {% if repository.last_commit_date and repository.last_commit_url %}
     <span style="font-weight: normal; margin-left: 20px; color: grey;">
-      <a href="{{ stargazers_by_repo_name.last_commit_url }}">
-        {{ stargazers_by_repo_name.last_commit_date|str_to_date|naturaltime }}
+      <a href="{{ repository.last_commit_url }}">
+        {{ repository.last_commit_date|str_to_date|naturaltime }}
       </a>
     </span>
     {% endif %}
   </span>
 
-  {% if stargazers_by_repo_name.description %}
+  {% if repository.description %}
   <p style="margin-top: .5rem;">
-    {{ stargazers_by_repo_name.description }}
+    {{ repository.description }}
   </p>
   {% endif %}
 
-  {% if stargazers_by_repo_name.stargazers %}
+  {% if repository.stargazers %}
   <table style="margin-top: 50px;">
     <thead>
       <tr>
@@ -57,7 +61,7 @@
         <th scope="col">When</th>
       </tr>
     </thead>
-    {% for stargazer in stargazers_by_repo_name.stargazers %}
+    {% for stargazer in repository.stargazers %}
     <tr>
       <td>
         {% include "gitego/_user-detail.html" with user=stargazer %}
@@ -78,8 +82,8 @@
   <!-- end specific repo detail -->
 </div>
 
-{% endwith stargazers_by_repo_name_error %}
-{% endwith stargazers_by_repo_name %}
+{% endwith error %}
+{% endwith result %}
 
 
 {% endwith repo %}
