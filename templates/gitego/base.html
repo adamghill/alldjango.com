@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="{% static 'css/sanitize.css' %}">
     <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
 
+    <style>
+        table caption {
+            text-align: left;
+        }
+    </style>
+
     {% if not debug %}
     <script defer data-domain="alldjango.com" src="https://plausible.io/js/plausible.js"></script>
     {% endif %}
@@ -46,28 +52,10 @@
     {% include "gitego/_header.html" %}
     <!-- end header -->
 
-    {% if request.GET.repo and request.GET.username %}
-
-    <!-- start repo -->
-    {% include "gitego/_repo.html" %}
-    <!-- end repo -->
-
-    {% elif request.GET.username %}
-
-    <!-- start user -->
-    {% include "gitego/_user.html" %}
-    <!-- end user -->
-
-    {% else %}
-
-    <!-- start default -->
-    <p id="intro">
-        Enter a GitHub username and click the <code>Lookup</code> button to see the latest stars
-        on that user's public repositories.
-    </p>
-    <!-- end default -->
-
-    {% endif %}
+    <!-- start content -->
+    {% block content %}
+    {% endblock content %}
+    <!-- end content -->
 
     <!-- start colophon -->
     <section>

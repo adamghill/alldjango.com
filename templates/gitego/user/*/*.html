@@ -1,0 +1,89 @@
+{% extends "gitego/base.html" %}
+
+
+{% block content %}
+
+{% paths as paths %}
+{% with paths.2 as username %}
+{% with paths.3 as repo %}
+
+<!-- start repo -->
+<div id="repo">
+  {% stargazers_by_repo_name username repo as stargazers_by_repo_name_result %}
+  {% with stargazers_by_repo_name_result.0 as stargazers_by_repo_name %}
+  {% with stargazers_by_repo_name_result.1 as stargazers_by_repo_name_error %}
+
+  <!-- start specific repo detail -->
+  <div style="margin-top: 30px;">
+    <span style="font-size: 20px;">⇠</span>
+    <a href="/gitego/user/{{ username }}">
+      Go back to {{ username }}
+    </a>
+  </div>
+
+  <span style="font-size: 20px; font-weight: bold;">
+    {{ stargazers_by_repo_name.name }}
+
+    <span class="emoji-link">
+      <a href="https://github.com/{{ username }}/{{ stargazers_by_repo_name.name }}">💿</a>
+    </span>
+
+    <span style="font-weight: normal; margin-left: 20px; color: grey;">
+      <a
+        href="https://github.com/{{ username }}/{{ stargazers_by_repo_name.name }}/stargazers">{{ stargazers_by_repo_name.stargazer_count }}</a>
+      ⭐️
+    </span>
+
+    {% if stargazers_by_repo_name.last_commit_date and stargazers_by_repo_name.last_commit_url %}
+    <span style="font-weight: normal; margin-left: 20px; color: grey;">
+      <a href="{{ stargazers_by_repo_name.last_commit_url }}">
+        {{ stargazers_by_repo_name.last_commit_date|str_to_date|naturaltime }}
+      </a>
+    </span>
+    {% endif %}
+  </span>
+
+  {% if stargazers_by_repo_name.description %}
+  <p style="margin-top: .5rem;">
+    {{ stargazers_by_repo_name.description }}
+  </p>
+  {% endif %}
+
+  {% if stargazers_by_repo_name.stargazers %}
+  <table style="margin-top: 50px;">
+    <thead>
+      <tr>
+        <th scope="col">Who</th>
+        <th scope="col">When</th>
+      </tr>
+    </thead>
+    {% for stargazer in stargazers_by_repo_name.stargazers %}
+    <tr>
+      <td>
+        {% include "gitego/_user-detail.html" with user=stargazer %}
+      </td>
+      <td>
+        <span title="{{ stargazer.starredAt }}">
+          {{ stargazer.starredAt|str_to_date|naturaltime }}
+        </span>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p>
+    No stargazers. 😢
+  </p>
+  {% endif %}
+  <!-- end specific repo detail -->
+</div>
+
+{% endwith stargazers_by_repo_name_error %}
+{% endwith stargazers_by_repo_name %}
+
+
+{% endwith repo %}
+{% endwith username %}
+<!-- end repo -->
+
+{% endblock %}

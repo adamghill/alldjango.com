@@ -1,17 +1,20 @@
+{% paths as paths %}
+{% with paths.2 as username %}
+
 <h1 class="header">
-    GitEgo
+    <a href="/gitego/" style="text-decoration: none;">GitEgo</a>
 </h1>
 
 <form>
     <input type="text" id="username" style="margin-right: 10px;"
-        placeholder="{% if request.GET.username %}{{ request.GET.username }}{% else %}GitHub username{% endif %}">
+        placeholder="{% if username %}{{ username }}{% else %}GitHub username{% endif %}">
     </input>
 
     <button type="submit" id="lookup">
         Lookup
     </button>
 
-    {% if request.GET.username %}
+    {% if username %}
     <button type="submit" id="clear">
         Reset
     </button>
@@ -39,3 +42,5 @@
 <p id="loading" style="display: none;">
     Looking for data using the dark arts of GraphQL... 🪄
 </p>
+
+{% endwith username %}

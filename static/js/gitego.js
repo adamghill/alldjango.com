@@ -20,7 +20,7 @@
           show("#loading");
           show("#spinner");
 
-          window.location.search = `?username=${username}`;
+          window.location = `/gitego/user/${username}`;
         } else {
           alert("Missing username?");
         }
@@ -32,7 +32,7 @@
       "#clear",
       "click",
       () => {
-        window.location.search = "";
+        window.location = "/gitego/";
       },
       true
     );
@@ -43,7 +43,7 @@
         "click",
         (event, el) => {
           const lookupUsername = data(el, "username");
-          window.location.search = `?username=${lookupUsername}`;
+          window.location = `/gitego/user/${lookupUsername}`;
         },
         true
       );

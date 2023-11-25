@@ -1,5 +1,6 @@
 /*
 dork.js | https://github.com/adamghill
+The most important JavaScript framework ever created.
 MIT
 */
 
@@ -106,6 +107,6 @@ function show(el) {
  * Writes to the console.
  * @param {String} s - The message to write to the console.
  */
-function p(s) {
+function print(s) {
   console.log(s);
 }
