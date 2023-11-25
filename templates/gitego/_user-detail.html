@@ -1,11 +1,15 @@
 {% paths as paths %}
 {% with paths.2 as username %}
 
+{% if user.login == username %}
 <img src="{{ user.avatarUrl }}" class="avatar" />
 
-{% if user.login == username %}
-<span style="font-size: 20px; font-weight: bold;">{{ user.login }}</span>
+<span style="font-size: 20px; font-weight: bold;">
+    {{ user.login }}
+</span>
 {% else %}
+<a href="/gitego/user/{{ user.login }}" style="text-decoration: none;"><img src="{{ user.avatarUrl }}"
+        class="avatar" /></a>
 <a href="/gitego/user/{{ user.login }}">{{ user.login }}</a>
 {% endif %}
 
