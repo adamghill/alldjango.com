@@ -405,6 +405,23 @@ echo  "{\"netDataImageName\":\"caprover/netdata:v1.34.1\"}" >  /captain/data/con
 docker service update captain-captain --force
 ```
 
+### Custom `redis` configuration
+
+caprover deploy --caproverUrl https://captain.captain.adamghill.com --appToken 61dc2d8eba365667a2fbd8dfadf469b096e21b871ac626aab0fb8a69a2d519e8 --appName redis -b main
+
+### Change `redis` max memory
+
+`redis` has a tendency to use as much memory as possible. The `maxmemory` config can be used to prevent that from happening.
+
+1. Get `REDIS_PASSWORD` environment variable from the `redis` app page in `CapRover`
+1. Open the `droplet` console
+1. `docker exec -it $(docker ps --filter name=srv-captain--redis -q) redis-cli -a REDIS_PASSWORD`
+1. `config get maxmemory` to see what the current maximum memory is set to; 0 means it is unlimited
+1. `config set maxmemory 2GB`
+1. `config set maxmemory-policy allkeys-lru`
+
+If there is a `redis.conf` (instructions in https://github.com/caprover/caprover/issues/431#issuecomment-493729533), then `config rewrite` can be used to persist that configuration.
+
 ## Conclusion
 
 Hopefully this has been helpful for anyone who wants to host a Django site (or a few!) relatively inexpensively. Just a reminder if you sign up for [Digital Ocean](https://m.do.co/c/617d629f56c0) with my referral code you will get $200 in free credits (and my undying appreciation!).
