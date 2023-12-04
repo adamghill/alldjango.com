@@ -6,9 +6,11 @@ authors = ["adamghill <adamghill@yahoo.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-coltrane = { version = "<1", extras = ["deploy", "mistune"] }
+coltrane = { version = "<1", extras = ["mistune"] }
 httpx = "^0.25.1"
 glom = "^23.4.0"
+gunicorn = "*"
+whitenoise = "*"
 
 [tool.poetry.dev-dependencies]
 
