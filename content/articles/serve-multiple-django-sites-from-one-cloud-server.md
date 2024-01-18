@@ -405,10 +405,6 @@ echo  "{\"netDataImageName\":\"caprover/netdata:v1.34.1\"}" >  /captain/data/con
 docker service update captain-captain --force
 ```
 
-### Custom `redis` configuration
-
-caprover deploy --caproverUrl https://captain.captain.adamghill.com --appToken 61dc2d8eba365667a2fbd8dfadf469b096e21b871ac626aab0fb8a69a2d519e8 --appName redis -b main
-
 ### Change `redis` max memory
 
 `redis` has a tendency to use as much memory as possible. The `maxmemory` config can be used to prevent that from happening.
