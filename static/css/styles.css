@@ -1,6 +1,6 @@
 .main {
     margin: auto;
-    width: 50%;
+    width: 80%;
     min-width: 480px;
 }
 
@@ -158,6 +158,23 @@ ul > li > ul {
 }
 
 @media screen and (max-width: 1500px) {
+    .sidebar {
+        padding-left: 0px;
+    }
+    .main {
+        width: 80%;
+        padding-right: 14px;
+    }
+    article {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    h1 {
+        font-size: var(--font-size-h2);
+    }
+}
+
+@media screen and (max-width: 800px) {
     .sidebar {
         display: none;
     }
