@@ -3,7 +3,7 @@ template: base.html
 title: Django inclusion tags can modify page context 🤯
 date: 2020-03-26 21:24:16 -0500
 categories: django python
-description: Somehwat surprising behavior that could trip you up and cause confusion while using custom template tags.
+description: Somewhat surprising behavior that could trip you up and cause confusion while using custom template tags.
 ---
 
 Django [inclusion tags](https://docs.djangoproject.com/en/stable/howto/custom-template-tags/#inclusion-tags) are super useful, but they have a fun quirk that could create some havoc.
