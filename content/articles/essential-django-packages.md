@@ -1,6 +1,6 @@
 ---
 template: base.html
-title: Essential Django packages
+title: Essential Django packages ❤️
 date: 2024-04-03 20:22:16 -0500
 categories: django python
 description: Libraries that I always use with Django.
