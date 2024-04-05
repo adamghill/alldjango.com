@@ -10,12 +10,12 @@ Django is sometimes called the batteries-included web framework, but there are a
 
 Thanks to Will Vincent for publishing [20 Django Packages That I Use in Every Project](https://learndjango.com/tutorials/20-django-packages-i-use-every-project) which directly inspired this post -- we have a few packages which overlap, but of course there are some differences as well. Also, if you need more awesomeness there is always [awesomedjango.org](https://awesomedjango.org) or... if you want to see the whole breadth of options check out [djangopackages.org](https://djangopackages.org)!
 
-I have linked to the sponsor/donation page for each library with a ❤️ if I could find it (please let me know if I missed any). One way to support these indispensible libraries is financially -- every 6 months or so, I [document](https://indieweb.social/@adamghill/111720848975106667) what I personally sponsor and I encourage you to as well if it's within your means and budget. Or better yet, get your workplace to sponsor the open source software they rely on!
+I have tried to include links to the project sponsor/donation page if I could find it (please let me know if I missed any). One way to support the libraries you use is financially. Every 6 months or so, I [document](https://indieweb.social/@adamghill/111720848975106667) what I personally sponsor and I encourage you to as well if it's within your means and budget. Or better yet, get your workplace to sponsor the open source software they rely on!
 
 And finally, just a note: lists like this are inherently subjective -- all libraries have their own trade-offs and nothing is perfect for everyone. I built up this list over years of trying things and seeing what worked for me and what _I_ liked. I humbly suggest you come up with your own list, write it up, and [let me know](https://indieweb.social/@adamghill) -- I'd love to read it and see what packages I'm missing out on!
 
 
-## Pre-Django
+## Python-related
 
 ### [ruff](https://docs.astral.sh/ruff/)
 
@@ -31,25 +31,7 @@ I appreciate that Django has unit testing built-in. However, I do not use it bec
 
 ### [pytest-cov](https://pytest-cov.readthedocs.io/)
 
-Integrates `pytest` with `coverage` to tell you how much of your code is covered by unit tests.
-
-## Running in production
-
-These are packages that I always use on production. They are all battle-tested, stable, fast, and [boring technology](https://boringtechnology.club) (in the best possible sense of the phrase).
-
-### [gunicorn](https://gunicorn.org)
-
-My go-to WSGI server for production. Extremely stable and when paired with NGINX for static assets it can handle a decent amount of traffic. I have seen benchmarks that other servers might be faster, but `gunicorn` is rock-solid and configuration is simple -- exactly what I'm looking for.
-
-### [Psycopg 2](https://www.psycopg.org/docs/) [❤️](https://github.com/sponsors/dvarrazzo?o=esb)
-
-Django has support for other relational databases, but I switched from MySQL to Postgres a long time ago and never looked back. I wouldn't want to operate any database in production, but especially not Postgres. I suggest finding a cloud provider who has a managed Postgres offering. It's worth it.
-
-[Psycopg 3](https://www.psycopg.org/psycopg3/docs/) is now released, but I have not used it in production... yet.
-
-### [redis](https://pypi.org/project/redis/) + [hiredis](https://pypi.org/project/hiredis/)
-
-`redis` is fast, it's got minimal resource requirements, and it's my go-to cache. As opposed to `PostgreSQL` I do run my own `redis` in production because I treat the data as ephemeral. If my lack of DevOps-fu breaks it, it shouldn't matter.
+Integrates `pytest` with `coverage` to tell you how much of your code is covered by unit tests. Very straight-forward and useful. I tend to have a separate command for generating coverage reports so it doesn't slow down my normal red/green/refactor test cycles.
 
 
 ## Core Django
@@ -64,7 +46,9 @@ I tend to reach for `python-dotenv` although I have also used `django-environs` 
 
 This is a function decorator that integrates with the core Django cache. There are a lot of cache decorator libraries floating around, but I have run into a few gotchas with them. `django-cache-memoize` works exactly as expected.
 
-### [django-model-utils](https://django-model-utils.readthedocs.io/) [❤️](https://jazzband.co/donate)
+### [django-model-utils](https://django-model-utils.readthedocs.io/)
+
+[Sponsor django-model-utils](https://jazzband.co/donate) ❤️
 
 This is very silly, but I literally install this package for one particular model mixin: [`TimeStampedModel`](https://django-model-utils.readthedocs.io/en/latest/models.html#timestampedmodel). I use it _everywhere_ -- basically any model that might be useful to know when it got last updated. Insanely useful for lightweight audit tracking of a model.
 
@@ -79,24 +63,32 @@ Stop messing with S3 buckets and the atrocious AWS console. `whitenoise` will se
 
 Compress JavaScript or CSS for production with hashed filenames (which breaks the long-term cache when used with `whitenoise`). There are a lot of settings, but I just copy and paste the same configuration into every project now and it works perfectly. Pair it with [`django-libsass`](https://github.com/torchbox/django-libsass) to support SASS files without an extra build step.
 
-### [django-widget-tweaks](https://github.com/jazzband/django-widget-tweaks) [❤️](https://jazzband.co/donate)
+### [django-widget-tweaks](https://github.com/jazzband/django-widget-tweaks)
+
+[Sponsor django-model-utils](https://jazzband.co/donate) ❤️
 
 Very underrated in my opinion, `django-widget-tweaks` provides a few template tags to help render forms and fields in HTML. Usually when working with designers or more front-end folks, this allows them to customize HTML without touching Python or understanding the form rendering in Django.
 
-### [django-allauth](https://docs.allauth.org/) [❤️](https://github.com/sponsors/pennersr/)
+### [django-allauth](https://docs.allauth.org/)
 
-The premier authentication provider for integrating Django with third-party logins like Google, Facebook, LinkedIn, etc. The number of providers is staggering and always growing. [pennersr](https://github.com/pennersr) does a great job of handling the myriad support requests for such an integral part of the ecosystem.
+[Sponsor pennersr](https://github.com/sponsors/pennersr/) on GitHub ❤️
+
+The premier authentication provider for integrating Django with third-party logins like Google, Facebook, LinkedIn, etc. The number of providers is staggering and always growing. [pennersr](https://github.com/pennersr) does a great job of handling the myriad support requests for such an integral part of the ecosystem. `django-allauth` also has an exciting [roadmap for 2024](https://allauth.org/news/2024/03/ngi-zero-grant-plan/) which makes me hopeful it can continue to solve Django authentication needs far into the future.
 
 
 ## API
 
 Django seems to be used just as an API and paired with a frontend framework frequently these days. There are some libraries that I have used to provide APIs in my Django projects.
 
-### [django-ninja](https://django-ninja.dev) [❤️](https://www.buymeacoffee.com/djangoninja)
+### [django-ninja](https://django-ninja.dev)
+
+[Sponsor django-ninja](https://www.buymeacoffee.com/djangoninja) on BuyMeACoffee ☕️
 
 `django-rest-framework` is the 800-pound gorilla when building a REST framework with Django. It has lots of documentation and lots of supporters. Personally, I also find it a little cumbersome to use and grok. I have only used `django-ninja` for two projects, but I really enjoyed its approach, especially if you have ever used `FastAPI` or are a fan of Python typing. I hope it continues to evolve and provide an alternative to DRF.
 
-### [strawberry](https://strawberry.rocks/docs/integrations/django) [❤️](https://github.com/sponsors/strawberry-graphql)
+### [strawberry](https://strawberry.rocks/docs/integrations/django)
+
+[Sponsor strawberry-graphql](https://github.com/sponsors/strawberry-graphql) on GitHub ❤️
 
 Similar to `django-ninja`, `strawberry` uses Python types to provide a GraphQL interface. I have also only used it for a few projects, but I was very happy with the developer experience (especially compared to Apollo).
 
@@ -108,6 +100,37 @@ Similar to `django-ninja`, `strawberry` uses Python types to provide a GraphQL i
 I have tried `celery`, `django-rq`, and `huey` and have always returned back to `django-q2` when I need a background task runner for long-running tasks. My favorite features are the integration with Django admin, the ability to use either `redis` or a database to store tasks, and a cron-like scheduler.
 
 
+## Running in production
+
+These are packages that I always use on production. They are all battle-tested, stable, fast, and [boring technology](https://boringtechnology.club) (in the best possible sense of the phrase).
+
+### [gunicorn](https://gunicorn.org)
+
+My go-to WSGI server for production. Extremely stable and when paired with NGINX for static assets it can handle a decent amount of traffic. I have seen benchmarks that other servers might be faster, but `gunicorn` is rock-solid and configuration is simple -- exactly what I'm looking for.
+
+### [Psycopg 2](https://www.psycopg.org/docs/)
+
+[Sponsor dvarrazzo](https://github.com/sponsors/dvarrazzo?o=esb) on GitHub ❤️
+
+Django has support for other relational databases, but I switched from MySQL to PostgreSQL a long time ago and never looked back. However, I wouldn't ever want to operate any database in production (especially not PostgreSQL!). I suggest finding a cloud provider who has a managed PostgreSQL offering. It's worth it.
+
+[Psycopg 3](https://www.psycopg.org/psycopg3/docs/) is now released, but I have not used it in production... yet.
+
+### [redis](https://pypi.org/project/redis/) + [hiredis](https://pypi.org/project/hiredis/)
+
+`redis` is fast, it's got minimal resource requirements, and it's my go-to cache. As opposed to PostgreSQL I do run my own `redis` in production because I treat the data as ephemeral. If my lack of DevOps-fu breaks it, it shouldn't matter.
+
+Note: as of Django 4, support for `redis` cache is included in Django. If you are in a previous version (or need some [more advanced features](https://github.com/jazzband/django-redis/issues/585)), [`django-redis`](https://github.com/jazzband/django-redis) would also be needed.
+
+### [Sentry](https://docs.sentry.io/platforms/python/integrations/django/)
+
+Sentry was originally built on top of Django and still has the best error reporting and monitoring I've ever seen for the web framework (although they support a dizzying amount of other frameworks as well).
+
+Unfortunately, the free tier is not all that useful with any sort of traffic so I end up paying $26/month which _is_ slightly annoying. I did self-host GlitchTip for a brief amount of time, but it wasn't worth the effort personally. However, I have gotten very used to the details available in Sentry and it's challenging for me to troubleshoot production problems without it now!
+
+
 ## Related lists for Django
 
 - Will Vincent's [20 Django Packages That I Use in Every Project](https://learndjango.com/tutorials/20-django-packages-i-use-every-project)
+
+>Big thanks to Sangeeta Jadoonanan for proof-reading this article and making some ✨super✨ suggestions.
