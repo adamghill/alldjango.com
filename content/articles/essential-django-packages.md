@@ -65,7 +65,7 @@ Compress JavaScript or CSS for production with hashed filenames (which breaks th
 
 ### [django-widget-tweaks](https://github.com/jazzband/django-widget-tweaks)
 
-[Sponsor django-model-utils](https://jazzband.co/donate) ❤️
+[Sponsor django-widget-tweaks](https://jazzband.co/donate) ❤️
 
 Very underrated in my opinion, `django-widget-tweaks` provides a few template tags to help render forms and fields in HTML. Usually when working with designers or more front-end folks, this allows them to customize HTML without touching Python or understanding the form rendering in Django.
 
