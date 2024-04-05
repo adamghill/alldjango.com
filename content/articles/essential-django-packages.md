@@ -133,4 +133,4 @@ Unfortunately, the free tier is not all that useful with any sort of traffic so 
 
 - Will Vincent's [20 Django Packages That I Use in Every Project](https://learndjango.com/tutorials/20-django-packages-i-use-every-project)
 
->Big thanks to Sangeeta Jadoonanan for proof-reading this article and making some ✨super✨ suggestions.
+>Big thanks to [Sangeeta Jadoonanan](https://fosstodon.org/@sjbitcode) for proof-reading this article and giving me some ✨super✨ helpful feedback.
