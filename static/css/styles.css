@@ -199,3 +199,7 @@ ul > li > ul {
         min-width: auto;
     }
 }
+
+code {
+    white-space: normal;
+}
